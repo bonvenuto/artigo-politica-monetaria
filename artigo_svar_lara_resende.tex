@@ -6,11 +6,12 @@
 \usepackage[brazil,english]{babel}
 \usepackage{lmodern}
 \usepackage{geometry}
-\geometry{top=2.8cm, bottom=2.2cm, left=2.8cm, right=2.2cm}
+\geometry{top=2.5cm, bottom=2.2cm, left=2.5cm, right=2.2cm}
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{microtype}
@@ -23,10 +24,11 @@
     urlcolor=blue
 }
 
-\title{\textbf{Juros Persistentes, Dominância Financeira da Dívida e Fragilidade das Famílias: Formalização e Evidência Econométrica para a Hipótese de André Lara Resende no Brasil (2005--2026)}}
+\title{\textbf{Patamar de Juros, Dívida Pós-Fixada e Fragilidade Financeira das Famílias: Formalização Analítica e Evidência de Projeções Locais Dependentes de Estado para o Brasil (2005--2026)}}
 
 \author{
-    \textbf{Ângelo Augusto Bonvenuto}\thanks{Pesquisador em Macroeconomia Aplicada e Econometria de Séries Temporais.}
+    \textbf{Ângelo Augusto Bonvenuto}\thanks{Pesquisador Independente em Macroeconomia Aplicada e Econometria de Séries Temporais. Repositório de dados e replicação: \url{https://github.com/bonvenuto/artigo-politica-monetaria}.}\\
+    \small \textit{Grupo de Pesquisa em Macroeconomia Aplicada e Séries Temporais}
 }
 
 \date{\today}
@@ -37,132 +39,164 @@
 \maketitle
 
 \begin{abstract}
-\noindent Este trabalho avalia analítica e empiricamente a tese formulada por André Lara Resende — culminando em seu ensaio \textit{``Eu Acuso: uma proposta para eliminar os juros absurdos''} \citep{resende2026euacuso} — segundo a qual a manutenção de taxas básicas de juros (Selic) em patamares extraordinariamente elevados e persistentes não apenas falha em estabilizar os preços, mas atua como vetor estrutural de pressão inflacionária, deterioração fiscal endógena e asfixia financeira das famílias, de modo que a redução coordenada da Selic contribuiria diretamente para o controle da inflação no Brasil. Formaliza-se um modelo analítico em três blocos que integra: (i) o \textit{canal de custos} do capital de giro e a horizontalização da Curva de Phillips sob moeda endógena; (ii) a \textit{Teoria Fiscal do Nível de Preços (TFNP), o efeito neo-fisheriano e o paradoxo da duration curta}, demonstrando que, como mais da metade da dívida pública brasileira é indexada à Selic diária (LFTs e operações compromissadas), juros altos fabricam endogenamente uma trajetória explosiva da relação dívida/PIB ($i \gg g$), corroendo a credibilidade fiscal, ao passo que a redução da Selic estanca imediatamente o serviço da dívida sem elevar seu valor presente, potencializando a desinflação sem repique fiscal de curto prazo; e (iii) a \textit{fragilidade financeira minskyana das famílias}, pela qual o aperto monetário eleva o comprometimento de renda com o serviço da dívida antes de conter o estoque de crédito. Utilizando dados mensais do Banco Central do Brasil (SGS) de março de 2005 a agosto de 2026 ($T = 258$), estimam-se um modelo SVAR, Projeções Locais lineares e Projeções Locais Dependentes de Estado \citep{jorda2005estimation}. Os resultados confirmam: (a) a irrelevância do hiato de produto sobre a inflação na FEVD ($< 7{,}4\%$ da variância em 24 meses), atestando o achatamento da Curva de Phillips; (b) a presença de \textit{price puzzle} nos primeiros trimestres ($+0{,}2109$ p.p. no 6º mês) e o salto no comprometimento de renda das famílias ($+0{,}6645$ p.p. no 12º mês); e (c) que, quando a Selic é mantida de forma persistente em platô elevado ($\overline{\text{Selic}}_{12m} > 11{,}27\%$ a.a.), choques adicionais de juros elevam a inflação acumulada em todos os horizontes ($+0{,}3735$ p.p. em 6 meses, $p = 0{,}0007$; $+0{,}3931$ p.p. em 9 meses, $p = 0{,}0109$), implicando simetricamente que a redução da taxa básica a partir de patamares disfuncionais exerce efeito líquido desinflacionário.
-
-\vspace{0.3cm}
-\noindent \textbf{Palavras-chave:} Política Monetária; Taxa Selic; André Lara Resende; Teoria Fiscal do Nível de Preços; Efeito Neo-Fisheriano; Dívida Pública (LFTs); Fragilidade Financeira; SVAR; Projeções Locais.
+\noindent Este artigo investiga analítica e empiricamente se a eficácia desinflacionária da política monetária no Brasil depende do patamar de persistência da taxa básica de juros (Selic) e da composição pós-fixada da dívida pública, testando as hipóteses formuladas por \citet{resende2017juros, resende2020consenso, resende2026euacuso}. Desenvolve-se um modelo analítico fechado em três blocos integrando: (i) uma Curva de Phillips com canal de custos de capital de giro; (ii) a dinâmica da dívida pública sob a Teoria Fiscal do Nível de Preços (TFNP), na qual a presença de títulos indexados à Selic diária (Letras Financeiras do Tesouro — LFTs, de \textit{duration} zero) implica que cortes de juros reduzem imediatamente o fluxo nominal de encargos ($\approx 2{,}3\%$ do Produto Interno Bruto — PIB no impacto e $\approx 4{,}0\%$ após rolagem) sem elevar o valor presente do passivo público; e (iii) o comprometimento da renda das famílias com juros bancários. Utilizando dados mensais do Banco Central do Brasil (BCB) de março de 2005 a agosto de 2026 ($T = 258$), estimam-se um modelo de Vetores Autorregressivos Estruturais (SVAR) de seis variáveis (incluindo câmbio PTAX e a série oficial do Índice Nacional de Preços ao Consumidor Amplo — IPCA Itens Livres, código 11428 do Sistema Gerenciador de Séries Temporais — SGS) e Projeções Locais (LP) lineares, dependentes de estado e assimétricas \citep{jorda2005estimation, tenreyro2016pushing}, além de especificações estendidas com expectativas Focus 12 meses. Os resultados indicam que: (a) um choque não antecipado de $+1{,}00$ ponto percentual (p.p.) na Selic eleva de forma estatisticamente significativa o comprometimento de renda das famílias com juros tanto no SVAR quanto nas LPs ($+0{,}459$ p.p. em 12 meses, $p = 0{,}001$), respondendo por até $16{,}2\%$ da variância do erro de previsão; (b) no regime de juros moderados ($\overline{\text{Selic}}_{12m} \le 11{,}27\%$ a.a.), o aperto monetário reduz significativamente a inflação acumulada de itens livres em 24 meses ($-1{,}922$ p.p., $p = 0{,}009$); contudo, no platô de juros elevados ($> 11{,}27\%$ a.a.), choques de aperto associam-se a acréscimos na inflação acumulada em 3 meses ($+0{,}782$ p.p., $p = 0{,}035$) e 6 meses ($+1{,}485$ p.p., $p = 0{,}011$), sem efeito desinflacionário estatisticamente significativo em 24 meses; e (c) o intercepto de nível do platô de juros altos ($\hat{\gamma}^h$) é positivo e significativo entre 6 e 18 meses ($+1{,}638$ p.p. em $h = 12$, $p = 0{,}002$), permanecendo robusto ao controle por expectativas Focus 12 meses e ao juro real \textit{ex ante}.
 
 \vspace{0.2cm}
+\noindent \textbf{Palavras-chave:} Política Monetária; Taxa Selic; André Lara Resende; Teoria Fiscal do Nível de Preços; Dívida Pós-Fixada (LFTs); Fragilidade Financeira; SVAR; Projeções Locais.
+
+\vspace{0.15cm}
 \noindent \textbf{Classificação JEL:} E43, E52, E62, E63, C32.
 \end{abstract}
 
-\vspace{0.4cm}
+\vspace{0.25cm}
 
 \selectlanguage{english}
 \begin{abstract}
-\noindent This study analytically formalizes and empirically tests the thesis advanced by André Lara Resende — most recently articulated in \textit{``Eu Acuso: uma proposta para eliminar os juros absurdos''} \citep{resende2026euacuso} — that keeping the Brazilian policy rate (Selic) at persistently high plateaus acts as a structural driver of inflation, endogenous fiscal deterioration, and household financial fragility, such that lowering the policy rate helps control inflation. We develop a three-block analytical framework combining: (i) the working-capital cost channel alongside a flattened Phillips Curve under endogenous money; (ii) the Fiscal Theory of the Price Level (FTPL), the neo-Fisherian mechanism, and the ultra-short duration paradox, showing that because over half of Brazil's public debt consists of overnight Selic-indexed securities (LFTs and repo operations), persistently high interest rates ($i \gg g$) endogenously generate an explosive debt-to-GDP trajectory that erodes fiscal credibility, whereas cutting the Selic immediately lowers the nominal interest bill without raising the present value of public debt, thereby accelerating disinflation without a short-run fiscal spike; and (iii) Minskyan household financial fragility, whereby monetary tightening inflates debt service-to-income ratios. Using monthly Central Bank of Brazil (BCB/SGS) data from March 2005 to August 2026 ($T = 258$), we estimate a Structural VAR (SVAR) alongside linear and state-dependent Local Projections \citep{jorda2005estimation}. Empirical results demonstrate that: (a) output fluctuations explain less than $7.4\%$ of inflation variance in the FEVD, confirming a flat Phillips Curve; (b) monetary tightening triggers a short-run \textit{price puzzle} and a severe spike in household debt service burden ($+0.6645$ p.p. at month 12); and (c) under a persistent high-interest plateau ($\overline{\text{Selic}}_{12m} > 11.27\%$ p.a.), positive rate shocks increase cumulative free-price inflation across the entire 24-month horizon ($+0.3735$ p.p. at month 6, $p = 0.0007$; $+0.3931$ p.p. at month 9, $p = 0.0109$), confirming that reducing the policy rate from extreme plateaus exerts a direct disinflationary effect.
+\noindent This study analytically formalizes and empirically tests whether the disinflationary effectiveness of monetary policy in Brazil depends on the persistence plateau of the policy rate (Selic) and the floating-rate structure of sovereign debt, evaluating the hypotheses advanced by \citet{resende2017juros, resende2020consenso, resende2026euacuso}. We build a closed three-block analytical model combining: (i) a working-capital cost-channel Phillips Curve; (ii) sovereign debt dynamics under the Fiscal Theory of the Price Level (FTPL), showing that because over half of Brazil's debt is indexed to the overnight Selic rate (zero-duration LFTs and repos), cutting the policy rate immediately reduces nominal interest outlays ($\approx 2.3\%$ of GDP on impact and $\approx 4.0\%$ after rollover) without raising the market present value of debt; and (iii) household income commitment to interest payments. Using monthly Central Bank of Brazil (BCB) series from March 2005 to August 2026 ($T = 258$), we estimate a six-variable Structural Vector Autoregression (SVAR, incorporating the PTAX exchange rate and free-market IPCA, SGS 11428) alongside linear, state-dependent, and asymmetric Local Projections \citep{jorda2005estimation, tenreyro2016pushing}, plus extended specifications controlling for 12-month Focus inflation expectations. Results show that: (a) a normalized $+1.00$ p.p. Selic shock significantly raises household interest-to-income ratios in both SVAR and LP ($+0.459$ p.p. at month 12, $p = 0.001$), accounting for up to $16.2\%$ of forecast error variance; (b) under moderate interest rates ($\overline{\text{Selic}}_{12m} \le 11.27\%$ p.a.), monetary tightening significantly reduces cumulative free-price inflation over 24 months ($-1.922$ p.p., $p = 0.009$), whereas under a persistent high-rate plateau ($> 11.27\%$ p.a.), positive rate shocks are associated with higher cumulative inflation at 3 months ($+0.782$ p.p., $p = 0.035$) and 6 months ($+1.485$ p.p., $p = 0.011$) and no statistically significant disinflation at 24 months; and (c) the high-rate regime level coefficient ($\hat{\gamma}^h$) is positive and significant between months 6 and 18 ($+1.638$ p.p. at $h = 12$, $p = 0.002$), surviving controls for Focus expectations and ex-ante real rates.
 
-\vspace{0.3cm}
-\noindent \textbf{Keywords:} Monetary Policy; Selic Rate; André Lara Resende; Fiscal Theory of the Price Level; Neo-Fisherian Effect; Short-Duration Debt (LFTs); Financial Fragility; SVAR; Local Projections.
+\vspace{0.2cm}
+\noindent \textbf{Keywords:} Monetary Policy; Selic Rate; André Lara Resende; Fiscal Theory of the Price Level; Short-Duration Debt (LFTs); Household Debt Service; SVAR; Local Projections.
 \end{abstract}
 
 \selectlanguage{brazil}
-\newpage
 
-\section{Introdução e Contextualização do Debate Contemporâneo}
+\section{Introdução e Revisão da Literatura}
 
-A condução da política monetária no Brasil sob o Regime de Metas de Inflação (RMI), em vigor desde 1999, permanece ancorada no cânone Novo-Keynesiano segundo o qual a taxa básica de juros (Selic) constitui o instrumento único e estritamente inverso de controle do nível de preços. Na narrativa convencional, a elevação da Selic contrai a demanda agregada, abre o hiato do produto, eleva o desemprego e, por meio de uma Curva de Phillips negativamente inclinada, modera a inflação. Quando a inflação resiste ou as expectativas se desancoram, o receituário ortodoxo prescreve doses adicionais e prolongadas de aperto monetário, atribuindo a persistência inflacionária a um suposto ``descontrole fiscal primário''.
+A condução da política monetária no Brasil sob o Regime de Metas de Inflação (RMI), instituído em 1999, apoia-se no modelo Novo-Keynesiano (NK) canônico, no qual a taxa básica de juros (Selic) atua como instrumento suficiente para estabilizar a inflação via contração da demanda agregada e apreciação cambial. Contudo, a persistência de taxas de juros reais e nominais no Brasil entre as mais elevadas do mundo nas últimas décadas motivou um amplo debate teórico e empírico sobre possíveis anomalias nos canais de transmissão monetária no país.
 
-Em uma série de contribuições seminais \citep{resende2017juros, resende2020consenso, resende2023taxa} e de maneira contundente em seu ensaio \textit{``Eu Acuso: uma proposta para eliminar os juros absurdos''} \citep{resende2026euacuso}, André Lara Resende desmonta os pilares analíticos e empíricos desse consenso. A anatomia macroeconômica brasileira exposta por \citet{resende2026euacuso} revela três dimensões fundamentais que desafiam a sabedoria convencional:
-
+Recentemente, \citet{resende2017juros, resende2020consenso, resende2022camisa, resende2026euacuso} retomou e ampliou uma tradição crítica segundo a qual a manutenção da taxa Selic em patamares excessivamente elevados por períodos prolongados perde eficácia desinflacionária e passa a operar como fonte de deterioração fiscal endógena e pressão sobre o nível de preços. Em seu ensaio \textit{``Eu Acuso: uma proposta para eliminar os juros absurdos''} \citep{resende2026euacuso}, o autor destaca três fatos estilizados da macroeconomia brasileira contemporânea:
 \begin{enumerate}
-    \item \textbf{O Mito do Descontrole Primário versus a Conta de Juros:} Embora a qualidade do gasto público brasileiro padeça de ineficiências alocativas, o Brasil apresenta um dos menores déficits fiscais primários do mundo segundo o FMI (\textit{Fiscal Monitor}, abril de 2026), da ordem de $-0{,}4\%$ a $-0{,}7\%$ do PIB no setor público consolidado (séries SGS 5793 e 5727 do BCB). Excluído o serviço da dívida, o orçamento primário encontra-se virtualmente equilibrado. O verdadeiro motor do déficit nominal brasileiro — que se aproxima de $10\%$ do PIB — é a própria conta de juros determinada pelo Banco Central: com um custo médio de $12{,}68\%$ ao ano sobre uma Dívida Bruta do Governo Geral (DBGG) de R\$ 10,9 trilhões ($82{,}5\%$ do PIB), o pagamento de juros consome R\$ 1,4 trilhão ao ano, ou \textbf{$10{,}5\%$ do PIB} ($8{,}7\%$ do PIB mesmo quando calculado sobre a Dívida Líquida de $69{,}1\%$ do PIB). Como os juros fazem o estoque da dívida crescer $12{,}7\%$ ao ano enquanto o PIB nominal cresce cerca de $7\%$ ao ano, a relação dívida/PIB expande-se cerca de $5{,}7\%$ ao ano exclusivamente por força da taxa Selic.
-    \item \textbf{Desaparecimento da Curva de Phillips e Tautologia das Expectativas:} Conforme já apontado para a experiência brasileira por \citet{resende1980causas} e documentado globalmente desde a década de 1990, a Curva de Phillips tornou-se praticamente horizontal: recessão e capacidade ociosa não reduzem a inflação de forma sistemática, assim como o crescimento e o baixo desemprego não a aceleram. Na ausência de canais de transmissão bem especificados e sob um regime de moeda endógena com reservas bancárias remuneradas (operações compromissadas), os modelos dos bancos centrais caíram em um raciocínio circular tautológico: assumem que as expectativas determinam a inflação, que a inflação responde inversamente ao juro e que os agentes formam expectativas lendo o próprio modelo do Banco Central.
-    \item \textbf{Juros Altos Persistentes como Vetor Inflacionário e a Vantagem da \textit{Duration} Curta (LFTs) para a Redução da Selic:} Apoiando-se nos desenvolvimentos recentes da Teoria Fiscal do Nível de Preços (TFNP) e do efeito neo-fisheriano \citep{cochrane2011determinacy, cochrane2023fiscal, cochrane2026reasons, williamson2019neo}, \citet{resende2026euacuso} demonstra que uma taxa básica de juros mantida absurdamente alta e constante por longo tempo \textbf{pressiona a inflação para cima}, tanto pela convergência neo-fisheriana de longo prazo ($\pi = i - r$) quanto porque uma taxa de juros superior ao dobro do crescimento da economia torna a dívida pública explosiva, destruindo a credibilidade fiscal e gerando desconfiança sobre a solvência intertemporal do Estado. Crucialmente, \citet{resende2026euacuso} e \citet{cochrane2026reasons} destacam que a estrutura da dívida brasileira — mais da metade composta por Letras Financeiras do Tesouro (LFTs), pós-fixadas na Selic diária e de \textit{duration} zero — inverte o temor convencional: enquanto numa dívida prefixada longa a redução dos juros eleva o valor presente do passivo público e pode gerar um repique inflacionário transitório pela TFNP, \textbf{no Brasil a redução da Selic reduz imediatamente o custo da dívida sem elevar seu valor presente}, gerando uma economia fiscal da ordem de $4\%$ do PIB ao ano (ao reduzir o custo médio de $\sim 13\%$ para $7{,}5\%$ a.a.), restaurando a credibilidade fiscal e fazendo com que \textbf{o corte da taxa de juros ajude a controlar e reduzir a inflação desde o curto prazo}.
+    \item \textbf{Assimetria entre o Resultado Primário e a Conta Nominal de Juros:} De acordo com dados do Banco Central do Brasil (séries SGS 5793 e 5727) e do Fundo Monetário Internacional (\textit{Fiscal Monitor}, 2026), o déficit primário consolidado do setor público brasileiro situa-se entre $0{,}4\%$ e $0{,}7\%$ do Produto Interno Bruto (PIB) — um dos menores entre as principais economias. Em contrapartida, o déficit nominal aproxima-se de $10\%$ do PIB devido ao fluxo de juros nominais incidentes sobre a Dívida Bruta do Governo Geral (DBGG, de $82{,}5\%$ do PIB, ou R\$ 10,9 trilhões; Dívida Líquida do Setor Público — DLSP de $69{,}1\%$ do PIB). Com um custo médio nominal de $\bar{i} \approx 12{,}68\%$ ao ano frente a um crescimento nominal do PIB de $g_{nom} \approx 7{,}0\%$ ao ano, a despesa nominal de juros atinge R\$ 1,4 trilhão anuais ($10{,}5\%$ do PIB sobre a DBGG, ou $8{,}7\%$ sobre a DLSP), fazendo a razão dívida/PIB crescer a uma taxa relativa de cerca de $5{,}7\%$ ao ano ($\approx +4{,}4$ p.p. do PIB ao ano) por efeito autônomo dos juros.
+    \item \textbf{Achatamento da Curva de Phillips e Sensibilidade a Custos:} Conforme discutido desde \citet{resende1980causas} para a inflação inercial brasileira e formalizado na literatura internacional de identificação da Curva de Phillips \citep{mcleay2020optimal}, a correlação empírica reduzida entre hiato de atividade e inflação mostra-se tênue na ausência de choques de oferta ou cambiais, enquanto custos financeiros de capital de giro \citep{barth2001cost, ravenna2006financial} e indexação contratual exercem papel relevante no curto prazo.
+    \item \textbf{Estrutura Pós-Fixada da Dívida Pública (LFTs) e Teoria Fiscal do Nível de Preços (TFNP):} Apoiando-se na TFNP \citep{cochrane2011determinacy, cochrane2023fiscal, cochrane2026reasons}, \citet{resende2026euacuso} argumenta que juros mantidos muito acima do crescimento do PIB deterioram a percepção de solvência intertemporal do Estado. Crucialmente, como mais da metade da dívida mobiliária e das operações de liquidez no Brasil é indexada à Selic diária (Letras Financeiras do Tesouro — LFTs — e operações compromissadas, com \textit{duration} de juros próxima de zero), uma redução da Selic não provoca o salto no valor presente de mercado da dívida que ocorreria sob dívida longa prefixada; ao contrário, reduz imediatamente a despesa nominal de juros do Tesouro, melhorando a trajetória fiscal sem exigir um repique inflacionário de curto prazo.
 \end{enumerate}
 
-O objetivo deste artigo é oferecer uma formalização matemática rigorosa e uma avaliação econométrica completa dessas proposições utilizando 258 meses de dados oficiais do Banco Central do Brasil (2005--2026), integrando o canal de custos da firma \citep{barth2001cost, ravenna2006financial, lavoie1995interest, hein2007interest, serrano2010juros}, a dinâmica fiscal-neo-fisheriana das LFTs \citep{cochrane2023fiscal, resende2026euacuso} e o canal de fragilidade financeira das famílias no sentido de \citet{minsky1986stabilizing}.
+\subsection{Diálogo com a Literatura Antecedente e Interpretações Concorrentes}
 
-\section{Formalização Analítica em Três Blocos}
+A hipótese de que taxas de juros elevadas podem gerar efeitos fiscais e inflacionários adversos no Brasil possui antecedentes diretos na literatura acadêmica que precisam ser confrontados para delimitar o alcance empírico deste estudo:
 
-\subsection{Bloco I: Canal de Custos da Firma, Moeda Endógena e Achatamento da Curva de Phillips}
-
-Em uma economia com sistema bancário desenvolvido e reservas remuneradas via operações compromissadas, a oferta de moeda é endógena e o instrumento efetivo de política é a taxa nominal básica $i_t$. Firmas em concorrência imperfeita necessitam financiar seu capital de giro (\textit{working capital}) — folha salarial e insumos intermediários — antes da realização das receitas de vendas \citep{barth2001cost, ravenna2006financial}, tomando crédito bancário à taxa ativa $i_t^L = (1 + s_{firm}) i_t$, onde $s_{firm} > 0$ representa o spread corporativo:
-\begin{equation}
-MC_t = \left( \frac{W_t}{A_t} \right) \left[ 1 + \alpha (1 + s_{firm}) i_t \right]
-\end{equation}
-onde $W_t$ é o salário nominal, $A_t$ a produtividade marginal e $\alpha \in [0,1]$ a fração dos custos que necessita de financiamento via capital de giro.
-
-Linearizando a formação de preços e incorporando a evidência empírica de horizontalização da Curva de Phillips ($\kappa \to 0$, conforme \citealt{resende1980causas} e \citealt{resende2026euacuso}), a dinâmica da inflação $\pi_t$ é governada pela inércia contratual, pelo canal de custos financeiros e pelo repasse cambial/externo:
-\begin{equation}
-\pi_t = (1 - \beta) \pi_{t-1} + \beta E_t [\pi_{t+1}] + \underbrace{\kappa}_{\approx 0} y_t + \phi i_t + \psi \Delta e_t + \epsilon_t^\pi
-\label{eq:phillips}
-\end{equation}
-Com $\kappa \approx 0$ (ausência de sensibilidade sistemática da inflação ao hiato do produto $y_t$), a derivada da inflação em relação à taxa básica de juros $i_t$, mantendo o câmbio estabilizado pela atuação das reservas internacionais ($\frac{\partial \Delta e_t}{\partial i_t} \approx 0$), reduz-se a:
-\begin{equation}
-\left. \frac{\partial \pi_t}{\partial i_t} \right|_{\Delta e_t = 0, \, \kappa \to 0} = \phi + \beta \frac{\partial E_t[\pi_{t+1}]}{\partial i_t} > 0
-\end{equation}
-No longo prazo, combinando a identidade de Fisher ($i_t = r_t + E_t[\pi_{t+1}]$) à condição de equilíbrio real em que a taxa de retorno real converge para a taxa de crescimento potencial da economia ($r^* \to g$), obtém-se a relação neo-fisheriana estrutural destacada por \citet{cochrane2023fiscal} e \citet{resende2026euacuso}:
-\begin{equation}
-\pi^* = i^* - g
-\end{equation}
-Portanto, manter a taxa nominal $i^*$ fixada em patamar permanentemente elevado não ancora a inflação para baixo; ao contrário, estabelece um piso estrutural elevado para a própria taxa de inflação e encarece continuamente os custos operacionais de capital de giro.
-
-\subsection{Bloco II: Teoria Fiscal do Nível de Preços (TFNP), Dinâmica Explosiva da Dívida e o Paradoxo da \textit{Duration} Curta (LFTs)}
-
-Seja $b_t = \frac{B_t}{P_t Y_t}$ a relação dívida pública/PIB. A lei de movimento contábil da dívida pública expressa-se como:
-\begin{equation}
-\Delta b_t = \left( \frac{\bar{i}_t - g_{nom, t}}{1 + g_{nom, t}} \right) b_{t-1} - s_t^{prim}
-\end{equation}
-onde $\bar{i}_t$ é o custo médio nominal da dívida, $g_{nom, t} = (1 + g_t)(1 + \pi_t) - 1$ é o crescimento nominal do PIB e $s_t^{prim}$ é o superávit primário como proporção do PIB. Como demonstrado por \citet{resende2026euacuso} para os dados brasileiros de 2025--2026:
 \begin{itemize}
-    \item O resultado primário está praticamente equilibrado ($s_t^{prim} \approx -0{,}4\%$ a $-0{,}7\%$ do PIB);
-    \item Contudo, o Banco Central impõe um custo médio da dívida $\bar{i}_t \approx 12{,}68\%$ a.a. diante de um crescimento nominal $g_{nom, t} \approx 7{,}0\%$ a.a., resultando em um diferencial $(\bar{i}_t - g_{nom, t}) \approx +5{,}7\%$ a.a. sobre um estoque $b_{t-1} = 82{,}5\%$ do PIB (despesa de juros de $10{,}5\%$ do PIB).
+    \item \textbf{O Paradoxo do Dinheiro Apertado e a Dominância Fiscal no Brasil:} \citet{loyo1999tight} formalizou pioneiramente, sob a ótica da TFNP aplicada ao Brasil dos anos 1980 e 1990, o \textit{``tight money paradox''}: quando a dívida pública é indexada à taxa básica de curtíssimo prazo, uma regra de política monetária que eleva os juros reais em resposta à inflação acelera o crescimento nominal dos passivos públicos, elevando a riqueza financeira nominal e alimentando uma espiral inflacionária fiscalista. Posteriormente, \citet{blanchard2004fiscal} e \citet{favero2004inflation} analisaram o episódio brasileiro de 2002--2003 sob o conceito de \textbf{dominância fiscal com aversão ao risco}: nesses modelos, um aumento da Selic eleva o serviço da dívida e a probabilidade percebida de \textit{default}, o que aumenta o prêmio de risco soberano e provoca \textbf{depreciação cambial}, gerando inflação via repasse cambial. Note-se uma diferença crucial de prescrição de política: enquanto em \citet{blanchard2004fiscal} a ineficácia da Selic no regime de estresse decorre de fragilidade fiscal primária (exigindo aumento do superávit primário), em \citet{resende2026euacuso} e \citet{cochrane2026reasons} o próprio nível excessivo da Selic sob primário equilibrado é o gerador da dinâmica explosiva da dívida, de modo que a coordenação para reduzir a taxa de juros restauraria a estabilidade fiscal.
+    \item \textbf{Incerteza Jurisdicional vs. Efeito Neo-Fisheriano:} Em trabalho clássico, \citet{arida2005credit} atribuíram o elevado patamar do juro real de equilíbrio ($r^*$) no Brasil à \textit{incerteza jurisdicional} e à incompletude de mercados de crédito de longo prazo, que exigem alto prêmio para alongamento de prazos. Na leitura mais recente de \citet{resende2017juros, resende2020consenso, resende2026euacuso}, inspirada em \citet{cochrane2011determinacy, cochrane2023fiscal} e \citet{sims2011stepping}, ganha destaque a dimensão neo-fisheriana. A literatura internacional apresenta importante controvérsia: enquanto \citet{uribe2022neo} encontra evidência econométrica de que aumentos permanentes da taxa nominal de juros acompanhados de acomodação inflacionária produzem efeitos neo-fisherianos (alta da inflação no curto e longo prazos), ao passo que choques transitórios permanecem desinflacionários, \citet{garciaschmidt2019low} demonstram teoricamente que, sob expectativas reflexivas e aprendizado adaptativo (em vez de previsão perfeita), a fixação de juros baixos não produz deflação neo-fisheriana imediata.
+    \item \textbf{Identificação Econométrica, \textit{Price Puzzle} e Efeito-Informação:} Na literatura de séries temporais iniciada por \citet{sims1992interpreting}, a resposta positiva da inflação a um choque de juros em modelos VAR recursivos (\textit{price puzzle}) é frequentemente interpretada como sintoma de omissão de variáveis prospectivas (como preços de commodities, taxa de câmbio ou expectativas de inflação) que o Banco Central observa ao decidir subir os juros \citep{cespedes2008monetary, pastore1996reforma}. De forma análoga, \citet{nakamura2018high} destacam o \textbf{efeito-informação}: surpresas altistas do banco central podem sinalizar ao setor privado que a autoridade monetária possui informação superior sobre pressões inflacionárias futuras. Por fim, \citet{mcleay2020optimal} demonstram que, se o banco central atua com sucesso para compensar choques de demanda, a variância observada da inflação explicada pelo hiato do produto em formas reduzidas (como na Decomposição da Variância do Erro de Previsão — FEVD) será baixa mesmo que a Curva de Phillips estrutural seja negativamente inclinada.
+    \item \textbf{Lições dos Ciclos Históricos de Corte da Selic (2011--2013 vs. 2016--2018):} A experiência brasileira recente oferece dois experimentos históricos contrastantes para avaliar a proposta de redução da Selic a partir de patamares elevados: (i) no ciclo de \textbf{agosto de 2011 a outubro de 2012}, o Comitê de Política Monetária (Copom) reduziu a Selic de $12{,}50\%$ para $7{,}25\%$ a.a. em um contexto de deterioração progressiva do resultado primário, forte expansão parafiscal do crédito direcionado, represamento de tarifas públicas e depreciação cambial superior a $25\%$, mantendo a inflação pressionada próxima ao teto da meta ($6{,}5\%$); (ii) em contraste, no ciclo de \textbf{outubro de 2016 a março de 2018}, a Selic foi reduzida de $14{,}25\%$ para $6{,}50\%$ a.a. sob ancoragem institucional das expectativas, estabilidade cambial e contenção fiscal primária, resultando em rápida convergência da inflação para abaixo de $3{,}0\%$ a.a. Esse contraste histórico indica que o efeito desinflacionário de cortes da Selic depende criticamente da estabilidade cambial e da ancoragem da regra fiscal.
 \end{itemize}
 
-Pela Teoria Fiscal do Nível de Preços \citep{cochrane2023fiscal}, a estabilidade do valor real do passivo público requer que os agentes confiem na solvência intertemporal do Estado:
-\begin{equation}
-\frac{B_{t-1}(i_{t-1})}{P_t} = E_t \sum_{j=0}^{\infty} \frac{1}{(1 + r)^{j}} S_{t+j}^{prim}
-\end{equation}
-Quando o próprio Banco Central mantém juros que são quase o dobro da taxa de crescimento nominal do PIB ($\bar{i}_t > 2 g_{nom, t}$), ele gera uma trajetória explosiva para $b_t$ que nenhuma austeridade primária conseguiria compensar sem colapsar o denominador (PIB). Essa deterioração fiscal endógena mina a confiança na solvência da dívida, eleva o prêmio de risco $\rho(b_t)$ (com $\rho'(b_t) > 0$) e alimenta a inflação via expectativas de insolvência.
+Diante desse debate, o presente artigo formula e testa empiricamente duas hipóteses centrais:
+\begin{itemize}
+    \item \textbf{Hipótese $H_1$ (Dependência de Estado na Transmissão Monetária):} A eficácia desinflacionária de choques na Selic depende do regime de juros: em regimes de juros moderados, o aperto monetário reduz a inflação acumulada em 12--24 meses (consistente com o canal convencional de demanda), mas quando a Selic já se encontra estacionada em um platô persistentemente elevado, choques adicionais perdem eficácia desinflacionária e associam-se a pressões positivas sobre os preços no curto e médio prazos (via canal de custos e prêmio de risco fiscal).
+    \item \textbf{Hipótese $H_2$ (Fragilidade Financeira das Famílias):} Elevações da Selic produzem aumento estatisticamente significativo e persistente na parcela da renda das famílias comprometida com o pagamento de juros bancários \citep{minsky1986stabilizing, drehmann2015how}.
+\end{itemize}
 
-\paragraph{Por que a redução da Selic reduz a inflação sem repique de curto prazo no Brasil?}
-Considere uma decomposição da dívida pública em uma fração $\lambda \in (0{,}5; \, 1]$ pós-fixada à Selic diária (LFTs e operações compromissadas, de \textit{duration} $D_{LFT} = 0$) e uma fração $(1 - \lambda)$ prefixada de maturidade longa ($D_{pre} > 0$). O valor de mercado nominal do estoque de dívida responde a uma variação na taxa de juros $\Delta i_t$ conforme:
+\section{Formalização Analítica Fechada em Três Blocos}
+
+Para evitar circularidade entre pressupostos e conclusões, apresentamos um sistema macroeconômico linearizado fechado que permite derivar explicitamente sob quais condições estruturais a derivada da inflação em relação à taxa básica de juros torna-se positiva ($\frac{d\pi_t}{di_t} > 0$).
+
+\subsection{Bloco I: Curva de Phillips com Canal de Custos e Curva IS com Renda Financeira}
+
+Considere firmas em concorrência monopolística que necessitam financiar uma fração $\alpha \in [0, 1]$ de sua folha salarial e insumos intermediários via capital de giro bancário antes da realização das receitas de vendas \citep{barth2001cost, ravenna2006financial, lavoie1995interest, hein2007interest}. Sendo $i_t^L = (1 + s_{firm}) i_t$ a taxa ativa corporativa sobre a taxa básica $i_t$, o custo marginal nominal é $MC_t = (W_t / A_t)[1 + \alpha (1 + s_{firm}) i_t]$. A Curva de Phillips Novo-Keynesiana híbrida estendida com canal de custos e repasse cambial expressa-se como:
 \begin{equation}
-\frac{\partial V_t(B)}{\partial i_t} = -\underbrace{\lambda D_{LFT}}_{= 0} V_t(B_{LFT}) - (1 - \lambda) D_{pre} V_t(B_{pre})
+\pi_t = (1 - \beta) \pi_{t-1} + \beta E_t [\pi_{t+1}] + \kappa y_t + \phi i_t + \psi \Delta e_t + \epsilon_t^\pi
+\label{eq:phillips}
 \end{equation}
-Em economias com dívida integralmente longa e prefixada ($\lambda \to 0$), um corte de juros ($\Delta i_t < 0$) provoca um salto positivo imediato no valor presente de mercado da dívida ($\Delta V_t(B) > 0$), o que, segundo a TFNP de \citet{cochrane2023fiscal}, pode exigir um repique inflacionário no curto prazo para reequilibrar a identidade fiscal antes da queda da inflação no longo prazo. \textbf{No Brasil, porém, como $\lambda > 0{,}5$ está em LFTs e compromissadas ($D_{LFT} = 0$), verifica-se o fenômeno oposto destacado por \citet{cochrane2026reasons} e \citet{resende2026euacuso}:}
+onde $\kappa \ge 0$ é a sensibilidade da inflação ao hiato do produto $y_t$, $\phi = \frac{(1-\theta)(1-\beta\theta)}{\theta}\alpha(1+s_{firm}) > 0$ mede a elasticidade direta do canal de custos financeiros e $\psi > 0$ captura o repasse da variação cambial nominal $\Delta e_t$.
+
+O lado da demanda agregada é representado por uma Curva IS dinâmica que incorpora tanto o efeito intertemporal convencional de substituição ($\sigma > 0$) quanto o fluxo de renda financeira líquida transferido aos detentores privados da dívida pública pós-fixada ($\delta \lambda b_{t-1} i_t$, com $\delta \ge 0$):
+\begin{equation}
+y_t = E_t[y_{t+1}] - \sigma \left( i_t - E_t[\pi_{t+1}] - r_t^* \right) + \delta \lambda b_{t-1} i_t + \epsilon_t^y
+\label{eq:is}
+\end{equation}
+onde $b_{t-1} = \frac{B_{t-1}}{P_{t-1} Y_{t-1}}$ é a razão dívida pública/PIB e $\lambda \in [0, 1]$ é a fração da dívida indexada à Selic diária (LFTs e operações compromissadas).
+
+\subsection{Bloco II: Dinâmica da Dívida Pública, TFNP e o Paradoxo da \textit{Duration} Zero (LFTs)}
+
+A lei de movimento contábil da razão dívida/PIB ($b_t$) é dada por:
+\begin{equation}
+\Delta b_t = b_t - b_{t-1} = \left( \frac{\bar{i}_t - g_{nom, t}}{1 + g_{nom, t}} \right) b_{t-1} - s_t^{prim}
+\label{eq:debt_law}
+\end{equation}
+onde $\bar{i}_t = \lambda i_t + (1 - \lambda) \bar{i}_{pre}$ é o custo nominal médio do estoque da dívida, $g_{nom, t} = (1 + g_t)(1 + \pi_t) - 1$ é a taxa de crescimento nominal do PIB e $s_t^{prim}$ é o superávit primário em proporção do PIB. A condição matemática geral de crescimento endógeno da razão dívida/PIB é:
+\begin{equation}
+\left( \frac{\bar{i}_t - g_{nom, t}}{1 + g_{nom, t}} \right) b_{t-1} > s_t^{prim}
+\label{eq:explosive_cond}
+\end{equation}
+Quando o orçamento primário encontra-se próximo do equilíbrio ($s_t^{prim} \approx 0$), basta que $\bar{i}_t > g_{nom, t}$ para que $b_t$ apresente trajetória ascendente. Nos dados brasileiros de 2025--2026 ($\bar{i}_t \approx 12{,}68\%$ a.a., $g_{nom, t} \approx 7{,}0\%$ a.a. e $b_{t-1} = 82{,}5\%$ do PIB), o termo $\frac{\bar{i}_t - g_{nom, t}}{1 + g_{nom, t}} \approx 5{,}3\%$ implica que o estoque cresce cerca de $+4{,}4$ p.p. do PIB ao ano apenas pelo diferencial entre juros e crescimento.
+
+Para fechar o modelo, articulamos a formação de expectativas de inflação e a condição de paridade descoberta da taxa de câmbio com risco soberano \citep{blanchard2004fiscal, cochrane2023fiscal}:
+\begin{equation}
+E_t[\pi_{t+1}] = (1 - \omega) \pi^{meta} + \omega \pi_{t-1} + \theta \frac{\partial \Delta b_t}{\partial i_t} i_t, \quad \text{com } \frac{\partial \Delta b_t}{\partial i_t} \approx \frac{\lambda b_{t-1}}{1 + g_{nom}} > 0
+\label{eq:expectations}
+\end{equation}
+\begin{equation}
+\Delta e_t = -\mu (i_t - i_t^{ext} - \rho(b_t)) + \epsilon_t^e \implies \frac{\partial \Delta e_t}{\partial i_t} = -\mu + \mu \rho'(b_t) \frac{\lambda b_{t-1}}{1 + g_{nom}}
+\label{eq:uip}
+\end{equation}
+onde $\theta \ge 0$ mede a sensibilidade das expectativas de inflação à deterioração da solvência fiscal (TFNP) e $\rho'(b_t) \ge 0$ captura a elasticidade do prêmio de risco soberano em relação à razão dívida/PIB \citep{blanchard2004fiscal}.
+
+\paragraph{Derivação da Condição de Ineficácia ou Efeito Inflacionário da Taxa de Juros.}
+Substituindo as derivadas parciais de (\ref{eq:is}), (\ref{eq:expectations}) e (\ref{eq:uip}) na Curva de Phillips (\ref{eq:phillips}), obtém-se a resposta total da inflação corrente a uma variação na taxa básica de juros $i_t$:
+\begin{equation}
+\frac{d\pi_t}{di_t} = \underbrace{\phi}_{\substack{\text{Canal de} \\ \text{Custos } (+)}} - \underbrace{\kappa (\sigma - \delta \lambda b_{t-1})}_{\substack{\text{Canal Líquido} \\ \text{de Demanda } (-)}} - \underbrace{\psi \mu}_{\substack{\text{Apreciação} \\ \text{Cambial } (-)}} + \underbrace{\left( \frac{\lambda b_{t-1}}{1 + g_{nom}} \right) \left[ (\beta + \kappa \sigma) \theta + \psi \mu \rho'(b_t) \right]}_{\text{Canal Fiscal-Expectacional e Risco Soberano } (+)}
+\label{eq:dpi_di}
+\end{equation}
+A Equação (\ref{eq:dpi_di}) sintetiza formalmente a dependência de estado testada na Seção 4:
 \begin{enumerate}
-    \item Uma redução da Selic ($\Delta i_t < 0$) \textbf{não eleva o valor presente das LFTs};
-    \item O fluxo de despesas nominais de juros cai instantaneamente na proporção $\Delta J_t = \lambda B_{t-1} \Delta i_t < 0$ (reduzindo o déficit nominal em cerca de $4\%$ do PIB quando a taxa recua de $\sim 13\%$ para $7{,}5\%$ a.a.) e retrai a transferência regressiva de renda financeira aos detentores de títulos no topo da distribuição;
-    \item A interrupção imediata da trajetória explosiva de $b_t$ reduz o prêmio de risco fiscal $\rho(b_t)$, enquanto o Banco Central dispõe de mais de US\$ 350 bilhões em reservas internacionais para neutralizar eventuais saídas de \textit{carry-trade} no câmbio ($\Delta e_t \approx 0$). Consequentemente, \textbf{os dois canais que poderiam gerar repique inflacionário de curto prazo (o fiscal e o cambial) encontram-se neutralizados, fazendo com que a redução da Selic exerça efeito diretamente desinflacionário}.
+    \item \textbf{No Regime de Juros Moderados e Estabilidade Fiscal ($\theta \approx 0, \, \rho'(b_t) \approx 0$):} Se o canal convencional de demanda e câmbio supera o canal de custos de curto prazo ($\kappa \sigma + \psi \mu > \phi + \kappa \delta \lambda b_{t-1}$), tem-se $\frac{d\pi_t}{di_t} < 0$ no horizonte de transmissão monetária (o aperto reduz a inflação).
+    \item \textbf{No Platô de Juros Altos Persistentes e Dívida Pós-Fixada Elevada ($\lambda b_{t-1}$ alto, $\kappa$ pequeno):} Quando a Curva de Phillips é achatada ($\kappa \to 0$) e o patamar elevado de juros acelera $\Delta b_t$, ativando os termos fiscais $\theta > 0$ e $\rho'(b_t) > 0$, a soma dos canais positivos (custos $\phi$ e deterioração fiscal-expectacional) domina o canal de demanda, tornando $\frac{d\pi_t}{di_t} > 0$.
+    \item \textbf{Identidade de Fisher de Longo Prazo no Brasil:} No equilíbrio estacionário de longo prazo, a equação de Fisher implica $\pi^* = i^* - r^*$. Diferentemente de economias avançadas onde $r^* \approx g$, no Brasil o juro real neutro efetivo incorpora o prêmio de risco jurisdicional e fiscal $r^* = g + \rho(b^*)$ \citep{arida2005credit}. Assim, uma Selic estacionária $i^* \approx 13\%$ convive com $r^* \approx 8\%$ a $8{,}5\%$ e inflação $\pi^* \approx 4{,}5\%$ a $5{,}0\%$; ainda assim, qualquer elevação permanente de $i^*$ que não seja integralmente absorvida por um aumento de $r^*$ transmite-se positivamente para $\pi^*$ no longo prazo \citep{uribe2022neo}.
 \end{enumerate}
 
-\subsection{Bloco III: Fragilidade Financeira Minskyana das Famílias}
-Para o setor de famílias, definimos a taxa de comprometimento de renda com o serviço da dívida ($S_t$) como a razão entre os encargos mensais de juros e amortizações e a renda mensal disponível ($Y_t^{fam}$):
+\paragraph{O Mecanismo da \textit{Duration} Zero das LFTs e a Aritmética do Corte da Selic.}
+Seja $V_t(B)$ o valor de mercado nominal da dívida pública, composta por uma fração $\lambda \approx 0{,}50$ em LFTs e compromissadas (\textit{duration} de juros $D_{LFT} = 0$) e $(1-\lambda)$ em títulos prefixados/indexados ($D_{pre} > 0$):
 \begin{equation}
-S_t = \frac{\bar{i}_t^{\text{crédito}} D_{t-1} + \text{Amortização}_t}{Y_t^{fam}}
+\frac{\partial V_t(B)}{\partial i_t} = -\underbrace{\lambda D_{LFT}}_{= 0} V_t(B_{LFT}) - (1 - \lambda) D_{pre} V_t(B_{pre})
+\label{eq:duration_lft}
 \end{equation}
-Dado que o estoque de dívida $D_{t-1}$ é rígido no curto prazo e os bancos reajustam as taxas contratuais de cheque especial, cartão rotativo e empréstimos consignados com mark-up ($\frac{\partial \bar{i}_t^{\text{crédito}}}{\partial i_t} > 1$), a manutenção de juros básicos elevados impõe $\frac{\partial S_t}{\partial i_t} > 0$. As famílias são empurradas para posturas especulativas e \textit{Ponzi} no sentido de \citet{minsky1986stabilizing}, tomando crédito rotativo caro para rolar encargos correntes. Por simetria, a redução da Selic proposta por \citet{resende2026euacuso} descomprime diretamente $S_t$, restaurando a solvência financeira das famílias sem gerar pressão inflacionária de demanda.
+Na TFNP aplicada a dívidas longas prefixadas ($\lambda \to 0$, \citealt{cochrane2023fiscal}), um corte de juros ($\Delta i_t < 0$) eleva o valor de mercado presente da dívida ($\Delta V_t(B) > 0$), podendo gerar pressão inflacionária transitória. No Brasil, porém, como $\lambda \approx 0{,}50$ tem $D_{LFT} = 0$ \citep{cochrane2026reasons, resende2026euacuso}:
+\begin{itemize}
+    \item A redução da Selic não valoriza o estoque de LFTs;
+    \item O fluxo anualizado de despesas de juros cai \textbf{imediatamente} sobre a parcela pós-fixada em $\Delta J_t^{imediato} = \lambda b_{t-1} \Delta i_t$. Para $b_{t-1} = 82{,}5\%$ do PIB, $\lambda \approx 0{,}50$ e uma redução de $\Delta i = -5{,}5$ p.p. (de $13{,}0\%$ para $7{,}5\%$ a.a.), o \textbf{alívio fiscal imediato é de $\approx 2{,}27\%$ do PIB} no primeiro ano, ampliando-se gradualmente para \textbf{$\approx 4{,}0\%$ a $4{,}5\%$ do PIB} à medida que as parcelas prefixadas vencem e são refinanciadas ao novo patamar. Caso o Banco Central preserve a estabilidade cambial ($\Delta e_t \approx 0$, amparado por reservas internacionais superiores a US\$ 350 bilhões), o corte da Selic reduz simultaneamente o custo de capital de giro ($\phi \Delta i_t < 0$) e o déficit nominal ($\Delta b_t < 0$).
+\end{itemize}
+
+\subsection{Bloco III: Comprometimento de Renda das Famílias com Juros Bancários}
+
+Seguindo a literatura de \textit{debt service ratios} \citep{drehmann2015how} e de fragilidade financeira \citep{minsky1986stabilizing}, separamos o comprometimento mensal da renda disponível das famílias ($Y_t^{fam}$) em duas componentes: o pagamento exclusivo de \textbf{juros} ($J_t^{fam}$, série SGS 29033) e as \textbf{amortizações de principal} ($A_t^{fam}$), que juntas compõem o serviço total ($S_t^{fam} = J_t^{fam} + A_t^{fam}$, série SGS 29034):
+\begin{equation}
+J_t^{fam} = \frac{\bar{i}_t^{fam} D_{t-1}^{fam}}{Y_t^{fam}}, \quad \text{onde } \bar{i}_t^{fam} = \theta_{pos} i_t^c(i_t) + (1 - \theta_{pos}) \bar{i}_{fixo}
+\label{eq:household_interest}
+\end{equation}
+Embora parte do estoque de crédito familiar $D_{t-1}^{fam}$ seja contratada a taxas prefixadas ($\bar{i}_{fixo}$, como crédito consignado e imobiliário), a fração $\theta_{pos} > 0$ exposta a modalidades de curtíssimo prazo e repactuação mensal (rotativo do cartão de crédito, cheque especial e novas concessões) reage positivamente às elevações da Selic ($\frac{\partial i_t^c}{\partial i_t} > 0$). Como o estoque de dívida $D_{t-1}^{fam}$ ajusta-se lentamente, um choque positivo na Selic ($i_t$) eleva $J_t^{fam}$ tanto diretamente pelo aumento da taxa média $\bar{i}_t^{fam}$ nas linhas pós-fixadas/rotativas quanto indiretamente pela desaceleração da renda disponível $Y_t^{fam}$ no denominador.
 
 \section{Dados e Estratégia Econométrica (2005--2026)}
 
-Para confrontar econometricamente o modelo, empregamos séries mensais extraídas diretamente do Sistema Gerenciador de Séries Temporais (SGS) do Banco Central do Brasil para o período de março de 2005 a agosto de 2026 ($T = 258$).
+\subsection{Base de Dados e Verificação de Metadados no SGS/BCB}
 
-\subsection{Base de Dados}
-A Tabela \ref{tab:series} descreve as variáveis utilizadas no sistema multivariado.
+Utilizamos uma amostra mensal contínua de \textbf{258 observações (março de 2005 a agosto de 2026)}, cujo início é determinado pela disponibilidade das séries de comprometimento de renda das famílias do Banco Central do Brasil. Todas as séries foram extraídas diretamente das APIs oficiais do BCB (SGS e Sistema Expectativas/Olinda), conforme descrito na Tabela \ref{tab:series}.
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{Descrição das Séries Temporais Utilizadas (2005--2026)}
+\caption{Descrição Oficial das Séries Temporais do Banco Central do Brasil (2005--2026)}
 \label{tab:series}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lllc}
+\begin{tabular}{llllc}
 \toprule
-\textbf{Variável} & \textbf{Descrição} & \textbf{Fonte / Código SGS} & \textbf{Transformação} \\
+\textbf{Variável} & \textbf{Descrição Oficial no Banco Central} & \textbf{Fonte / Código} & \textbf{Transformação} & \textbf{Papel no Modelo} \\
 \midrule
-$ICBr_t$ & Índice de Commodities Brasil (USD) & BCB / SGS 27574 & $\ln(ICBr_t)$ \\
-$IBC_t$ & Índice de Atividade Econômica dessazonalizado & BCB / SGS 24364 & $\ln(IBC_t)$ \\
-$\pi_t^{livre}$ & IPCA Preços Livres (\% a.m.) & BCB / SGS 4447 & Nível (\%) \\
-$\text{Selic}_t$ & Taxa Selic efetiva mensal anualizada (\% a.a.) & BCB / SGS 4189 & Nível (\%) \\
-$S_t$ & Comprometimento de Renda c/ Serviço da Dívida & BCB / SGS 29034 & Nível (\%) \\
+$ICBr_t$ & Índice de Commodities Brasil em USD & BCB / SGS 27574 & $\ln(ICBr_t)$ & Choques externos de oferta \\
+$PTAX_t$ & Taxa de câmbio nominal R\$/US\$ (venda, fim de período) & BCB / SGS 3696 & $\ln(PTAX_t)$ & Canal cambial e risco \\
+$IBC_t$ & Índice de Atividade Econômica dessazonalizado & BCB / SGS 24364 & $\ln(IBC_t)$ & Proxy da atividade real \\
+$\pi_t^{livre}$ & \textbf{IPCA -- Itens Livres (\% a.m.)} & \textbf{BCB / SGS 11428} & Nível (\% a.m.) & Inflação de preços livres \\
+$\text{Selic}_t$ & Taxa de juros -- Selic acumulada no mês anualizada & BCB / SGS 4189 & Nível (\% a.a.) & Instrumento monetário \\
+$J_t^{fam}$ & \textbf{Comprometimento de renda familiar com juros c/ ajuste} & \textbf{BCB / SGS 29033} & Nível (\% renda) & Fragilidade familiar (juros) \\
+$S_t^{fam}$ & Comprometimento de renda c/ serviço da dívida c/ ajuste & BCB / SGS 29034 & Nível (\% renda) & Robustez (juros + amort.) \\
+$E_t[\pi_{t+12}]$ & Expectativa mediana suavizada IPCA 12m à frente & BCB / Olinda Focus & Nível (\% a.a.) & Controle prospectivo \\
+$\pi_t^{cheio}$ & IPCA -- Índice Geral Cheio (\% a.m.) & BCB / SGS 433 & Nível (\% a.m.) & Robustez (inflação plena) \\
+$\pi_t^{adm}$ & IPCA -- Preços Monitorados/Administrados (\% a.m.) & BCB / SGS 4449 & Nível (\% a.m.) & Análise desagregada \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
-
-A Figura \ref{fig:historico} ilustra o comportamento conjunto das séries ao longo dos ciclos de política monetária brasileira.
 
 \begin{figure}[htbp]
 \centering
@@ -171,179 +205,262 @@ A Figura \ref{fig:historico} ilustra o comportamento conjunto das séries ao lon
 \label{fig:historico}
 \end{figure}
 
-\subsection{Identificação Estrutural e Estratégia em Três Etapas}
-Considere o modelo VAR($p$):
-\begin{equation}
-A_0 Y_t = c + \sum_{k=1}^p A_k Y_{t-k} + \varepsilon_t, \quad \varepsilon_t \sim \mathcal{N}(0, I)
-\end{equation}
-com a forma reduzida $Y_t = \mu + \sum_{k=1}^p \Phi_k Y_{t-k} + u_t$, onde $u_t = A_0^{-1} \varepsilon_t$ e $\Sigma = E[u_t u_t'] = A_0^{-1} (A_0^{-1})'$. O vetor endógeno é ordenado de acordo com a velocidade de ajuste:
-\begin{equation}
-Y_t = \begin{bmatrix} \ln(ICBr_t) & \ln(IBC_t) & \pi_t^{livre} & \text{Selic}_t & S_t \end{bmatrix}'
-\end{equation}
+\subsection{Identificação do SVAR, Normalização do Choque e Projeções Locais}
 
-Nossa investigação empírica estrutura-se em três etapas:
-\begin{enumerate}
-    \item \textbf{Etapa 1 (SVAR e FEVD):} Estimação do SVAR($p=6$) identificado por Cholesky, avaliando as Funções de Resposta ao Impulso (IRF) e a Decomposição da Variância do Erro de Previsão (FEVD) para testar o achatamento da Curva de Phillips e a fragilidade familiar;
-    \item \textbf{Etapa 2 (Projeções Locais Lineares de Jordà, 2005):} Verificação da robustez semi-paramétrica das trajetórias de resposta sem restrições dinâmicas autorregressivas iteradas;
-    \item \textbf{Etapa 3 (Projeções Locais Dependentes de Estado):} Teste direto da hipótese central de \citet{resende2026euacuso}, separando os regimes em que a Selic é mantida em um \textbf{Platô de Juros Persistentemente Altos} ($\overline{\text{Selic}}_{t-1}^{(12m)} > 11{,}27\%$ a.a.) versus regimes de juros moderados, mensurando o efeito acumulado sobre a inflação tanto da insistência em juros altos quanto do corte da Selic.
-\end{enumerate}
+Estimamos inicialmente um modelo VAR($p$) de seis variáveis em nível:
+\begin{equation}
+A_0 Y_t = c + \sum_{k=1}^p A_k Y_{t-k} + \varepsilon_t, \quad \varepsilon_t \sim \mathcal{N}(0, I_6)
+\end{equation}
+cuja forma reduzida é $Y_t = \mu + \sum_{k=1}^p \Phi_k Y_{t-k} + u_t$, com matriz de covariância $\Sigma_u = E[u_t u_t'] = P P'$, onde $P = A_0^{-1}$ é o fator triangular inferior de Cholesky. O vetor endógeno segue o ordenamento recursivo:
+\begin{equation}
+Y_t = \begin{bmatrix} \ln(ICBr_t) & \ln(PTAX_t) & \ln(IBC_t) & \pi_t^{livre} & \text{Selic}_t & J_t^{fam} \end{bmatrix}'
+\end{equation}
+Nesse ordenamento, a função de reação do Banco Central ($\text{Selic}_t$) responde contemporaneamente às commodities externas, à taxa de câmbio, ao nível de atividade e à inflação de itens livres (e, na especificação estendida de 7 variáveis, também às expectativas Focus 12 meses $E_t[\pi_{t+12}]$), enquanto o comprometimento de renda das famílias com juros ($J_t^{fam}$) reage contemporaneamente a todo o sistema.
+
+\paragraph{Definição e Normalização Exata do Choque Monetário ($\text{Shock}_t^{Selic}$).}
+Seja $e_t = P^{-1} u_t$ o vetor de choques estruturais ortogonalizados com variância unitária ($1$ desvio-padrão). Na equação da Selic (índice $5$), um choque estrutural de $1$ desvio-padrão ($e_{selic, t} = 1$) produz um impacto contemporâneo em $h = 0$ igual ao elemento diagonal $P_{5,5} = 0{,}1731$ p.p. na taxa Selic anualizada. Para que todas as Funções de Resposta ao Impulso (IRFs) do SVAR e das Projeções Locais estejam exatamente na mesma unidade econômica — \textbf{um choque estrutural não antecipado de $+1{,}00$ ponto percentual na taxa Selic em $h = 0$} —, definimos o choque normalizado:
+\begin{equation}
+\text{Shock}_t^{Selic} = P_{5,5} \cdot e_{selic, t}
+\label{eq:shock_norm}
+\end{equation}
+e dividimos as respostas ortogonalizadas do SVAR e seus erros-padrão assintóticos por $P_{5,5}$. Conforme demonstrado por \citet{plagborg2021local}, sob essa normalização, a resposta em impacto ($h = 0$) da Projeção Local linear coincide algebricamente com a resposta do SVAR.
 
 \section{Resultados Econométricos}
 
-\subsection{Testes de Raiz Unitária e Seleção de Defasagens}
-O teste Dickey-Fuller Aumentado (ADF) confirma que a inflação de preços livres ($\text{ADF} = -2{,}995, p = 0{,}0354$) e a taxa Selic ($\text{ADF} = -3{,}351, p = 0{,}0127$) rejeitam a hipótese nula de raiz unitária a 5\% de significância, enquanto as séries de nível do IBC-Br e Serviço da Dívida apresentam persistência $I(1)$. Seguindo \citet{pesaran2001bounds} e a literatura padrão de VAR em níveis para cointegração implícita, estimamos o sistema em níveis com $p = 6$ defasagens mensais selecionadas pelo Critério de Akaike ($\text{AIC} = -24{,}1351$).
+\subsection{Testes de Raiz Unitária e Especificação de Defasagens}
+Os testes Dickey-Fuller Aumentado (ADF) indicam estacionariedade em nível para o IPCA Itens Livres ($\text{ADF} = -2{,}992, p = 0{,}0357$) e para a taxa Selic ($\text{ADF} = -3{,}351, p = 0{,}0127$), enquanto $\ln(ICBr_t)$, $\ln(PTAX_t)$, $\ln(IBC_t)$ e $J_t^{fam}$ comportam-se como processos $I(1)$. Seguindo o teorema clássico de \citet{sims1990inference}, estimamos o sistema em níveis para preservar eventuais relações de cointegração implícitas sem impor restrições potencialmente incorretas de diferenciação. O Critério de Informação de Akaike (AIC) e o FPE selecionam $p = 5$ a $6$ defasagens mensais ($\text{AIC} = -33{,}00$ em $p=5$ e $-32{,}92$ em $p=6$; $\text{BIC}$ e $\text{HQIC}$ selecionam $p=2$); adotamos $p = 6$ para capturar integralmente a dinâmica semestral da política monetária.
 
-\subsection{Funções de Resposta ao Impulso (IRF)}
-A Figura \ref{fig:irf} e a Tabela \ref{tab:irf_summary} apresentam as Funções de Resposta ao Impulso para um horizonte de 24 meses após um choque estrutural positivo na taxa Selic.
+\subsection{Funções de Resposta ao Impulso do SVAR e Fragilidade Financeira}
+A Figura \ref{fig:irf} e a Tabela \ref{tab:irf_summary} apresentam as respostas ortogonalizadas de Cholesky normalizadas para um choque de \textbf{$+1{,}00$ p.p. na taxa Selic em $h = 0$}, acompanhadas de intervalos de confiança assintóticos de 95\%.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{figura2_irf_svar.png}
-\caption{Funções de Resposta ao Impulso (IRF) a um Choque Positivo na Taxa Selic (Intervalo de Confiança 95\%)}
+\caption{Funções de Resposta ao Impulso (IRF) do SVAR Normalizadas para um Choque de $+1{,}00$ p.p. na Taxa Selic (IC 95\% Assintótico)}
 \label{fig:irf}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{Resumo das Respostas aos Impulsos ao Choque Positivo de Selic}
+\caption{Respostas ao Impulso do SVAR Normalizadas para Choque de $+1{,}00$ p.p. na Selic em $h = 0$ [Erro-Padrão entre colchetes]}
 \label{tab:irf_summary}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lcccc}
+\begin{tabular}{lccccccc}
 \toprule
-\textbf{Variável Resposta} & \textbf{$h = 0$ (Impacto)} & \textbf{$h = 6$ meses} & \textbf{$h = 12$ meses} & \textbf{$h = 24$ meses} \\
+\textbf{Variável Resposta} & \textbf{$h = 0$} & \textbf{$h = 3$} & \textbf{$h = 6$} & \textbf{$h = 9$} & \textbf{$h = 12$} & \textbf{$h = 18$} & \textbf{$h = 24$} \\
 \midrule
-IPCA Preços Livres (\% a.m.) & $0{,}0000$ & $+0{,}2109$ & $-0{,}1048$ & $-0{,}1828$ \\
-Serviço da Dívida Familiar (\% renda) & $0{,}0000$ & $+0{,}4590$ & $+0{,}6645$ & $+0{,}0606$ \\
-IBC-Br (Nível de Atividade em log) & $0{,}0000$ & $+0{,}0017$ & $-0{,}0072$ & $-0{,}0046$ \\
-Taxa Selic (\% a.a.) & $+1{,}0000$ & $+3{,}4957$ & $+3{,}7403$ & $+1{,}5028$ \\
+IPCA Itens Livres (\% a.m.) & $+0{,}0000$ $[0{,}000]$ & $+0{,}0857$ $[0{,}106]$ & $\mathbf{+0{,}1883}$ $[0{,}093]$ & $+0{,}0510$ $[0{,}080]$ & $\mathbf{-0{,}1339}$ $[0{,}060]$ & $\mathbf{-0{,}1020}$ $[0{,}047]$ & $\mathbf{-0{,}0956}$ $[0{,}044]$ \\
+Comprom. c/ Juros (\% renda) & $-0{,}0321$ $[0{,}030]$ & $+0{,}1571$ $[0{,}081]$ & $\mathbf{+0{,}2732}$ $[0{,}107]$ & $\mathbf{+0{,}3628}$ $[0{,}127]$ & $\mathbf{+0{,}3817}$ $[0{,}142]$ & $+0{,}2851$ $[0{,}159]$ & $+0{,}1115$ $[0{,}163]$ \\
+Atividade IBC-Br (log) & $+0{,}0000$ $[0{,}000]$ & $-0{,}0019$ $[0{,}008]$ & $-0{,}0111$ $[0{,}010]$ & $-0{,}0160$ $[0{,}010]$ & $-0{,}0190$ $[0{,}011]$ & $-0{,}0146$ $[0{,}011]$ & $-0{,}0111$ $[0{,}011]$ \\
+Câmbio Nominal PTAX (log) & $+0{,}0000$ & $+0{,}0166$ & $+0{,}0198$ & $-0{,}0024$ & $-0{,}0247$ & $-0{,}0514$ & $-0{,}0641$ \\
+Taxa Selic (\% a.a.) & $\mathbf{+1{,}0000}$ & $+2{,}4305$ & $+3{,}1166$ & $+3{,}1352$ & $+2{,}7771$ & $+1{,}5051$ & $+0{,}2788$ \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-Os resultados revelam: (i) a presença de \textit{price puzzle} nos preços livres \citep{pastore1996reforma, cespedes2008monetary}, com a inflação subindo até $+0{,}2109$ p.p. no 6º mês após o aperto monetário; e (ii) uma severa elevação no comprometimento de renda das famílias ($S_t$), que avança $+0{,}4590$ p.p. em $h = 6$ e atinge pico de $+0{,}6645$ p.p. em $h = 12$.
-
-\subsection{Decomposição da Variância (FEVD) e a Horizontalização Empírica da Curva de Phillips}
-A Figura \ref{fig:fevd} exibe a Decomposição da Variância do Erro de Previsão (FEVD) e fornece uma confirmação empírica contundente para a crítica de \citet{resende2026euacuso} acerca do desaparecimento da Curva de Phillips:
+Três resultados destacam-se na Tabela \ref{tab:irf_summary}:
 \begin{enumerate}
-    \item \textbf{Irrelevância do Hiato de Atividade sobre a Inflação:} Ao longo de todo o horizonte de 24 meses, os choques na atividade econômica real ($\ln(\text{IBC-Br})$) explicam \textbf{apenas entre $3{,}1\%$ e $7{,}4\%$ da variância do erro de previsão da inflação de preços livres}. Em contrapartida, a própria inércia inflacionária ($66{,}8\%$ a $90{,}0\%$) e os choques externos de commodities em dólares ($13{,}9\%$ a $14{,}7\%$) dominam a dinâmica de preços. Provocar recessão doméstica via juros altos é, portanto, um método comprovadamente ineficiente para controlar a inflação no Brasil.
-    \item \textbf{Impacto Estrutural da Selic sobre a Solvência Familiar:} Choques na Selic explicam quase $6\%$ da variância do comprometimento de renda das famílias aos 12--18 meses, confirmando que as decisões do COPOM são determinantes diretos da fragilização financeira doméstica.
+    \item \textbf{Persistência do Ciclo Monetário:} Um choque inicial de $+1{,}00$ p.p. na Selic é acompanhado por forte suavização e persistência nas reuniões subsequentes do Copom, levando a taxa Selic a atingir um pico de $+3{,}14$ p.p. no 9º mês antes de retornar gradualmente à linha de base. As magnitudes das demais respostas devem, portanto, ser interpretadas como o efeito de um ciclo de aperto que acumula cerca de $3$ p.p. no pico.
+    \item \textbf{Elevação Significativa do Comprometimento de Renda com Juros ($J_t^{fam}$):} Diferentemente da série agregada de serviço da dívida (que dilui o efeito dos juros nas amortizações rígidas de principal), o comprometimento exclusivo com juros (SGS 29033) apresenta elevação estatisticamente significativa ao nível de 5\% nos horizontes de 6 meses ($+0{,}2732$ p.p., $t = 2{,}56$), 9 meses ($+0{,}3628$ p.p., $t = 2{,}85$) e \textbf{pico no 12º mês ($+0{,}3817$ p.p., $t = 2{,}70$)}.
+    \item \textbf{Dinâmica da Inflação Livre no SVAR Linear:} Mesmo controlando contemporaneamente e com 6 defasagens pelo câmbio nominal ($\ln(PTAX_t)$) e pelas commodities em dólares ($\ln(ICBr_t)$), a resposta do IPCA Itens Livres (SGS 11428) é positiva no primeiro semestre (atingindo pico de $+0{,}357$ p.p. em $h = 5$ e $+0{,}1883$ p.p. em $h = 6$, $t = 2{,}02$), revertendo para terreno desinflacionário significativo a partir do 12º mês ($-0{,}1339$ p.p. em $h = 12$; $-0{,}0956$ p.p. em $h = 24$). Na especificação de 7 variáveis que inclui adicionalmente as expectativas Focus 12 meses ($E_t[\pi_{t+12}]$) antes da Selic no ordenamento de Cholesky, a resposta positiva de curto prazo reduz-se à metade ($+0{,}1091$ p.p. em $h = 6$), indicando que parte do \textit{price puzzle} linear reflete informação prospectiva captada pelas expectativas \citep{sims1992interpreting}, embora o sinal positivo no primeiro semestre persista.
 \end{enumerate}
+
+\subsection{Decomposição da Variância (FEVD) e Qualificação Metodológica}
+A Figura \ref{fig:fevd} apresenta a Decomposição da Variância do Erro de Previsão (FEVD) para o comprometimento de renda das famílias com juros (Painel a) e para a inflação de itens livres (Painel b).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.92\textwidth]{figura3_fevd_svar.png}
+\includegraphics[width=0.95\textwidth]{figura3_fevd_svar.png}
 \caption{Decomposição da Variância do Erro de Previsão (FEVD)}
 \label{fig:fevd}
 \end{figure}
 
-\subsection{Teste de Robustez Linear: Projeções Locais (Jordà, 2005)}
+\begin{itemize}
+    \item \textbf{Protagonismo da Selic nos Encargos de Juros das Famílias:} No Painel (a), os choques na taxa Selic explicam \textbf{$13{,}68\%$ da variância do erro de previsão de $J_t^{fam}$ em 12 meses, $16{,}18\%$ em 18 meses e $15{,}16\%$ em 24 meses} — superando a participação da atividade econômica (IBC-Br, que explica $11{,}27\%$ em $h=12$ e $14{,}44\%$ em $h=18$). Isso confirma que, quando medida corretamente sobre a despesa de juros (SGS 29033), a política monetária é o principal determinante macroeconômico doméstico da fragilidade financeira familiar.
+    \item \textbf{Interpretação da Baixa Participação do IBC-Br na FEVD da Inflação:} No Painel (b), os choques próprios da equação de inflação ($67{,}61\%$ em $h=24$), os choques de commodities ($11{,}85\%$), a Selic ($10{,}44\%$) e o câmbio ($5{,}34\%$) respondem por quase toda a variância do IPCA Itens Livres, enquanto o nível de atividade ($\ln(IBC_t)$) explica apenas \textbf{$2{,}23\%$ a $2{,}43\%$}. Conforme ressaltado por \citet{mcleay2020optimal}, uma participação reduzida da atividade na variância em forma reduzida não constitui, isoladamente, prova de que a inclinação estrutural $\kappa$ da Curva de Phillips seja nula, pois um banco central que reage a choques de demanda amortece a correlação observada entre produto e inflação. Ainda assim, a combinação de baixa contribuição do produto com elevada participação de choques de oferta/commodities e da própria Selic ($10{,}44\%$) é consistente com a visão de que a inflação brasileira responde pouco a variações marginais da capacidade ociosa doméstica.
+\end{itemize}
 
-Para verificar que a evidência do SVAR não decorre de restrições autorregressivas iteradas ($\Phi^h$), estimamos pelo método de Projeções Locais \citep{jorda2005estimation} para cada horizonte $h \in \{0, 1, \dots, 24\}$:
+\subsection{Robustez Linear: SVAR versus Projeções Locais Normalizadas (Jordà, 2005)}
+
+Para relaxar a restrição autorregressiva iterativa do VAR ($\Phi^h$), estimamos para cada horizonte $h \in \{0, 1, \dots, 24\}$ a Projeção Local linear sobre o choque normalizado de $+1{,}00$ p.p. na Selic ($\text{Shock}_t^{Selic}$ da Eq. \ref{eq:shock_norm}), com erros-padrão robustos à heterocedasticidade e autocorrelação (HAC / Newey-West, janela de truncamento $h + 1$):
 \begin{equation}
 y_{i, t+h} = \alpha_i^h + \beta_i^h \text{Shock}_t^{Selic} + \sum_{k=1}^6 \mathbf{\Gamma}_{i,k}^h Y_{t-k} + \epsilon_{i, t+h}^h
 \end{equation}
-com erros-padrão robustos de Newey-West (HAC). A Figura \ref{fig:lp_vs_svar} e a Tabela \ref{tab:lp_svar_comp} demonstram a total consistência qualitativa entre os dois estimadores.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{figura4_lp_vs_svar.png}
-\caption{Comparação de Robustez: Funções de Resposta ao Impulso do SVAR vs. Projeções Locais (Jordà, 2005)}
+\caption{Comparação Normalizada ($+1{,}00$ p.p. Selic em $h=0$): SVAR vs. Projeções Locais (Jordà, 2005)}
 \label{fig:lp_vs_svar}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{Comparação Numérica: SVAR vs. Projeções Locais Lineares (Jordà, 2005)}
+\caption{Comparação Normalizada ($+1{,}00$ p.p. Selic em $h=0$): SVAR vs. Projeções Locais Lineares (Jordà, 2005)}
 \label{tab:lp_svar_comp}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lcccccc}
+\begin{tabular}{lccccc}
 \toprule
- & \multicolumn{2}{c}{\textbf{IPCA Livres (\% a.m.)}} & \multicolumn{4}{c}{\textbf{Comprometimento de Renda (\% renda)}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-7}
-\textbf{Horizonte ($h$)} & \textbf{SVAR} & \textbf{LP} & \textbf{SVAR} & \textbf{LP} & \textbf{Erro-Padrão HAC} & \textbf{IC 95\% LP} \\
+ & \multicolumn{2}{c}{\textbf{IPCA Itens Livres (\% a.m., SGS 11428)}} & \multicolumn{3}{c}{\textbf{Comprometimento c/ Juros (\% renda, SGS 29033)}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-6}
+\textbf{Horizonte ($h$)} & \textbf{SVAR} & \textbf{LP (EP HAC) [$p$-valor]} & \textbf{SVAR} & \textbf{LP (EP HAC) [$p$-valor]} & \textbf{IC 95\% LP (Juros Dívida)} \\
 \midrule
-$h = 0$ (Impacto) & $0{,}0000$ & $0{,}0000$ & $0{,}0000$ & $-0{,}0152$ & $0{,}0128$ & $[-0{,}0403; +0{,}0099]$ \\
-$h = 3$ meses & $+0{,}1131$ & $+0{,}0120$ & $+0{,}2735$ & $+0{,}0416$ & $0{,}0356$ & $[-0{,}0281; +0{,}1113]$ \\
-$h = 6$ meses & $\mathbf{+0{,}2109}$ & $\mathbf{+0{,}0557}$ & $+0{,}4590$ & $+0{,}0506$ & $0{,}0489$ & $[-0{,}0452; +0{,}1465]$ \\
-$h = 9$ meses & $+0{,}0729$ & $-0{,}0196$ & $\mathbf{+0{,}6657}$ & $+0{,}0563$ & $0{,}0642$ & $[-0{,}0696; +0{,}1821]$ \\
-$h = 12$ meses & $-0{,}1048$ & $-0{,}0270$ & $+0{,}6645$ & $+0{,}0637$ & $0{,}0750$ & $[-0{,}0832; +0{,}2106]$ \\
-$h = 18$ meses & $-0{,}1939$ & $-0{,}0002$ & $+0{,}4124$ & $\mathbf{+0{,}1122}$ & $0{,}0568$ & $[+0{,}0008; +0{,}2236]$ \\
-$h = 24$ meses & $-0{,}1828$ & $\mathbf{-0{,}0583}$ & $+0{,}0606$ & $-0{,}0264$ & $0{,}0653$ & $[-0{,}1544; +0{,}1015]$ \\
+$h = 0$ (Impacto) & $+0{,}0000$ & $+0{,}0000$ $(0{,}087)$ $[1{,}000]$ & $-0{,}0321$ & $-0{,}0321$ $(0{,}028)$ $[0{,}254]$ & $[-0{,}0874; +0{,}0231]$ \\
+$h = 3$ meses & $+0{,}0857$ & $+0{,}0791$ $(0{,}077)$ $[0{,}302]$ & $+0{,}1571$ & $\mathbf{+0{,}2035}$ $(0{,}063)$ $\mathbf{[0{,}001]}$ & $[+0{,}0808; +0{,}3262]$ \\
+$h = 6$ meses & $\mathbf{+0{,}1883}$ & $+0{,}1528$ $(0{,}112)$ $[0{,}171]$ & $\mathbf{+0{,}2732}$ & $\mathbf{+0{,}2978}$ $(0{,}102)$ $\mathbf{[0{,}003]}$ & $[+0{,}0990; +0{,}4967]$ \\
+$h = 9$ meses & $+0{,}0510$ & $-0{,}2181$ $(0{,}116)$ $[0{,}060]$ & $\mathbf{+0{,}3628}$ & $\mathbf{+0{,}4128}$ $(0{,}114)$ $\mathbf{[<0{,}001]}$ & $[+0{,}1892; +0{,}6364]$ \\
+$h = 12$ meses & $\mathbf{-0{,}1339}$ & $-0{,}1271$ $(0{,}086)$ $[0{,}140]$ & $\mathbf{+0{,}3817}$ & $\mathbf{+0{,}4594}$ $(0{,}144)$ $\mathbf{[0{,}001]}$ & $[+0{,}1766; +0{,}7423]$ \\
+$h = 18$ meses & $\mathbf{-0{,}1020}$ & $-0{,}0193$ $(0{,}083)$ $[0{,}815]$ & $+0{,}2851$ & $\mathbf{+0{,}5926}$ $(0{,}154)$ $\mathbf{[<0{,}001]}$ & $[+0{,}2914; +0{,}8938]$ \\
+$h = 24$ meses & $\mathbf{-0{,}0956}$ & $\mathbf{-0{,}3323}$ $(0{,}102)$ $\mathbf{[0{,}001]}$ & $+0{,}1115$ & $+0{,}2208$ $(0{,}207)$ $[0{,}285]$ & $[-0{,}1844; +0{,}6260]$ \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-\subsection{Avaliação Empírica de \textit{``Eu Acuso''} (Resende, 2026): Platô de Juros Altos e o Efeito Desinflacionário da Redução da Selic}
+Com a normalização exata de $+1{,}00$ p.p. na Selic em $h = 0$, a Figura \ref{fig:lp_vs_svar} e a Tabela \ref{tab:lp_svar_comp} confirmam a equivalência algébrica em $h = 0$ \citep{plagborg2021local} e a forte aderência entre os dois métodos: nas Projeções Locais, o efeito sobre o comprometimento de renda das famílias com juros ($H_2$) é estatisticamente significativo ($p \le 0{,}003$) do 3º ao 18º mês, atingindo $+0{,}4594$ p.p. em $h = 12$ ($p = 0{,}001$) e $+0{,}5926$ p.p. em $h = 18$ ($p < 0{,}001$).
 
-O argumento central trazido por \citet{resende2026euacuso} transcende o \textit{price puzzle} de curtíssimo prazo: ele sustenta que \textbf{a manutenção de uma taxa básica de juros absurdamente alta e constante por longo período pressiona estruturalmente a inflação}, e que \textbf{reduzir a Selic a partir desse patamar anômalo ajuda diretamente a controlar e reduzir a inflação}.
+\subsection{Projeções Locais Dependentes de Estado e Assimétricas: Testando a Hipótese do Platô de Juros Altos}
 
-Para testar econometricamente essa proposição, estimamos um modelo de \textbf{Projeções Locais Dependentes de Estado (\textit{State-Dependent Local Projections})} sobre a inflação acumulada de preços livres em $h$ meses ($\Pi_{t, t+h}^{livre} = \sum_{j=0}^h \pi_{t+j}^{livre}$). Definimos a variável indicadora de regime $I_t \in \{0, 1\}$, que assume $I_t = 1$ quando a média móvel de 12 meses da Selic encontra-se em \textbf{Platô de Juros Persistentemente Altos} (acima da mediana histórica de $11{,}27\%$ a.a.) e $I_t = 0$ no \textbf{Regime de Juros Moderados} ($\le 11{,}27\%$ a.a.):
-\begin{equation}
-\begin{aligned}
-\Pi_{t, t+h}^{livre} &= \alpha^h + \gamma^h I_{t-1} + \beta_{alto}^h \left( \text{Shock}_t^{Selic} \times I_{t-1} \right) \\
-&\quad + \beta_{mod}^h \left( \text{Shock}_t^{Selic} \times (1 - I_{t-1}) \right) + \sum_{k=1}^6 \mathbf{\Gamma}_k^h Y_{t-k} + \nu_{t+h}^h
-\end{aligned}
-\end{equation}
-
-A Figura \ref{fig:regime_alto} e a Tabela \ref{tab:regime_alto} apresentam os impactos acumulados sobre o nível de preços livres nos dois regimes e o efeito simétrico de um corte da Selic ($-\beta_{alto}^h$) quando a economia se encontra travada no platô de juros elevados.
+Para testar a \textbf{Hipótese $H_1$} sem impor simetria entre altas e cortes de juros \citep{tenreyro2016pushing}, estimamos duas especificações sobre a inflação acumulada de itens livres em $h$ meses ($\Pi_{t, t+h}^{livre} = \sum_{j=0}^h \pi_{t+j}^{livre}$):
+\begin{enumerate}
+    \item \textbf{Especificação Dependente de Estado (com reporte explícito do nível do regime $\gamma^h$):}
+    \begin{equation}
+    \begin{aligned}
+    \Pi_{t, t+h}^{livre} &= \alpha^h + \gamma^h I_{t-1} + \beta_{alto}^h \left( \text{Shock}_t^{Selic} \times I_{t-1} \right) \\
+    &\quad + \beta_{mod}^h \left( \text{Shock}_t^{Selic} \times (1 - I_{t-1}) \right) + \sum_{k=1}^6 \mathbf{\Gamma}_k^h Y_{t-k} + \nu_{t+h}^h
+    \end{aligned}
+    \label{eq:lp_state}
+    \end{equation}
+    onde $I_{t-1} = \mathbb{I}\left(\overline{\text{Selic}}_{t-1}^{(12m)} > 11{,}27\%\text{ a.a.}\right)$ indica que a economia encontrava-se, no mês anterior ao choque, no \textbf{Platô de Juros Persistentemente Altos} (acima da mediana amostral). Aqui, $\gamma^h$ mede diretamente o deslocamento médio da inflação acumulada associado à permanência no platô de juros altos.
+    \item \textbf{Especificação Assimétrica dentro do Platô de Juros Altos (Altas vs. Cortes Separados):}
+    Definindo $\text{Shock}_t^+ = \max(\text{Shock}_t^{Selic}, 0) \ge 0$ ($N_+ = 63$ meses no platô alto) e $\text{Shock}_t^- = \min(\text{Shock}_t^{Selic}, 0) \le 0$ ($N_- = 59$ meses no platô alto), substituímos o termo linear do platô alto por $\beta_{alto}^{+, h} (\text{Shock}_t^+ \times I_{t-1}) + \beta_{alto}^{-, h} (\text{Shock}_t^- \times I_{t-1})$. Como $\text{Shock}_t^- < 0$, um coeficiente $\beta_{alto}^{-, h} > 0$ significa que um \textbf{corte não antecipado de $-1{,}00$ p.p. na Selic} ($\text{Shock}_t^- = -1$) associa-se a uma variação de $-\beta_{alto}^{-, h} < 0$ (queda) na inflação acumulada.
+\end{enumerate}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.98\textwidth]{figura5_regime_juros_altos_lp.png}
-\caption{Projeções Locais Dependentes de Estado: Efeito Inflacionário do Platô de Juros Altos (Painel a) e Efeito Desinflacionário da Redução da Selic (Painel b)}
+\caption{Projeções Locais Dependentes de Estado (Painel a) e Estimativa do Nível do Platô Alto $\hat{\gamma}^h$ e Efeito Assimétrico Direto de Corte $-\hat{\beta}_{alto}^{-,h}$ (Painel b)}
 \label{fig:regime_alto}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{Projeções Locais Dependentes de Estado: Inflação Acumulada ($\Pi_{t, t+h}^{livre}$) no Platô de Juros Altos ($> 11{,}27\%$ a.a.) versus Regime Moderado}
+\caption{Projeções Locais Dependentes de Estado e Assimétricas — IPCA Itens Livres Acumulado ($\Pi_{t, t+h}^{livre}$, SGS 11428)}
 \label{tab:regime_alto}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lccccc}
+\begin{tabular}{lccccccc}
 \toprule
-\textbf{Horizonte ($h$)} & \textbf{Platô Alto ($\beta_{alto}^h$)} & \textbf{$p$-valor (HAC)} & \textbf{Regime Moderado ($\beta_{mod}^h$)} & \textbf{$p$-valor (HAC)} & \textbf{Corte de Selic no Platô Alto ($-\beta_{alto}^h$)} \\
+\textbf{Horizonte} & \textbf{Platô Alto} & \textbf{Regime Mod.} & \textbf{Wald} & \textbf{Nível Platô} & \textbf{Alta no Platô} & \textbf{Corte no Platô} & \textbf{Wald Simetria} \\
+\textbf{($h$)} & $\hat{\beta}_{alto}^h$ ($p$-val) & $\hat{\beta}_{mod}^h$ ($p$-val) & $p(\beta_{alto}=\beta_{mod})$ & $\hat{\gamma}^h$ ($p$-val) & $\hat{\beta}_{alto}^{+,h}$ ($p$-val) & $\hat{\beta}_{alto}^{-,h}$ ($p$-val) & $p(\beta^+=\beta^-)$ \\
 \midrule
-$h = 0$ meses & $+0{,}0313$ p.p. & $0{,}2490$ & $-0{,}0182$ p.p. & $0{,}5424$ & $-0{,}0313$ p.p. \\
-$h = 3$ meses & $\mathbf{+0{,}1692}$ \textbf{p.p.} & $\mathbf{0{,}0305}$ & $-0{,}0292$ p.p. & $0{,}7407$ & $\mathbf{-0{,}1692}$ \textbf{p.p.} \\
-$h = 6$ meses & $\mathbf{+0{,}3735}$ \textbf{p.p.} & $\mathbf{0{,}0007}$ & $+0{,}1684$ p.p. & $0{,}0795$ & $\mathbf{-0{,}3735}$ \textbf{p.p.} \\
-$h = 9$ meses & $\mathbf{+0{,}3931}$ \textbf{p.p.} & $\mathbf{0{,}0109}$ & $+0{,}1800$ p.p. & $0{,}0296$ & $\mathbf{-0{,}3931}$ \textbf{p.p.} \\
-$h = 12$ meses & $\mathbf{+0{,}3159}$ \textbf{p.p.} & $\mathbf{0{,}0925}$ & $+0{,}0750$ p.p. & $0{,}4895$ & $\mathbf{-0{,}3159}$ \textbf{p.p.} \\
-$h = 18$ meses & $+0{,}3198$ p.p. & $0{,}1654$ & $-0{,}2053$ p.p. & $0{,}2303$ & $-0{,}3198$ p.p. \\
-$h = 24$ meses & $+0{,}2912$ p.p. & $0{,}2907$ & $\mathbf{-0{,}4852}$ \textbf{p.p.} & $\mathbf{0{,}0064}$ & $-0{,}2912$ p.p. \\
+$h = 0$ meses & $+0{,}081$ $(0{,}515)$ & $-0{,}051$ $(0{,}671)$ & $0{,}457$ & $+0{,}044$ $(0{,}250)$ & $-0{,}113$ $(0{,}695)$ & $+0{,}228$ $(0{,}272)$ & $0{,}424$ \\
+$h = 3$ meses & $\mathbf{+0{,}782}$ $\mathbf{(0{,}035)}$ & $-0{,}201$ $(0{,}660)$ & $0{,}124$ & $+0{,}305$ $(0{,}104)$ & $+0{,}041$ $(0{,}961)$ & $\mathbf{+1{,}344}$ $\mathbf{(0{,}058)}$ & $0{,}347$ \\
+$h = 6$ meses & $\mathbf{+1{,}485}$ $\mathbf{(0{,}011)}$ & $+0{,}592$ $(0{,}201)$ & $0{,}279$ & $\mathbf{+0{,}770}$ $\mathbf{(0{,}036)}$ & $+0{,}643$ $(0{,}678)$ & $\mathbf{+2{,}140}$ $\mathbf{(0{,}027)}$ & $0{,}507$ \\
+$h = 9$ meses & $+1{,}060$ $(0{,}113)$ & $+0{,}631$ $(0{,}202)$ & $0{,}635$ & $\mathbf{+1{,}341}$ $\mathbf{(0{,}007)}$ & $-0{,}076$ $(0{,}969)$ & $+1{,}945$ $(0{,}103)$ & $0{,}478$ \\
+$h = 12$ meses & $-0{,}360$ $(0{,}632)$ & $+0{,}529$ $(0{,}282)$ & $0{,}354$ & $\mathbf{+1{,}638}$ $\mathbf{(0{,}002)}$ & $-0{,}851$ $(0{,}698)$ & $+0{,}018$ $(0{,}990)$ & $0{,}797$ \\
+$h = 18$ meses & $-0{,}028$ $(0{,}973)$ & $-0{,}360$ $(0{,}590)$ & $0{,}759$ & $\mathbf{+1{,}612}$ $\mathbf{(0{,}021)}$ & $-0{,}855$ $(0{,}781)$ & $+0{,}610$ $(0{,}788)$ & $0{,}773$ \\
+$h = 24$ meses & $-0{,}819$ $(0{,}278)$ & $\mathbf{-1{,}922}$ $\mathbf{(0{,}009)}$ & $0{,}296$ & $+0{,}927$ $(0{,}242)$ & $-4{,}562$ $(0{,}140)$ & $+2{,}058$ $(0{,}467)$ & $0{,}243$ \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-Os resultados revelam uma assimetria estrutural profunda que valida empiricamente a tese de \citet{resende2026euacuso}:
+A Tabela \ref{tab:regime_alto} permite uma leitura rigorosa e matizada das hipóteses em estudo:
 \begin{enumerate}
-    \item \textbf{Ineficácia e Efeito Inflacionário Permanente no Platô de Juros Altos:} Quando a taxa Selic opera em patamares moderados ($\le 11{,}27\%$ a.a.), um aperto monetário reduz a inflação acumulada em $-0{,}4852$ p.p. ao final de 24 meses ($p = 0{,}0064$). Porém, \textbf{quando o Banco Central mantém a Selic estacionada em um platô elevado ($> 11{,}27\%$ a.a.), elevações adicionais ou a insistência no aperto monetário jamais reduzem a inflação acumulada ao longo de 24 meses}. Ao contrário, a resposta acumulada do IPCA de preços livres permanece positiva em todos os horizontes, atingindo $+0{,}3735$ p.p. em 6 meses ($p = 0{,}0007$), $+0{,}3931$ p.p. em 9 meses ($p = 0{,}0109$) e encerrando o segundo ano ainda em $+0{,}2912$ p.p.
-    \item \textbf{A Redução da Selic como Instrumento de Controle Inflacionário:} Conforme ilustrado no Painel (b) da Figura \ref{fig:regime_alto}, partir de um platô de juros excessivos e promover uma redução da Selic ($\Delta \text{Shock}_t^{Selic} < 0$) gera uma \textbf{queda imediata e persistente da inflação acumulada} ($-0{,}1692$ p.p. em 3 meses, $-0{,}3735$ p.p. em 6 meses e $-0{,}3931$ p.p. em 9 meses). Em consonância com a síntese de \citet{resende2026euacuso} e \citet{cochrane2026reasons}, a elevada participação das LFTs na dívida brasileira garante que o corte de juros reduza de imediato o déficit nominal sem elevar o valor presente da dívida pública, desarmando tanto a pressão fiscal-expectacional quanto o repasse de custos financeiros às firmas.
+    \item \textbf{Contraste entre o Regime Moderado e o Platô de Juros Altos ($\hat{\beta}_{alto}^h$ vs. $\hat{\beta}_{mod}^h$):} Quando a Selic opera em regime moderado ($\le 11{,}27\%$ a.a.), um choque de aperto monetário não gera pressão inflacionária estatisticamente significativa no curto prazo e produz uma \textbf{redução expressiva e altamente significativa da inflação acumulada em 24 meses ($\hat{\beta}_{mod}^{24} = -1{,}922$ p.p., $p = 0{,}009$)}. Em contrapartida, quando a Selic já se encontra no Platô Alto ($> 11{,}27\%$ a.a.), o choque associa-se a uma \textbf{elevação estatisticamente significativa da inflação acumulada em $h = 3$ ($+0{,}782$ p.p., $p = 0{,}035$) e em $h = 6$ ($+1{,}485$ p.p., $p = 0{,}011$)}, e o efeito em $h = 24$ ($-0{,}819$ p.p., $p = 0{,}278$) não é estatisticamente diferente de zero. Cabe registrar, contudo, que o teste de Wald ponto a ponto não rejeita a igualdade $\beta_{alto}^h = \beta_{mod}^h$ aos níveis convencionais ($p = 0{,}124$ em $h=3$), devido à maior variância amostral dentro de cada sub-regime.
+    \item \textbf{Significância Robusta do Parâmetro de Nível do Platô Alto ($\hat{\gamma}^h$):} Respondendo diretamente ao núcleo da tese de \citet{resende2026euacuso} — que diz respeito à permanência do \textbf{nível} da Selic em patamar elevado —, o coeficiente $\hat{\gamma}^h$ é positivo e estatisticamente significativo em $h = 6$ ($+0{,}770$ p.p., $p = 0{,}036$), $h = 9$ ($+1{,}341$ p.p., $p = 0{,}007$), \textbf{$h = 12$ ($+1{,}638$ p.p., $p = 0{,}002$)} e $h = 18$ ($+1{,}612$ p.p., $p = 0{,}021$). Mesmo controlando por 6 defasagens da própria inflação, do câmbio, das commodities e da atividade, estar no regime de juros persistentemente altos prevê uma inflação acumulada $1{,}64$ p.p. superior um ano à frente.
+    \item \textbf{Decomposição Assimétrica ($\hat{\beta}_{alto}^{+,h}$ vs. $\hat{\beta}_{alto}^{-,h}$):} Ao separar altas e cortes no Platô Alto sem impor simetria, verifica-se que o coeficiente positivo de curto prazo no IPCA Itens Livres (SGS 11428) é impulsionado sobretudo pelos episódios de \textbf{corte ($\hat{\beta}_{alto}^{-,3} = +1{,}344, p = 0{,}058$; $\hat{\beta}_{alto}^{-,6} = +2{,}140, p = 0{,}027$)} — isto é, reduções não antecipadas de $-1{,}00$ p.p. na Selic a partir do platô alto foram seguidas de uma queda média de \textbf{$-1{,}34$ p.p. (em 3 meses) e $-2{,}14$ p.p. (em 6 meses)} na inflação acumulada (curva verde do Painel b da Figura \ref{fig:regime_alto}), enquanto em horizontes mais longos ($h \ge 12$) as estimativas tornam-se imprecisas ($p > 0{,}14$).
 \end{enumerate}
 
-\section{Implicações para a Política Econômica e Proposta Institucional}
+\subsection{Bateria de Testes de Robustez: Expectativas Focus 12m, Juro Real \textit{Ex Ante}, IPCA Cheio e Limiares Alternativos}
 
-A convergência entre a formalização teórica e a evidência econométrica de 2005 a 2026 permite extrair três diretrizes fundamentais para enriquecer o debate contemporâneo sobre a política monetária brasileira:
+Para testar se os resultados da Tabela \ref{tab:regime_alto} sobrevivem à inclusão de informação prospectiva do Banco Central e do mercado \citep{nakamura2018high, sims1992interpreting}, a definições menos endógenas do regime e ao controle de quebras pandêmicas/sazonais, a Tabela \ref{tab:robustez} reporta seis especificações alternativas para os horizontes $h \in \{3, 6, 9, 12, 24\}$.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Bateria de Robustez das Projeções Locais Dependentes de Estado ($p$-valores HAC entre parênteses)}
+\label{tab:robustez}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccc}
+\toprule
+\textbf{Especificação de Robustez} & \textbf{Parâmetro} & \textbf{$h = 3$} & \textbf{$h = 6$} & \textbf{$h = 9$} & \textbf{$h = 12$} & \textbf{$h = 24$} \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{\textbf{1. Controle Expectativas Focus 12m}\\(VAR 7 var.: inclui $E_t[\pi_{t+12}]$ antes da Selic)}}
+ & $\hat{\beta}_{alto}^h$ ($p$) & $+0{,}483$ $(0{,}217)$ & $\mathbf{+1{,}376}$ $\mathbf{(0{,}020)}$ & $\mathbf{+1{,}130}$ $\mathbf{(0{,}091)}$ & $-0{,}030$ $(0{,}967)$ & $-0{,}274$ $(0{,}697)$ \\
+ & $\hat{\beta}_{mod}^h$ ($p$) & $-0{,}235$ $(0{,}587)$ & $+0{,}427$ $(0{,}398)$ & $+0{,}537$ $(0{,}356)$ & $+0{,}455$ $(0{,}445)$ & $\mathbf{-2{,}038}$ $\mathbf{(0{,}024)}$ \\
+ & $\hat{\gamma}^h$ ($p$) & $\mathbf{+0{,}423}$ $\mathbf{(0{,}017)}$ & $\mathbf{+0{,}899}$ $\mathbf{(0{,}008)}$ & $\mathbf{+1{,}421}$ $\mathbf{(0{,}003)}$ & $\mathbf{+1{,}699}$ $\mathbf{(0{,}002)}$ & $+0{,}943$ $(0{,}213)$ \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{\textbf{2. IPCA Cheio (SGS 433) + Focus 12m}\\(Inflação plena c/ controle PTAX e Focus)}}
+ & $\hat{\beta}_{alto}^h$ ($p$) & $+0{,}204$ $(0{,}490)$ & $\mathbf{+0{,}759}$ $\mathbf{(0{,}041)}$ & $\mathbf{+0{,}706}$ $\mathbf{(0{,}078)}$ & $-0{,}151$ $(0{,}759)$ & $+0{,}210$ $(0{,}644)$ \\
+ & $\hat{\beta}_{mod}^h$ ($p$) & $-0{,}102$ $(0{,}806)$ & $+0{,}441$ $(0{,}322)$ & $-0{,}046$ $(0{,}942)$ & $-0{,}286$ $(0{,}660)$ & $-1{,}250$ $(0{,}147)$ \\
+ & $\hat{\gamma}^h$ ($p$) & $\mathbf{+0{,}483}$ $\mathbf{(0{,}010)}$ & $\mathbf{+0{,}928}$ $\mathbf{(0{,}002)}$ & $\mathbf{+1{,}361}$ $\mathbf{(0{,}001)}$ & $\mathbf{+1{,}503}$ $\mathbf{(0{,}003)}$ & $+1{,}043$ $(0{,}169)$ \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{\textbf{3. Regime por Juro Real \textit{Ex Ante}}\\( $\text{Selic}_{t-1} - E_{t-1}[\pi_{t+12}] > 6{,}18\%$ a.a.)}}
+ & $\hat{\beta}_{alto}^h$ ($p$) & $\mathbf{+0{,}918}$ $\mathbf{(0{,}004)}$ & $\mathbf{+1{,}567}$ $\mathbf{(0{,}002)}$ & $+0{,}735$ $(0{,}186)$ & $-0{,}625$ $(0{,}342)$ & $+0{,}078$ $(0{,}924)$ \\
+ & $\hat{\beta}_{mod}^h$ ($p$) & $-0{,}602$ $(0{,}105)$ & $+0{,}164$ $(0{,}727)$ & $+0{,}524$ $(0{,}326)$ & $+0{,}397$ $(0{,}529)$ & $\mathbf{-1{,}967}$ $\mathbf{(0{,}035)}$ \\
+ & $\hat{\gamma}^h$ ($p$) & $\mathbf{+0{,}395}$ $\mathbf{(0{,}035)}$ & $+0{,}615$ $(0{,}105)$ & $+0{,}819$ $(0{,}133)$ & $+0{,}982$ $(0{,}123)$ & $+0{,}436$ $(0{,}560)$ \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{\textbf{4. Limiar Alternativo: Selic $> 10{,}0\%$ a.a.}\\(Platô de dois dígitos)}}
+ & $\hat{\beta}_{alto}^h$ ($p$) & $\mathbf{+0{,}730}$ $\mathbf{(0{,}009)}$ & $\mathbf{+1{,}223}$ $\mathbf{(0{,}006)}$ & $+0{,}573$ $(0{,}311)$ & $-0{,}820$ $(0{,}216)$ & $\mathbf{-1{,}334}$ $\mathbf{(0{,}050)}$ \\
+ & $\hat{\beta}_{mod}^h$ ($p$) & $-0{,}587$ $(0{,}205)$ & $+0{,}371$ $(0{,}475)$ & $+0{,}663$ $(0{,}194)$ & $+0{,}731$ $(0{,}150)$ & $\mathbf{-1{,}838}$ $\mathbf{(0{,}030)}$ \\
+ & $\hat{\gamma}^h$ ($p$) & $+0{,}448$ $(0{,}113)$ & $\mathbf{+0{,}847}$ $\mathbf{(0{,}061)}$ & $\mathbf{+1{,}369}$ $\mathbf{(0{,}005)}$ & $\mathbf{+1{,}959}$ $\mathbf{(0{,}001)}$ & $\mathbf{+1{,}764}$ $\mathbf{(0{,}008)}$ \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{\textbf{5. Limiar Alternativo: Selic $> 12{,}0\%$ a.a.}\\(Platô de juros extremos)}}
+ & $\hat{\beta}_{alto}^h$ ($p$) & $\mathbf{+0{,}794}$ $\mathbf{(0{,}077)}$ & $\mathbf{+1{,}581}$ $\mathbf{(0{,}005)}$ & $\mathbf{+1{,}276}$ $\mathbf{(0{,}026)}$ & $+0{,}183$ $(0{,}754)$ & $+0{,}212$ $(0{,}764)$ \\
+ & $\hat{\beta}_{mod}^h$ ($p$) & $-0{,}045$ $(0{,}907)$ & $+0{,}668$ $(0{,}093)$ & $+0{,}545$ $(0{,}248)$ & $+0{,}106$ $(0{,}847)$ & $\mathbf{-2{,}147}$ $\mathbf{(0{,}008)}$ \\
+ & $\hat{\gamma}^h$ ($p$) & $\mathbf{+0{,}431}$ $\mathbf{(0{,}018)}$ & $\mathbf{+1{,}010}$ $\mathbf{(0{,}002)}$ & $\mathbf{+1{,}596}$ $\mathbf{(<0{,}001)}$ & $\mathbf{+1{,}784}$ $\mathbf{(<0{,}001)}$ & $\mathbf{+1{,}347}$ $\mathbf{(0{,}061)}$ \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{\textbf{6. Dummies Sazonais + COVID-19}\\(11 dummies mensais + 2020:03--2021:06)}}
+ & $\hat{\beta}_{alto}^h$ ($p$) & $+0{,}337$ $(0{,}331)$ & $+0{,}487$ $(0{,}353)$ & $+0{,}281$ $(0{,}694)$ & $-0{,}477$ $(0{,}566)$ & $-0{,}282$ $(0{,}718)$ \\
+ & $\hat{\beta}_{mod}^h$ ($p$) & $-0{,}184$ $(0{,}585)$ & $+0{,}596$ $(0{,}125)$ & $+0{,}620$ $(0{,}207)$ & $+0{,}632$ $(0{,}271)$ & $\mathbf{-0{,}971}$ $\mathbf{(0{,}061)}$ \\
+ & $\hat{\gamma}^h$ ($p$) & $+0{,}282$ $(0{,}102)$ & $\mathbf{+0{,}604}$ $\mathbf{(0{,}068)}$ & $\mathbf{+1{,}137}$ $\mathbf{(0{,}010)}$ & $\mathbf{+1{,}520}$ $\mathbf{(0{,}004)}$ & $+0{,}536$ $(0{,}421)$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+Os testes da Tabela \ref{tab:robustez} confirmam que: (i) mesmo quando o choque monetário é ortogonalizado às expectativas Focus de 12 meses (Especificação 1), o choque no Platô Alto continua associado a um aumento estatisticamente significativo de $+1{,}376$ p.p. em $h = 6$ ($p = 0{,}020$) e $+1{,}130$ p.p. em $h = 9$ ($p = 0{,}091$), enquanto no Regime Moderado o aperto reduz a inflação acumulada em $-2{,}038$ p.p. em $h = 24$ ($p = 0{,}024$); (ii) quando definimos o regime pelo \textbf{juro real \textit{ex ante} ($\text{Selic}_{t-1} - E_{t-1}[\pi_{t+12}] > 6{,}18\%$ a.a., Especificação 3)}, que expurga a inflação esperada do indicador de estado, a significância em $h = 3$ ($+0{,}918$ p.p., $p = 0{,}004$) e $h = 6$ ($+1{,}567$ p.p., $p = 0{,}002$) torna-se ainda mais forte; e (iii) o parâmetro de nível $\hat{\gamma}^h$ permanece positivo e altamente significativo ($p \le 0{,}01$) em $h = 9$ e $h = 12$ em praticamente todas as especificações, inclusive com dummies sazonais e de COVID-19.
+
+\section{Discussão de Política Econômica, Viabilidade Institucional e Limitações}
+
+\subsection{Discriminação entre Interpretações Teóricas: Lara Resende vs. Blanchard (2004)}
+
+Tanto a hipótese de \citet{blanchard2004fiscal} (dominância fiscal via prêmio de risco e câmbio) quanto a de \citet{resende2026euacuso} (canal de custos, dinâmica endógena das LFTs e efeito neo-fisheriano) são compatíveis com a perda de potência desinflacionária da Selic no platô alto. Contudo, dois elementos qualificam as duas leituras no Brasil contemporâneo:
+\begin{enumerate}
+    \item \textbf{Controle Direto pelo Canal Cambial:} Em nossas estimações (Tabelas \ref{tab:irf_summary}, \ref{tab:regime_alto} e \ref{tab:robustez}), o efeito positivo de $\hat{\beta}_{alto}^h$ (em $h=3, 6$) e de $\hat{\gamma}^h$ (em $h=6, 9, 12, 18$) \textbf{sobrevive integralmente ao controle pelo câmbio nominal ($\ln(PTAX_t)$)}, indicando que a pressão inflacionária no platô de juros altos não se reduz ao canal de depreciação cambial de \citet{blanchard2004fiscal}, operando também domesticamente via custos e indexação financeira.
+    \item \textbf{Origem do Déficit Nominal:} Diferentemente de 2002--2003 (quando a dívida pública tinha forte indexação cambial e as reservas internacionais líquidas eram inferiores a US\$ 20 bilhões), em 2025--2026 o setor público detém mais de US\$ 350 bilhões em reservas cambiais e um déficit primário próximo de zero ($-0{,}4\%$ a $-0{,}7\%$ do PIB), sendo a expansão da relação dívida/PIB impulsionada pelo diferencial $\bar{i}_t - g_{nom, t} > +5{,}5\%$ a.a. sobre uma dívida doméstica majoritariamente pós-fixada em Selic ($\lambda \approx 0{,}50$).
+\end{enumerate}
+
+\subsection{Governança Institucional (LC 179/2021) e Cláusulas de Escape}
+
+Para superar a armadilha de juros elevados, \citet{resende2026euacuso} propõe uma coordenação plurianual (4 a 5 anos) no âmbito de um \textbf{Conselho Fiscal e Monetário Nacional (CFMN)}, estabelecendo um intervalo referencial para a Selic entre a meta de inflação ($3{,}0\%$ a.a.) e a taxa de crescimento nominal potencial do PIB ($\approx 5{,}5\%$ a.a., acrescida de um spread transitório de $2{,}0\%$ durante um período de convergência de 12 meses até $7{,}5\%$ a.a.). À luz da evidência econométrica deste artigo e da comparação entre os ciclos de \textbf{2011--2013} e \textbf{2016--2018}, essa proposta normativa requer três salvaguardas institucionais estritas:
+\begin{enumerate}
+    \item \textbf{Compatibilização Legal (CMN e Lei Complementar nº 179/2021):} No ordenamento jurídico vigente, compete ao Conselho Monetário Nacional (CMN) fixar a meta de inflação e ao Banco Central do Brasil, dotado de autonomia operacional pela LC 179/2021, calibrar a Selic. Uma diretriz de convergência da taxa de juros exigiria ou reformulação legislativa do mandato do CMN/BCB ou um protocolo formal de metas conjuntas de resultado nominal e inflação entre o Tesouro Nacional e o BCB.
+    \item \textbf{Cláusulas de Contingência (\textit{Escape Clauses}) e Risco Cambial:} Como alerta a crítica de Lucas, uma redução abrupta da Selic de $\sim 14\%$ para $7{,}5\%$ a.a. sem respaldo nas expectativas de mercado poderia induzir reversão de fluxos de portfólio e depreciação cambial, reativando o repasse cambial $\psi \Delta e_t$ na Equação (\ref{eq:phillips}) (como observado em 2012--2013). Portanto, qualquer regra de transição gradual da Selic deve ser condicionada a \textbf{cláusulas de escape explícitas}: a convergência da taxa básica só prossegue enquanto (i) o resultado primário cumprir a meta de equilíbrio/superávit estrutural, (ii) as expectativas de inflação de longo prazo permanecerem ancoradas dentro do intervalo de tolerância e (iii) a volatilidade cambial puder ser absorvida por intervenções pontuais sem perda continuada do estoque de reservas internacionais.
+    \item \textbf{Efeitos Distributivos sobre Poupadores e Fundos Previdenciários:} Embora a redução da Selic comprima a transferência de juros sobre o estoque de LFTs e alivie expressivamente o comprometimento de renda das famílias endividadas ($J_t^{fam}$), deve-se considerar que títulos pós-fixados também compõem a carteira de fundos de pensão, previdência complementar e poupadores de classe média via fundos DI, exigindo transição previsível que permita a realocação gradual da poupança doméstica para instrumentos de financiamento privado de longo prazo \citep{arida2005credit}.
+\end{enumerate}
+
+\subsection{Limitações Metodológicas e Declaração de Reprodutibilidade}
 
 \begin{enumerate}
-    \item \textbf{Superação do Diagnóstico Fiscal Equivocado:} O desequilíbrio fiscal brasileiro não reside no resultado primário (próximo da neutralidade em $-0{,}4\%$ do PIB), mas no serviço da dívida de mais de $10\%$ do PIB gerado por uma Selic fixada acima do dobro da taxa de crescimento nominal da economia. Não existe ajuste fiscal primário politicamente ou economicamente capaz de estancar o crescimento da relação dívida/PIB sem a redução da taxa básica de juros para as proximidades do crescimento nominal do PIB.
-    \item \textbf{A Dívida Curta (LFTs) e as Reservas Cambiais como Ativos Estratégicos da Desinflação:} Longe de ser uma anomalia que exige juros mais altos, a curtíssima \textit{duration} da dívida atrelada à Selic (LFTs) permite que a redução da taxa básica gere alívio fiscal quase instantâneo (cerca de $4\%$ do PIB ao ano na convergência de $\sim 13\%$ para $7{,}5\%$ a.a.) sem inflar o valor presente da dívida. Simultaneamente, o estoque superior a US\$ 350 bilhões em reservas internacionais oferece ao Banco Central capacidade plena para suavizar movimentos especulativos de \textit{carry-trade} no câmbio durante a transição.
-    \item \textbf{Coordenação Institucional via Conselho Fiscal e Monetário Nacional (CFMN):} Conforme proposto por \citet{resende2026euacuso}, a superação da armadilha de juros altos requer substituir a dissociação entre as políticas monetária e fiscal por uma coordenação transparente e plurianual (4 a 5 anos). Sob a governança de um CFMN, as metas de inflação seriam anunciadas em conjunto com um intervalo formal para a taxa Selic:
-    \begin{itemize}
-        \item \textbf{Piso do intervalo:} A meta de inflação ($3{,}0\%$ a.a.);
-        \item \textbf{Teto do intervalo:} A taxa de crescimento nominal potencial do PIB (meta de inflação de $3{,}0\%$ somada ao crescimento real potencial de $\sim 2{,}5\%$, situando-se em torno de \textbf{$5{,}5\%$ a.a.});
-        \item \textbf{Regra de Transição:} Redução gradual da Selic ao longo de 12 meses até a taxa potencial acrescida de um spread transitório de segurança de $2{,}0\%$ ($\approx 7{,}5\%$ a.a.), eliminando progressivamente o spread à medida que a queda do déficit nominal consolide a credibilidade fiscal de longo prazo e alivie o comprometimento de renda das famílias.
-    \end{itemize}
+    \item \textbf{Identificação e Endogeneidade do Regime:} Embora o uso do indicador defasado $I_{t-1}$, da série de expectativas Focus 12 meses ($E_t[\pi_{t+12}]$) e do juro real \textit{ex ante} reduza substancialmente o viés de simultaneidade e o efeito-informação \citep{nakamura2018high}, a identificação baseia-se em restrições recursivas de Cholesky sobre dados mensais. Extensões futuras devem empregar instrumentos externos de alta frequência (surpresas nos contratos futuros de DI em janelas intradiárias em torno das decisões do Copom).
+    \item \textbf{Inferência em Horizontes Múltiplos e Tamanho Amostral:} A amostra de 258 meses contém quatro grandes ciclos de aperto monetário no platô alto, o que limita o número efetivo de episódios independentes e amplia os erros-padrão HAC em horizontes longos ($h \ge 18$).
+    \item \textbf{Disponibilidade de Dados e Código:} Todos os dados brutos extraídos das APIs do Banco Central do Brasil (\texttt{data/base\_macro\_bcb.csv}), os scripts de estimação em Python 3.12 (\texttt{statsmodels}, \texttt{pandas}, \texttt{numpy}) e os logs numéricos encontram-se integralmente disponíveis no repositório público \url{https://github.com/bonvenuto/artigo-politica-monetaria}.
 \end{enumerate}
 
 \section{Conclusão}
 
-Ao transpor a formulação teórica de André Lara Resende — em especial sua síntese em \textit{``Eu Acuso: uma proposta para eliminar os juros absurdos''} \citep{resende2026euacuso} — para um arcabouço formal e econométrico com 258 meses de dados oficiais (2005--2026), este estudo demonstrou que a manutenção da taxa Selic em platôs extraordinariamente elevados opera na contramão da estabilidade macroeconômica. Com uma Curva de Phillips empiricamente horizontal (na qual o hiato de atividade explica menos de $7{,}4\%$ da variância inflacionária) e uma dívida pública majoritariamente indexada à Selic diária (LFTs), juros persistentemente altos alimentam a inflação pelo canal de custos e pela deterioração endógena da relação dívida/PIB, além de comprimirem severamente a renda disponível das famílias. Em contrapartida, as Projeções Locais Dependentes de Estado comprovam que reduzir a Selic a partir de patamares disfuncionais exerce efeito diretamente desinflacionário, reduzindo de imediato a conta de juros do setor público sem elevar o valor presente da dívida e restituindo a solvência financeira do Estado e das famílias brasileiras.
+Este estudo formalizou analiticamente e submeteu a testes econométricos as proposições de \citet{resende2017juros, resende2020consenso, resende2026euacuso} sobre a transmissão da política monetária no Brasil entre 2005 e 2026. Os resultados empíricos sustentam três conclusões principais, devidamente calibradas pela evidência estatística:
+\begin{enumerate}
+    \item \textbf{Elevação Robusta dos Encargos de Juros das Famílias:} Um choque positivo de $+1{,}00$ p.p. na taxa Selic eleva de maneira estatisticamente significativa e persistente o comprometimento da renda das famílias com o pagamento de juros bancários (SGS 29033) tanto no SVAR quanto nas Projeções Locais ($+0{,}298$ p.p. em 6 meses, $p = 0{,}003$; $+0{,}459$ p.p. em 12 meses, $p = 0{,}001$; $+0{,}593$ p.p. em 18 meses, $p < 0{,}001$), com a Selic explicando até $16{,}2\%$ da variância do erro de previsão dessa variável.
+    \item \textbf{Assimetria de Regime na Eficácia Desinflacionária da Selic:} Enquanto no regime de juros moderados ($\le 11{,}27\%$ a.a.) o aperto monetário cumpre seu papel convencional e reduz a inflação acumulada de itens livres (SGS 11428) em $-1{,}922$ p.p. ao final de 24 meses ($p = 0{,}009$), nos períodos em que a Selic já se encontra estacionada em um platô elevado ($> 11{,}27\%$ a.a., ou juro real \textit{ex ante} $> 6{,}18\%$ a.a.) choques adicionais de aperto associam-se a acréscimos estatisticamente significativos na inflação acumulada de 3 a 6 meses ($+0{,}782$ p.p. a $+1{,}485$ p.p., $p < 0{,}05$) e não apresentam efeito desinflacionário significativo em 24 meses.
+    \item \textbf{Efeito de Nível do Platô Alto e Condições para a Desinflação via Redução de Juros:} O parâmetro de nível do regime de juros altos ($\hat{\gamma}^h$) é positivo e significativo entre 6 e 18 meses ($+1{,}638$ p.p. em $h = 12$, $p = 0{,}002$), resistindo ao controle por expectativas Focus 12 meses, câmbio PTAX e dummies de COVID-19. Ademais, a decomposição assimétrica indica que cortes não antecipados da Selic a partir do platô alto associaram-se historicamente a recuos na inflação acumulada nos dois trimestres seguintes ($-1{,}34$ p.p. em $h=3$ e $-2{,}14$ p.p. em $h=6$). Em consonância com a estrutura de \textit{duration} zero das LFTs no Brasil, esses achados indicam que a redução gradual e coordenada da Selic — desde que amparada por equilíbrio primário e estabilidade cambial — alivia simultaneamente o déficit nominal público e a fragilidade financeira das famílias sem comprometer o controle inflacionário.
+\end{enumerate}
 
 \newpage
 \bibliographystyle{apalike}

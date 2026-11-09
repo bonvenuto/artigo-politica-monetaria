@@ -1,9 +1,37 @@
-=== RESULTADOS DA ESTIMAÇÃO DO SVAR (LARA RESENDE) ===
-Amostra: 2005-03 a 2026-08 (N = 258)
-Defasagens selecionadas (AIC): 6
+=== RESUMO ECONOMÉTRICO DO SVAR(6) REVISADO (2005-2026, T = 258) ===
+Vetor Endógeno (Cholesky): [l_icbr, l_ptax, l_ibc, ipca_livres (SGS 11428), selic, juros_divida (SGS 29033)]
+Escala de 1 d.p. do choque na Selic: 0.1731 p.p. (IRFs normalizadas para +1,00 p.p. de Selic em h=0)
 
-RESPOSTA AO CHOQUE DE SELIC:
-- ipca_livres: h=0: 0.0000 | h=6: 0.2109 | h=12: -0.1048 | h=24: -0.1828
-- servico_divida: h=0: 0.0000 | h=6: 0.4590 | h=12: 0.6645 | h=24: 0.0606
-- l_ibc: h=0: 0.0000 | h=6: 0.0017 | h=12: -0.0072 | h=24: -0.0046
-- selic: h=0: 1.0000 | h=6: 3.4957 | h=12: 3.7403 | h=24: 1.5028
+--- 1. Testes ADF ---
+ADF l_icbr        : Estatística = +0.148, p-valor = 0.9692, Lags = 1
+ADF l_ptax        : Estatística = -0.390, p-valor = 0.9118, Lags = 0
+ADF l_ibc         : Estatística = -2.027, p-valor = 0.2748, Lags = 2
+ADF ipca_livres   : Estatística = -2.992, p-valor = 0.0357, Lags = 12
+ADF selic         : Estatística = -3.351, p-valor = 0.0127, Lags = 6
+ADF juros_divida  : Estatística = -0.434, p-valor = 0.9043, Lags = 16
+
+--- 2. Respostas ao Impulso Normalizadas (+1,00 p.p. na Selic em h=0) ---
+Horizonte | IPCA Livres (11428) [EP] | Juros Dívida (29033) [EP] | Log IBC-Br [EP] | Câmbio Log PTAX | Selic (% a.a.)
+h =  0    |  +0.0000 [0.0000] |   -0.0321 [0.0300] | +0.0000 [0.0000] |         +0.0000 |    +1.0000
+h =  3    |  +0.0857 [0.1060] |   +0.1571 [0.0805] | -0.0019 [0.0076] |         +0.0166 |    +2.4305
+h =  6    |  +0.1883 [0.0930] |   +0.2732 [0.1068] | -0.0111 [0.0097] |         +0.0198 |    +3.1166
+h =  9    |  +0.0510 [0.0802] |   +0.3628 [0.1274] | -0.0160 [0.0103] |         -0.0024 |    +3.1352
+h = 12    |  -0.1339 [0.0600] |   +0.3817 [0.1416] | -0.0190 [0.0107] |         -0.0247 |    +2.7771
+h = 18    |  -0.1020 [0.0467] |   +0.2851 [0.1587] | -0.0146 [0.0111] |         -0.0514 |    +1.5051
+h = 24    |  -0.0956 [0.0439] |   +0.1115 [0.1625] | -0.0111 [0.0111] |         -0.0641 |    +0.2788
+
+--- 3. FEVD do IPCA Itens Livres (SGS 11428) (%) ---
+Horizonte | IC-Br | PTAX | IBC-Br | IPCA Livres | Selic | Juros Dívida
+h =  1    |  0.35 | 0.50 |   0.04 |       99.12 |  0.00 |         0.00
+h =  6    | 12.61 | 4.17 |   2.28 |       75.08 |  4.61 |         1.25
+h = 12    | 12.02 | 4.83 |   2.23 |       72.49 |  7.06 |         1.37
+h = 18    | 11.68 | 5.25 |   2.23 |       69.71 |  9.38 |         1.75
+h = 24    | 11.85 | 5.34 |   2.43 |       67.61 | 10.44 |         2.33
+
+--- 4. FEVD do Comprometimento com Juros (SGS 29033) (%) ---
+Horizonte | IC-Br | PTAX | IBC-Br | IPCA Livres | Selic | Juros Dívida
+h =  1    |  0.21 | 3.53 |   0.65 |        0.25 |  0.43 |        94.92
+h =  6    |  0.33 | 2.66 |   5.90 |        1.16 |  5.64 |        84.31
+h = 12    |  4.05 | 3.66 |  11.27 |        0.96 | 13.68 |        66.38
+h = 18    |  9.64 | 7.17 |  14.44 |        0.79 | 16.18 |        51.78
+h = 24    | 15.08 | 10.06 |  16.33 |        0.71 | 15.16 |        42.66

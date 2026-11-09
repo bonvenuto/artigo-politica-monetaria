@@ -1,0 +1,12 @@
+=== Previsibilidade do choque ===
+Ljung-Box do choque: lag 6: p=0.850, lag 12: p=0.947, lag 24: p=0.354
+choque ~ lags 7-12 do sistema: Wald p=0.0000
+choque ~ dummies sazonais: Wald p=0.1431
+choque ~ Focus t-1: Wald p=0.6035
+R2 da regressao do choque em lags 7-12 + sazonais + Focus: 0.157
+
+=== LP estado totalmente interagida (controles x estado) ===
+h= 6 (k=98, N=246) | alto +0.23 (p=0.673) | mod +0.31 (p=0.425) | Wald p=0.899
+h=12 (k=98, N=240) | alto +0.39 (p=0.653) | mod +0.45 (p=0.419) | Wald p=0.955
+h=18 (k=98, N=234) | alto +1.03 (p=0.165) | mod -0.09 (p=0.889) | Wald p=0.247
+h=24 (k=98, N=228) | alto +1.76 (p=0.029) | mod -2.27 (p=0.005) | Wald p=0.001

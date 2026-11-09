@@ -1,0 +1,134 @@
+=== INFERÊNCIA SOBRE H1 ===
+Limiar 11.27% a.a.; d.p. do choque 0.1560; base: VAR(6) e LP com sazonais, IC-Br em US$
+
+=== A. DIFERENÇA beta_alto - beta_mod (inflação acumulada de itens livres; choque de +1 p.p.) ===
+MDE = (z_0,975 + z_0,80) x EP = 2.80 x EP (NW); MDE EWC = (t_0,975 + t_0,80; nu) x EP EWC. d.p. do choque = 0.1560
+h= 3 | dif +0.512 | EP NW 0.522 | IC95 NW [-0.51; +1.54] p=0.327 | MDE80 1.46 p.p. (0.228 por 1 d.p.) | IC95 EWC [-0.26; +1.28] p=0.176 | MDE80 EWC 1.08
+      EP EWC 0.361 (nu=15) | MDE80 EWC 1.08 p.p. = 0.169 por 1 d.p. | MDE80 NW 0.228 por 1 d.p.
+      Limites unilaterais de 95% da diferença (p.p. por 1 d.p. do choque): NW [-0.054; +0.214] | EWC [-0.019; +0.179]  (inferior: dif - 1,645 EP; superior: dif + 1,645 EP)
+h= 6 | dif +0.039 | EP NW 0.671 | IC95 NW [-1.28; +1.36] p=0.954 | MDE80 1.88 p.p. (0.294 por 1 d.p.) | IC95 EWC [-1.52; +1.60] p=0.958 | MDE80 EWC 2.19
+      EP EWC 0.730 (nu=15) | MDE80 EWC 2.19 p.p. = 0.342 por 1 d.p. | MDE80 NW 0.294 por 1 d.p.
+      Limites unilaterais de 95% da diferença (p.p. por 1 d.p. do choque): NW [-0.166; +0.178] | EWC [-0.194; +0.206]  (inferior: dif - 1,645 EP; superior: dif + 1,645 EP)
+h= 9 | dif -0.148 | EP NW 0.844 | IC95 NW [-1.80; +1.51] p=0.861 | MDE80 2.36 p.p. (0.369 por 1 d.p.) | IC95 EWC [-2.18; +1.88] p=0.879 | MDE80 EWC 2.85
+      EP EWC 0.951 (nu=15) | MDE80 EWC 2.85 p.p. = 0.445 por 1 d.p. | MDE80 NW 0.369 por 1 d.p.
+      Limites unilaterais de 95% da diferença (p.p. por 1 d.p. do choque): NW [-0.240; +0.193] | EWC [-0.283; +0.237]  (inferior: dif - 1,645 EP; superior: dif + 1,645 EP)
+h=12 | dif -1.054 | EP NW 0.910 | IC95 NW [-2.84; +0.73] p=0.247 | MDE80 2.55 p.p. (0.398 por 1 d.p.) | IC95 EWC [-2.97; +0.87] p=0.260 | MDE80 EWC 2.70
+      EP EWC 0.901 (nu=15) | MDE80 EWC 2.70 p.p. = 0.421 por 1 d.p. | MDE80 NW 0.398 por 1 d.p.
+      Limites unilaterais de 95% da diferença (p.p. por 1 d.p. do choque): NW [-0.398; +0.069] | EWC [-0.411; +0.082]  (inferior: dif - 1,645 EP; superior: dif + 1,645 EP)
+h=18 | dif -0.276 | EP NW 0.886 | IC95 NW [-2.01; +1.46] p=0.755 | MDE80 2.48 p.p. (0.387 por 1 d.p.) | IC95 EWC [-2.21; +1.66] p=0.766 | MDE80 EWC 2.73
+      EP EWC 0.909 (nu=15) | MDE80 EWC 2.73 p.p. = 0.425 por 1 d.p. | MDE80 NW 0.387 por 1 d.p.
+      Limites unilaterais de 95% da diferença (p.p. por 1 d.p. do choque): NW [-0.271; +0.184] | EWC [-0.292; +0.206]  (inferior: dif - 1,645 EP; superior: dif + 1,645 EP)
+h=24 | dif +1.598 | EP NW 0.960 | IC95 NW [-0.28; +3.48] p=0.096 | MDE80 2.69 p.p. (0.420 por 1 d.p.) | IC95 EWC [-0.77; +3.96] p=0.169 | MDE80 EWC 3.32
+      EP EWC 1.103 (nu=14) | MDE80 EWC 3.32 p.p. = 0.518 por 1 d.p. | MDE80 NW 0.420 por 1 d.p.
+      Limites unilaterais de 95% da diferença (p.p. por 1 d.p. do choque): NW [+0.003; +0.496] | EWC [-0.054; +0.552]  (inferior: dif - 1,645 EP; superior: dif + 1,645 EP)
+
+=== B. LP TOTALMENTE INTERAGIDA (todos os controles e sazonais interagidos com o estado) ===
+h= 3 (N=249, regressores=98) | alto -0.303 (p=0.509) | mod -0.374 (p=0.175) | Wald NW p=0.894 | EWC p=0.889
+h= 6 (N=246, regressores=98) | alto +0.059 (p=0.912) | mod +0.388 (p=0.335) | Wald NW p=0.619 | EWC p=0.633
+h= 9 (N=243, regressores=98) | alto +0.314 (p=0.619) | mod +0.302 (p=0.532) | Wald NW p=0.987 | EWC p=0.988
+h=12 (N=240, regressores=98) | alto +0.352 (p=0.659) | mod +0.484 (p=0.412) | Wald NW p=0.892 | EWC p=0.896
+h=18 (N=234, regressores=98) | alto +0.995 (p=0.181) | mod -0.088 (p=0.904) | Wald NW p=0.275 | EWC p=0.299
+h=24 (N=228, regressores=98) | alto +1.692 (p=0.051) | mod -2.460 (p=0.003) | Wald NW p=0.001 | EWC p=0.009
+
+=== C. SENSIBILIDADE AO NÚMERO DE DEFASAGENS (VAR do choque e LP com o mesmo p; com sazonais) ===
+p= 2 | beta_mod24 -1.29 (NW 0.136; EWC 0.147) | beta_alto24 -1.43 (0.162) | Wald24 0.905 | gamma12 +1.58 (NW 0.002; EWC 0.013) | Wald12 0.160 | J^fam h12 +0.397 (NW 0.004; EWC 0.012)
+p= 4 | beta_mod24 -1.85 (NW 0.121; EWC 0.122) | beta_alto24 -1.01 (0.303) | Wald24 0.540 | gamma12 +1.68 (NW 0.001; EWC 0.009) | Wald12 0.160 | J^fam h12 +0.466 (NW 0.009; EWC 0.015)
+p= 6 | beta_mod24 -2.20 (NW 0.012; EWC 0.025) | beta_alto24 -0.60 (0.346) | Wald24 0.096 | gamma12 +1.61 (NW 0.003; EWC 0.013) | Wald12 0.247 | J^fam h12 +0.431 (NW 0.006; EWC 0.015)
+p= 9 | beta_mod24 -1.73 (NW 0.045; EWC 0.063) | beta_alto24 -1.29 (0.068) | Wald24 0.649 | gamma12 +1.51 (NW 0.007; EWC 0.020) | Wald12 0.168 | J^fam h12 +0.455 (NW 0.007; EWC 0.022)
+p=12 | beta_mod24 -0.14 (NW 0.908; EWC 0.908) | beta_alto24 -2.18 (0.029) | Wald24 0.197 | gamma12 +1.82 (NW 0.002; EWC 0.010) | Wald12 0.098 | J^fam h12 +0.486 (NW 0.004; EWC 0.014)
+
+=== E. PRIMEIRO ESTÁGIO: SELIC POR REGIME (LP de estado com sazonais) ===
+h= 0 Selic | alto +1.024 (0.011) | mod +0.984 (0.009) | Wald p=0.009
+h= 3 Selic | alto +2.214 (0.268) | mod +2.385 (0.285) | Wald p=0.677
+h= 6 Selic | alto +2.353 (0.616) | mod +2.975 (0.459) | Wald p=0.450
+h= 9 Selic | alto +2.275 (0.972) | mod +2.993 (0.587) | Wald p=0.539
+h=12 Selic | alto +1.407 (1.251) | mod +2.543 (0.732) | Wald p=0.451
+h=18 Selic | alto +0.568 (1.355) | mod +0.890 (0.889) | Wald p=0.837
+h=24 Selic | alto +1.389 (0.905) | mod -1.403 (1.265) | Wald p=0.018
+Razão inflação acumulada / Selic acumulada (p.p. de inflação por p.p.-mês de Selic), IC 95% bootstrap de blocos (bloco 24, B=999):
+h=12: alto -0.580/+24.45 = -0.024 [-0.327; +0.044] | mod +0.474/+32.23 = +0.015 [-0.074; +0.070] | dif. das razões IC95 [-0.375; +0.069]
+h=24: alto -0.603/+34.41 = -0.018 [-0.869; +0.226] | mod -2.201/+36.46 = -0.060 [-0.856; +0.791] | dif. das razões IC95 [-1.749; +1.056]
+Placebo de impacto (h=0) das variáveis ordenadas antes da Selic, por regime:
+  ipca_livres : alto +0.098 (p=0.420) | mod -0.062 (p=0.603) | Wald conj. p=0.655
+  100 ln PTAX : alto -4.786 (p=0.129) | mod +3.190 (p=0.076) | Wald conj. p=0.079
+  100 ln IBC  : alto +0.629 (p=0.147) | mod -0.435 (p=0.435) | Wald conj. p=0.303
+  100 ln ICBr : alto +0.418 (p=0.804) | mod -0.279 (p=0.867) | Wald conj. p=0.961
+
+=== F. EPISÓDIOS DE PLATÔ (I_{t-1} = 1) ===
+2006-03 a 2009-10 (44 meses) | Selic média 12.36 (mín 8.65, máx 16.74) | IPCA livres 12m: início 3.86, fim 4.12, 12 meses após o fim 5.94
+2011-09 a 2012-04 (8 meses) | Selic média 10.77 (mín 9.35, máx 11.91) | IPCA livres 12m: início 7.82, fim 5.61, 12 meses após o fim 8.11
+2015-04 a 2017-10 (31 meses) | Selic média 12.88 (mín 8.01, máx 14.15) | IPCA livres 12m: início 6.65, fim 1.48, 12 meses após o fim 2.76
+2022-11 a 2024-09 (23 meses) | Selic média 12.27 (mín 10.40, máx 13.65) | IPCA livres 12m: início 9.63, fim 4.06, 12 meses após o fim 5.20
+2025-05 a 2026-08 (16 meses) | Selic média 14.67 (mín 13.94, máx 14.90) | IPCA livres 12m: início 5.48, fim 4.11, 12 meses após o fim nan
+N por regime e horizonte (LP de estado da Tabela 4):
+  h= 0: N=252, platô=122, moderado=130, última obs. 2026-08
+  h= 3: N=249, platô=119, moderado=130, última obs. 2026-05
+  h= 6: N=246, platô=116, moderado=130, última obs. 2026-02
+  h= 9: N=243, platô=113, moderado=130, última obs. 2025-11
+  h=12: N=240, platô=110, moderado=130, última obs. 2025-08
+  h=18: N=234, platô=106, moderado=128, última obs. 2025-02
+  h=24: N=228, platô=105, moderado=123, última obs. 2024-08
+
+=== H. PREVISIBILIDADE DO CHOQUE ===
+choque ~ defasagens 7-12 do sistema (36 restrições, N=246): F clássico = 0.95 (p=0.551); Wald HAC(6) p=0.0000; R2 = 0.141
+choque ~ 6 defasagens da expectativa Focus 12m: F = 0.95 (p=0.460)
+corr(choque, ΔSelic mensal) = +0.425
+
+=== D. BOOTSTRAP RECURSIVO SOB A NULA LINEAR (VAR, choque e estado reestimados; B=999, 8 processos, semente fixa por réplica) ===
+Trimming de 15%: limiares com quantil da MM12 em [0,15; 0,85] -> 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 12.5, 13.0, 13.5 (de 11). Observado nos extremos: sup-Wald h=12 5.50 (trim 5.50); h=24 11.37 (trim 4.87)
+
+--- REAMOSTRAGEM IID DOS RESÍDUOS (réplicas válidas: 999) ---
+|t| de gamma^12 (limiar na mediana)               : observado +2.959 | p bootstrap = 0.093 | quantil 95% sob a nula = 3.44
+Wald alto=mod, h=12 (base)                        : observado +1.342 | p bootstrap = 0.380 | quantil 95% sob a nula = 5.90
+Wald alto=mod, h=24 (base)                        : observado +2.771 | p bootstrap = 0.268 | quantil 95% sob a nula = 8.21
+Wald alto=mod, h=12, LP totalmente interagida     : observado +0.018 | p bootstrap = 0.928 | quantil 95% sob a nula = 11.62
+Wald alto=mod, h=24, LP totalmente interagida     : observado +10.345 | p bootstrap = 0.107 | quantil 95% sob a nula = 16.05
+sup |t| de gamma^12 na grade (11 limiares)        : observado +3.999 | p bootstrap = 0.195 | quantil 95% sob a nula = 5.39
+sup-Wald h=12 na grade (11 limiares)              : observado +5.500 | p bootstrap = 0.335 | quantil 95% sob a nula = 12.26
+sup-Wald h=24 na grade (11 limiares)              : observado +11.367 | p bootstrap = 0.128 | quantil 95% sob a nula = 16.08
+sup |t| de gamma^12, grade com trimming 15%       : observado +3.999 | p bootstrap = 0.168 | quantil 95% sob a nula = 5.11
+sup-Wald h=12, grade com trimming 15%             : observado +5.500 | p bootstrap = 0.303 | quantil 95% sob a nula = 11.63
+sup-Wald h=24, grade com trimming 15%             : observado +4.873 | p bootstrap = 0.458 | quantil 95% sob a nula = 15.29
+Fração de réplicas com Selic simulada negativa em algum mês: 0.041
+  Sensibilidade (descartando réplicas com Selic negativa; n=958): tg12 p=0.092 | w12 p=0.384 | w24 p=0.268 | wint12 p=0.929 | wint24 p=0.110 | supW12 p=0.335 | supW24 p=0.128
+
+--- WILD BOOTSTRAP (Rademacher, resíduos multiplicados por ±1) (réplicas válidas: 999) ---
+|t| de gamma^12 (limiar na mediana)               : observado +2.959 | p bootstrap = 0.092 | quantil 95% sob a nula = 3.38
+Wald alto=mod, h=12 (base)                        : observado +1.342 | p bootstrap = 0.384 | quantil 95% sob a nula = 7.11
+Wald alto=mod, h=24 (base)                        : observado +2.771 | p bootstrap = 0.250 | quantil 95% sob a nula = 7.28
+Wald alto=mod, h=12, LP totalmente interagida     : observado +0.018 | p bootstrap = 0.937 | quantil 95% sob a nula = 11.49
+Wald alto=mod, h=24, LP totalmente interagida     : observado +10.345 | p bootstrap = 0.104 | quantil 95% sob a nula = 16.05
+sup |t| de gamma^12 na grade (11 limiares)        : observado +3.999 | p bootstrap = 0.168 | quantil 95% sob a nula = 5.10
+sup-Wald h=12 na grade (11 limiares)              : observado +5.500 | p bootstrap = 0.351 | quantil 95% sob a nula = 12.58
+sup-Wald h=24 na grade (11 limiares)              : observado +11.367 | p bootstrap = 0.121 | quantil 95% sob a nula = 15.31
+sup |t| de gamma^12, grade com trimming 15%       : observado +3.999 | p bootstrap = 0.147 | quantil 95% sob a nula = 4.96
+sup-Wald h=12, grade com trimming 15%             : observado +5.500 | p bootstrap = 0.314 | quantil 95% sob a nula = 12.00
+sup-Wald h=24, grade com trimming 15%             : observado +4.873 | p bootstrap = 0.485 | quantil 95% sob a nula = 14.57
+Fração de réplicas com Selic simulada negativa em algum mês: 0.044
+  Sensibilidade (descartando réplicas com Selic negativa; n=955): tg12 p=0.093 | w12 p=0.388 | w24 p=0.253 | wint12 p=0.938 | wint24 p=0.104 | supW12 p=0.354 | supW24 p=0.125
+
+--- PADRÃO DE SINAL DA DIFERENÇA ENTRE REGIMES SOB A NULA LINEAR (RR2-22) ---
+Observado: dif12 = -1.054 (negativa); dif24 = +1.598 (positiva); grade: dif12 < 0 em 10 de 11 limiares, dif24 > 0 em 11 de 11
+[iid] P(dif24 > 0, limiar mediano) = 0.484 | P(dif12 < 0) = 0.505 | P(dif12 < 0 e dif24 > 0) = 0.159 | P(dif24 > 0 nos 11 limiares) = 0.122 | P(dif24 < 0 nos 11 limiares) = 0.131 | P(dif24 do mesmo sinal nos 11 limiares, qualquer sinal) = 0.253 | P(dif12 < 0 em todos os limiares) = 0.143
+[wild] P(dif24 > 0, limiar mediano) = 0.525 | P(dif12 < 0) = 0.480 | P(dif12 < 0 e dif24 > 0) = 0.143 | P(dif24 > 0 nos 11 limiares) = 0.140 | P(dif24 < 0 nos 11 limiares) = 0.109 | P(dif24 do mesmo sinal nos 11 limiares, qualquer sinal) = 0.249 | P(dif12 < 0 em todos os limiares) = 0.123
+
+--- TESTE C4 (H2: LP de J^fam em h=12): por que não há bootstrap sob a nula linear ---
+A nula do bootstrap recursivo é a linearidade do VAR, sob a qual o efeito de J^fam NÃO é zero (a IRF do DGP é diferente de zero); C4 testa efeito nulo, e a nula de efeito zero exigiria outro DGP (J^fam exógeno), o que muda o problema. O que o mesmo laço calibra, a custo marginal, é o tamanho do teste HAC: a distribuição de (b_LP - IRF_VAR do DGP)/EP_NW sob o DGP linear.
+[iid] IRF verdadeira do DGP (h=12) = +0.3803; LP observada = +0.4312 (EP NW 0.1562, t = +2.76) | rejeição bilateral a 5% da IRF verdadeira com valor crítico 1,96 = 0.211 | valor crítico bootstrap de 95% de |t| = 3.06 | P(|t_replica| >= |t_obs|) com a nula 'LP = IRF do VAR' = 0.0851
+[wild] IRF verdadeira do DGP (h=12) = +0.3803; LP observada = +0.4312 (EP NW 0.1562, t = +2.76) | rejeição bilateral a 5% da IRF verdadeira com valor crítico 1,96 = 0.201 | valor crítico bootstrap de 95% de |t| = 3.04 | P(|t_replica| >= |t_obs|) com a nula 'LP = IRF do VAR' = 0.0761
+(a última razão é só descritiva: |t_obs| contra a distribuição de |t| centrada na IRF verdadeira; não é o p-valor de H2.)
+
+=== G. GRADE DE LIMIARES (completa; usada no texto) ===
+limiar | quantil | meses no platô | gamma12 (EP NW) | t gamma12 | dif12 | p Wald12 | dif24 | p Wald24 | no trimming 15%
+  9.0% | 0.29 | 174 | +1.96 (0.53) | +3.72 | -2.14 | 0.019 | +0.76 | 0.414 | sim
+  9.5% | 0.33 | 165 | +1.86 (0.57) | +3.29 | -1.79 | 0.040 | +1.37 | 0.092 | sim
+ 10.0% | 0.37 | 155 | +1.97 (0.55) | +3.57 | -1.97 | 0.033 | +1.25 | 0.178 | sim
+ 10.5% | 0.41 | 145 | +1.95 (0.54) | +3.61 | -1.66 | 0.072 | +1.95 | 0.055 | sim
+ 11.0% | 0.47 | 130 | +1.72 (0.52) | +3.31 | -1.30 | 0.111 | +1.61 | 0.062 | sim
+ 11.5% | 0.55 | 111 | +1.72 (0.45) | +3.80 | -0.97 | 0.234 | +1.94 | 0.028 | sim
+ 12.0% | 0.63 |  90 | +1.79 (0.45) | +4.00 | -0.35 | 0.714 | +2.51 | 0.029 | sim
+ 12.5% | 0.69 |  76 | +1.54 (0.45) | +3.43 | -0.23 | 0.813 | +2.06 | 0.064 | sim
+ 13.0% | 0.75 |  61 | +0.95 (0.48) | +1.97 | -0.10 | 0.939 | +3.11 | 0.027 | sim
+ 13.5% | 0.81 |  47 | +0.13 (0.56) | +0.24 | -1.47 | 0.439 | +0.16 | 0.922 | sim
+ 14.0% | 0.87 |  31 | -0.56 (0.70) | -0.79 | +3.17 | 0.040 | +4.53 | 0.001 | não
+dif12 < 0 em 10 de 11 limiares; dif24 > 0 em 11 de 11; gamma12 > 0 em 10 de 11 (t > 1,96 em 9); p Wald24 < 0,05 em 4, p Wald12 < 0,05 em 4

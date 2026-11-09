@@ -1,0 +1,64 @@
+=== 1. BOOTSTRAP SOB A NULA LINEAR: ESPECIFICAÇÃO BASE E TOTALMENTE INTERAGIDA ===
+Observado: wb12=1.342, tg12=2.959, wi12=0.018, bmi12=0.484, wb24=2.771, wi24=10.345, bmi24=-2.460
+
+[iid] B=299 (392s)
+  tg12 : obs   2.959 | p boot 0.080 | q95 nula   3.20 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.28
+  wb12 : obs   1.342 | p boot 0.368 | q95 nula   5.63 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.11
+  wb24 : obs   2.771 | p boot 0.254 | q95 nula   6.83 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.15
+  wi12 : obs   0.018 | p boot 0.943 | q95 nula  12.92 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.27
+  wi24 : obs  10.345 | p boot 0.097 | q95 nula  14.03 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.30
+
+[wild] B=299 (576s)
+  tg12 : obs   2.959 | p boot 0.074 | q95 nula   3.44 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.25
+  wb12 : obs   1.342 | p boot 0.365 | q95 nula   6.52 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.15
+  wb24 : obs   2.771 | p boot 0.254 | q95 nula   7.09 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.17
+  wi12 : obs   0.018 | p boot 0.933 | q95 nula  12.80 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.25
+  wi24 : obs  10.345 | p boot 0.090 | q95 nula  13.07 | rejeição nominal 5% (chi2_1 > 3,84 ou |t|>1,96): 0.34
+
+Diagnóstico dos dados simulados (Selic mín./máx.):
+scheme             iid        wild
+smin count  299.000000  299.000000
+     mean     3.952200    3.525899
+     std      1.877000    2.212393
+     min     -4.085256   -3.760832
+     5%       0.617821   -0.548650
+     50%      4.030037    3.750061
+     95%      6.626658    6.563602
+     max      9.368268    7.521325
+smax count  299.000000  299.000000
+     mean    19.820652   19.891915
+     std      0.311128    0.649676
+     min     19.750000   19.750000
+     5%      19.750000   19.750000
+     50%     19.750000   19.750000
+     95%     20.129752   20.901503
+     max     23.010797   27.077966
+pmax count  299.000000  299.000000
+     mean     1.369834    1.384145
+     std      0.139005    0.141624
+     min      1.053071    1.129008
+     5%       1.159944    1.190653
+     50%      1.358019    1.365866
+     95%      1.606250    1.640944
+     max      2.110521    1.892954
+Fração de réplicas com Selic simulada < 0: {'iid': 0.030100334448160536, 'wild': 0.07357859531772576}
+
+=== 2. META SELIC (SGS 432): LP LINEAR DE INFLAÇÃO E J^fam ===
+P55 meta = 0.2924; d.p. choque meta = 0.2636; corr com base = 0.308
+  base h= 3 | J^fam +0.224 (NW 0.001; EWC 0.016) | por 1 dp +0.035 | infl. mensal -0.006 (0.924) | infl. acum. +0.019 (0.940)
+  base h= 6 | J^fam +0.319 (NW 0.003; EWC 0.013) | por 1 dp +0.050 | infl. mensal +0.089 (0.389) | infl. acum. +0.477 (0.098)
+  base h= 9 | J^fam +0.401 (NW 0.001; EWC 0.004) | por 1 dp +0.063 | infl. mensal -0.153 (0.098) | infl. acum. +0.363 (0.295)
+  base h=12 | J^fam +0.431 (NW 0.006; EWC 0.015) | por 1 dp +0.067 | infl. mensal -0.088 (0.301) | infl. acum. -0.034 (0.933)
+  base h=18 | J^fam +0.569 (NW 0.001; EWC 0.003) | por 1 dp +0.089 | infl. mensal -0.075 (0.262) | infl. acum. -0.724 (0.137)
+  base h=24 | J^fam +0.233 (NW 0.316; EWC 0.253) | por 1 dp +0.036 | infl. mensal -0.289 (0.002) | infl. acum. -1.498 (0.018)
+  meta h= 3 | J^fam +0.092 (NW 0.061; EWC 0.089) | por 1 dp +0.024 | infl. mensal +0.010 (0.818) | infl. acum. +0.066 (0.624)
+  meta h= 6 | J^fam +0.192 (NW 0.001; EWC 0.008) | por 1 dp +0.051 | infl. mensal +0.044 (0.426) | infl. acum. +0.320 (0.084)
+  meta h= 9 | J^fam +0.228 (NW 0.006; EWC 0.013) | por 1 dp +0.060 | infl. mensal -0.083 (0.113) | infl. acum. +0.293 (0.248)
+  meta h=12 | J^fam +0.270 (NW 0.012; EWC 0.020) | por 1 dp +0.071 | infl. mensal -0.106 (0.113) | infl. acum. +0.026 (0.941)
+  meta h=18 | J^fam +0.395 (NW 0.000; EWC 0.002) | por 1 dp +0.104 | infl. mensal -0.070 (0.118) | infl. acum. -0.313 (0.393)
+  meta h=24 | J^fam +0.207 (NW 0.107; EWC 0.085) | por 1 dp +0.054 | infl. mensal -0.138 (0.012) | infl. acum. -0.845 (0.066)
+
+=== 3. LP COM DEFASAGENS AUMENTADAS (p+1 = 7 defasagens nos controles; EP EHW/HC1) ===
+  h=12 | b_alto -1.032 (0.334) | b_mod +0.665 (0.436) | gamma +1.504 (0.000) | Wald 0.251
+  h=24 | b_alto -1.059 (0.519) | b_mod -1.972 (0.087) | gamma +0.778 (0.077) | Wald 0.664
+  J^fam h=12 | +0.480 (0.003)

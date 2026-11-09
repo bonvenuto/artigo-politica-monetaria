@@ -1,0 +1,2 @@
+base_complementar_bcb.csv extraída em 2026-11-09 da API SGS/BCB
+base_macro_bcb.csv extraída em 2026-11-09 da API SGS/BCB e Olinda/Focus

@@ -1,0 +1,12 @@
+1. F sazonais na eq. de inflação: F=4.12, p=1.72e-05
+2. h=12 sh_mod: EWC independente t=+0.833 p=0.418 | função do autor p=0.418
+2. h=12 gamma: EWC independente t=+2.803 p=0.013 | função do autor p=0.013
+   dif=-1.054 EP NW=0.910 MDE80 NW=2.55 (0.398/DP) | EP EWC=0.901 MDE80 EWC=2.70
+2. h=24 sh_mod: EWC independente t=-2.518 p=0.025 | função do autor p=0.025
+2. h=24 gamma: EWC independente t=+1.054 p=0.310 | função do autor p=0.310
+   dif=+1.598 EP NW=0.960 MDE80 NW=2.69 (0.420/DP) | EP EWC=1.103 MDE80 EWC=3.32
+3. p NW beta_mod: [0.617 0.247 0.346 0.399 0.415 0.012] -> Holm [1.    1.    1.    1.    1.    0.073]
+4. h=24: meses no platô por ano da amostra efetiva: {2006: 10.0, 2007: 12.0, 2008: 12.0, 2009: 10.0, 2011: 4.0, 2012: 4.0, 2015: 9.0, 2016: 12.0, 2017: 10.0, 2022: 2.0, 2023: 12.0, 2024: 8.0}
+   limiar 14%: meses no platô na amostra h=24 = 22, anos: {2006: 10.0, 2007: 4.0, 2016: 7.0, 2017: 1.0}
+   limiar 14%: b_alto +2.84 b_mod -1.70 Wald stat 11.37
+5. J h=0: b+ +0.144 (0.003) b- -0.171 (0.001); ambos os sinais de surpresa elevam J no impacto => termo |choque|, não assimetria de transmissão

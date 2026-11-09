@@ -1,0 +1,4 @@
+== diff regime_juros_altos_lp
+IDENTICO
+== diff inferencia_regimes
+IDENTICO

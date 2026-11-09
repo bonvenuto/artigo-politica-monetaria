@@ -1,0 +1,82 @@
+=== A. DIFERENÇA beta_alto - beta_mod (inflação acumulada de itens livres; choque de +1 p.p.) ===
+MDE = (z_0,975 + z_0,80) x EP = 2.80 x EP (NW); MDE EWC = (t_0,975 + t_0,80; nu) x EP EWC. d.p. do choque = 0.1560
+h= 3 | dif +0.512 | EP NW 0.522 | IC95 NW [-0.51; +1.54] p=0.327 | MDE80 1.46 p.p. (0.228 por 1 d.p.) | IC95 EWC [-0.26; +1.28] p=0.176 | MDE80 EWC 1.08
+h= 6 | dif +0.039 | EP NW 0.671 | IC95 NW [-1.28; +1.36] p=0.954 | MDE80 1.88 p.p. (0.294 por 1 d.p.) | IC95 EWC [-1.52; +1.60] p=0.958 | MDE80 EWC 2.19
+h= 9 | dif -0.148 | EP NW 0.844 | IC95 NW [-1.80; +1.51] p=0.861 | MDE80 2.36 p.p. (0.369 por 1 d.p.) | IC95 EWC [-2.18; +1.88] p=0.879 | MDE80 EWC 2.85
+h=12 | dif -1.054 | EP NW 0.910 | IC95 NW [-2.84; +0.73] p=0.247 | MDE80 2.55 p.p. (0.398 por 1 d.p.) | IC95 EWC [-2.97; +0.87] p=0.260 | MDE80 EWC 2.70
+h=18 | dif -0.276 | EP NW 0.886 | IC95 NW [-2.01; +1.46] p=0.755 | MDE80 2.48 p.p. (0.387 por 1 d.p.) | IC95 EWC [-2.21; +1.66] p=0.766 | MDE80 EWC 2.73
+h=24 | dif +1.598 | EP NW 0.960 | IC95 NW [-0.28; +3.48] p=0.096 | MDE80 2.69 p.p. (0.420 por 1 d.p.) | IC95 EWC [-0.77; +3.96] p=0.169 | MDE80 EWC 3.32
+
+=== B. LP TOTALMENTE INTERAGIDA (todos os controles e sazonais interagidos com o estado) ===
+h= 3 (N=249, regressores=98) | alto -0.303 (p=0.509) | mod -0.374 (p=0.175) | Wald NW p=0.894 | EWC p=0.889
+h= 6 (N=246, regressores=98) | alto +0.059 (p=0.912) | mod +0.388 (p=0.335) | Wald NW p=0.619 | EWC p=0.633
+h= 9 (N=243, regressores=98) | alto +0.314 (p=0.619) | mod +0.302 (p=0.532) | Wald NW p=0.987 | EWC p=0.988
+h=12 (N=240, regressores=98) | alto +0.352 (p=0.659) | mod +0.484 (p=0.412) | Wald NW p=0.892 | EWC p=0.896
+h=18 (N=234, regressores=98) | alto +0.995 (p=0.181) | mod -0.088 (p=0.904) | Wald NW p=0.275 | EWC p=0.299
+h=24 (N=228, regressores=98) | alto +1.692 (p=0.051) | mod -2.460 (p=0.003) | Wald NW p=0.001 | EWC p=0.009
+
+=== C. SENSIBILIDADE AO NÚMERO DE DEFASAGENS (VAR do choque e LP com o mesmo p; com sazonais) ===
+p= 2 | beta_mod24 -1.29 (NW 0.136; EWC 0.147) | beta_alto24 -1.43 (0.162) | Wald24 0.905 | gamma12 +1.58 (NW 0.002; EWC 0.013) | Wald12 0.160 | J^fam h12 +0.397 (NW 0.004; EWC 0.012)
+p= 4 | beta_mod24 -1.85 (NW 0.121; EWC 0.122) | beta_alto24 -1.01 (0.303) | Wald24 0.540 | gamma12 +1.68 (NW 0.001; EWC 0.009) | Wald12 0.160 | J^fam h12 +0.466 (NW 0.009; EWC 0.015)
+p= 6 | beta_mod24 -2.20 (NW 0.012; EWC 0.025) | beta_alto24 -0.60 (0.346) | Wald24 0.096 | gamma12 +1.61 (NW 0.003; EWC 0.013) | Wald12 0.247 | J^fam h12 +0.431 (NW 0.006; EWC 0.015)
+p= 9 | beta_mod24 -1.73 (NW 0.045; EWC 0.063) | beta_alto24 -1.29 (0.068) | Wald24 0.649 | gamma12 +1.51 (NW 0.007; EWC 0.020) | Wald12 0.168 | J^fam h12 +0.455 (NW 0.007; EWC 0.022)
+p=12 | beta_mod24 -0.14 (NW 0.908; EWC 0.908) | beta_alto24 -2.18 (0.029) | Wald24 0.197 | gamma12 +1.82 (NW 0.002; EWC 0.010) | Wald12 0.098 | J^fam h12 +0.486 (NW 0.004; EWC 0.014)
+
+=== E. PRIMEIRO ESTÁGIO: SELIC POR REGIME (LP de estado com sazonais) ===
+h= 0 Selic | alto +1.024 (0.011) | mod +0.984 (0.009) | Wald p=0.009
+h= 3 Selic | alto +2.214 (0.268) | mod +2.385 (0.285) | Wald p=0.677
+h= 6 Selic | alto +2.353 (0.616) | mod +2.975 (0.459) | Wald p=0.450
+h= 9 Selic | alto +2.275 (0.972) | mod +2.993 (0.587) | Wald p=0.539
+h=12 Selic | alto +1.407 (1.251) | mod +2.543 (0.732) | Wald p=0.451
+h=18 Selic | alto +0.568 (1.355) | mod +0.890 (0.889) | Wald p=0.837
+h=24 Selic | alto +1.389 (0.905) | mod -1.403 (1.265) | Wald p=0.018
+Razão inflação acumulada / Selic acumulada (p.p. de inflação por p.p.-mês de Selic), IC 95% bootstrap de blocos (bloco 24, B=999):
+h=12: alto -0.580/+24.45 = -0.024 [-0.281; +0.047] | mod +0.474/+32.23 = +0.015 [-0.078; +0.066] | dif. das razões IC95 [-0.299; +0.067]
+h=24: alto -0.603/+34.41 = -0.018 [-0.544; +0.330] | mod -2.201/+36.46 = -0.060 [-0.977; +0.617] | dif. das razões IC95 [-1.078; +1.680]
+Placebo de impacto (h=0) das variáveis ordenadas antes da Selic, por regime:
+  ipca_livres : alto +0.098 (p=0.420) | mod -0.062 (p=0.603) | Wald conj. p=0.655
+  100 ln PTAX : alto -4.786 (p=0.129) | mod +3.190 (p=0.076) | Wald conj. p=0.079
+  100 ln IBC  : alto +0.629 (p=0.147) | mod -0.435 (p=0.435) | Wald conj. p=0.303
+  100 ln ICBr : alto +0.418 (p=0.804) | mod -0.279 (p=0.867) | Wald conj. p=0.961
+
+=== F. EPISÓDIOS DE PLATÔ (I_{t-1} = 1) ===
+2006-03 a 2009-10 (44 meses) | Selic média 12.36 (mín 8.65, máx 16.74) | IPCA livres 12m: início 3.86, fim 4.12, 12 meses após o fim 5.94
+2011-09 a 2012-04 (8 meses) | Selic média 10.77 (mín 9.35, máx 11.91) | IPCA livres 12m: início 7.82, fim 5.61, 12 meses após o fim 8.11
+2015-04 a 2017-10 (31 meses) | Selic média 12.88 (mín 8.01, máx 14.15) | IPCA livres 12m: início 6.65, fim 1.48, 12 meses após o fim 2.76
+2022-11 a 2024-09 (23 meses) | Selic média 12.27 (mín 10.40, máx 13.65) | IPCA livres 12m: início 9.63, fim 4.06, 12 meses após o fim 5.20
+2025-05 a 2026-08 (16 meses) | Selic média 14.67 (mín 13.94, máx 14.90) | IPCA livres 12m: início 5.48, fim 4.11, 12 meses após o fim nan
+N por regime e horizonte (LP de estado da Tabela 4):
+  h= 0: N=252, platô=122, moderado=130, última obs. 2026-08
+  h= 3: N=249, platô=119, moderado=130, última obs. 2026-05
+  h= 6: N=246, platô=116, moderado=130, última obs. 2026-02
+  h= 9: N=243, platô=113, moderado=130, última obs. 2025-11
+  h=12: N=240, platô=110, moderado=130, última obs. 2025-08
+  h=18: N=234, platô=106, moderado=128, última obs. 2025-02
+  h=24: N=228, platô=105, moderado=123, última obs. 2024-08
+
+=== H. PREVISIBILIDADE DO CHOQUE ===
+choque ~ defasagens 7-12 do sistema (36 restrições, N=246): F clássico = 0.95 (p=0.551); Wald HAC(6) p=0.0000; R2 = 0.141
+choque ~ 6 defasagens da expectativa Focus 12m: F = 0.95 (p=0.460)
+corr(choque, ΔSelic mensal) = +0.425
+
+=== D. BOOTSTRAP RECURSIVO SOB A NULA LINEAR (VAR, choque e estado reestimados; B=399) ===
+|t| de gamma^12 (limiar na mediana)          : observado +2.959 | p bootstrap = 0.073 | quantil 95% sob a nula = 3.40
+Wald alto=mod, h=12                          : observado +1.342 | p bootstrap = 0.368 | quantil 95% sob a nula = 5.74
+Wald alto=mod, h=24                          : observado +2.771 | p bootstrap = 0.236 | quantil 95% sob a nula = 6.59
+sup |t| de gamma^12 na grade de limiares     : observado +3.999 | p bootstrap = 0.168 | quantil 95% sob a nula = 5.17
+sup-Wald h=12 na grade                       : observado +5.500 | p bootstrap = 0.333 | quantil 95% sob a nula = 12.39
+sup-Wald h=24 na grade                       : observado +11.367 | p bootstrap = 0.128 | quantil 95% sob a nula = 16.50
+
+=== G. GRADE DE LIMIARES ===
+limiar 9.0% (quantil 0.29; meses no platô 174.0) | gamma12 +1.96 (t +3.72) | dif12 -2.14 (Wald p 0.019) | dif24 +0.76 (Wald p 0.414)
+limiar 9.5% (quantil 0.33; meses no platô 165.0) | gamma12 +1.86 (t +3.29) | dif12 -1.79 (Wald p 0.040) | dif24 +1.37 (Wald p 0.092)
+limiar 10.0% (quantil 0.37; meses no platô 155.0) | gamma12 +1.97 (t +3.57) | dif12 -1.97 (Wald p 0.033) | dif24 +1.25 (Wald p 0.178)
+limiar 10.5% (quantil 0.41; meses no platô 145.0) | gamma12 +1.95 (t +3.61) | dif12 -1.66 (Wald p 0.072) | dif24 +1.95 (Wald p 0.055)
+limiar 11.0% (quantil 0.47; meses no platô 130.0) | gamma12 +1.72 (t +3.31) | dif12 -1.30 (Wald p 0.111) | dif24 +1.61 (Wald p 0.062)
+limiar 11.5% (quantil 0.55; meses no platô 111.0) | gamma12 +1.72 (t +3.80) | dif12 -0.97 (Wald p 0.234) | dif24 +1.94 (Wald p 0.028)
+limiar 12.0% (quantil 0.63; meses no platô 90.0) | gamma12 +1.79 (t +4.00) | dif12 -0.35 (Wald p 0.714) | dif24 +2.51 (Wald p 0.029)
+limiar 12.5% (quantil 0.69; meses no platô 76.0) | gamma12 +1.54 (t +3.43) | dif12 -0.23 (Wald p 0.813) | dif24 +2.06 (Wald p 0.064)
+limiar 13.0% (quantil 0.75; meses no platô 61.0) | gamma12 +0.95 (t +1.97) | dif12 -0.10 (Wald p 0.939) | dif24 +3.11 (Wald p 0.027)
+limiar 13.5% (quantil 0.81; meses no platô 47.0) | gamma12 +0.13 (t +0.24) | dif12 -1.47 (Wald p 0.439) | dif24 +0.16 (Wald p 0.922)
+limiar 14.0% (quantil 0.87; meses no platô 31.0) | gamma12 -0.56 (t -0.79) | dif12 +3.17 (Wald p 0.040) | dif24 +4.53 (Wald p 0.001)
+Salvo: resultados/inferencia_regimes.txt

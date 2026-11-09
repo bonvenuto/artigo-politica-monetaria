@@ -1,0 +1,14 @@
+observado: {'wint18': 1.193585394403709, 'wint24': 10.345257853639271, 'allpos24': 1.0, 'meandif24': np.float64(1.9324128898369168)}
+rep 0
+rep 50
+rep 100
+rep 150
+rep 200
+rep 250
+rep 300
+rep 350
+B válidas = 399
+wint18: obs 1.19 | p boot 0.521 | q95 nula 13.08
+wint24: obs 10.35 | p boot 0.085 | q95 nula 13.65
+todas as 11 dif24 > 0: obs 1 | freq. sob a nula 0.105 (mesmo sinal, qualquer: ~0.211 se simétrico)
+média de dif24 na grade: obs +1.93 | p boot (unilateral) 0.068 | bilateral 0.168

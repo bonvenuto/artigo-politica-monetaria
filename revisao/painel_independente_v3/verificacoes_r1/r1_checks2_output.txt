@@ -1,0 +1,32 @@
+=== 1. Sensibilidade a p (VAR do choque e LP com mesmo p; LP estado com sazonais) ===
+p= 2 | beta_mod24 -1.23 (p=0.105) | beta_alto24 -1.47 (p=0.159) | gamma12 +1.57 (p=0.002) | Wald12 p=0.236 | J_fam LP h12 +0.401 (p=0.001)
+p= 4 | beta_mod24 -1.71 (p=0.150) | beta_alto24 -1.35 (p=0.166) | gamma12 +1.67 (p=0.001) | Wald12 p=0.102 | J_fam LP h12 +0.458 (p=0.005)
+p= 6 | beta_mod24 -1.98 (p=0.009) | beta_alto24 -0.94 (p=0.212) | gamma12 +1.60 (p=0.003) | Wald12 p=0.281 | J_fam LP h12 +0.459 (p=0.001)
+p= 9 | beta_mod24 -1.66 (p=0.029) | beta_alto24 -1.25 (p=0.102) | gamma12 +1.51 (p=0.007) | Wald12 p=0.313 | J_fam LP h12 +0.461 (p=0.005)
+p=12 | beta_mod24 -0.49 (p=0.662) | beta_alto24 -2.14 (p=0.034) | gamma12 +1.81 (p=0.002) | Wald12 p=0.356 | J_fam LP h12 +0.494 (p=0.001)
+
+=== 2. VAR(6) com dummies sazonais exogenas ===
+sem saz: Portmanteau(12) p=0.0000; Portmanteau(24) p=0.0000
+com saz: Portmanteau(12) p=0.0000; Portmanteau(24) p=0.0000
+sem saz: residuo eq. inflacao, autocorr lag12=+0.133, LB(12) p=0.0209
+com saz: residuo eq. inflacao, autocorr lag12=-0.004, LB(12) p=0.2491
+inflacao SVAR c/ saz: h=3: +0.052 [0.096] | h=5: +0.230 [0.087] | h=6: +0.088 [0.082] | h=12: -0.056 [0.049] | h=18: -0.103 [0.043] | h=24: -0.094 [0.042]
+J_fam SVAR c/ saz: h=3: +0.174 [0.083] | h=5: +0.278 [0.104] | h=6: +0.300 [0.113] | h=12: +0.393 [0.146] | h=18: +0.291 [0.162] | h=24: +0.126 [0.166]
+FEVD c/ saz: Selic em J_fam h=12/18/24: 14.9 / 17.0 / 15.9 | IBC em inflacao h=24: 2.98
+
+=== 3. Inferencia EWC (LLSW 2018), nu = 0.4 T^(2/3) ===
+h= 9 gamma  : est +1.170 | NW(h+1) p=0.008 | EWC t=+2.48 p=0.025 (nu=15)
+h=12 gamma  : est +1.604 | NW(h+1) p=0.003 | EWC t=+2.83 p=0.013 (nu=15)
+h=18 gamma  : est +1.439 | NW(h+1) p=0.037 | EWC t=+1.95 p=0.070 (nu=15)
+h=24 sh_mod : est -1.982 | NW(h+1) p=0.009 | EWC t=-2.53 p=0.024 (nu=14)
+J_fam linear h= 6: est +0.298 | NW p=0.003 | EWC t=+2.71 p=0.0160
+J_fam linear h=12: est +0.459 | NW p=0.001 | EWC t=+3.10 p=0.0074
+J_fam linear h=18: est +0.593 | NW p=0.000 | EWC t=+4.13 p=0.0009
+
+=== 4. Block bootstrap pares, bloco 12, B=499 (sensibilidade ao bloco) ===
+h=12 gamma: est +1.604 | se NW 0.534 | se boot(L=12) 0.859 | t_boot +1.87
+h=24 sh_mod: est -1.982 | se NW 0.756 | se boot(L=12) 1.331 | t_boot -1.49
+
+=== 5. Choque vs. variacao mensal da Selic ===
+corr(choque, dSelic) = +0.437; R2 regressao dSelic~choque = 0.191
+meses com |dSelic|<0.02: 76 de 252; dp do choque nesses meses 0.108 vs. demais 0.178

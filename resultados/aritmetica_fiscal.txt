@@ -1,0 +1,46 @@
+=== TABELA DE INSUMOS FISCAIS (referência: ago/2026, salvo indicação) ===
+DBGG (SGS 13762): 82.87% PIB | DLSP (SGS 4513): 69.27% PIB
+NFSP nominal 12m (SGS 5727): 9.48% PIB | NFSP primária 12m (SGS 5793): 0.62% PIB (positivo = déficit)
+Juros nominais 12m (5727 - 5793): 8.86% PIB
+IPCA 12m (SGS 13522): 4.22% | crescimento do PIB nominal 12m (SGS 4382, ago/26 sobre ago/25): 7.22%
+Selic (SGS 4189, ago/2026): 13.94% a.a.
+RMD set/2026: DPF R$ 9382.95 bi; taxa flutuante 51.60% (ago: 52.74%); custo médio 12m DPF 12.63% (DPMFi 13.03%); prazo médio 4.10 anos; vincendo em 12m 19.95%
+PIB 12m set/2026 (SGS 4382): R$ 13402.0 bi
+Exposição à Selic: DPF flutuante = 36.1% PIB; participação flutuante x DBGG = 42.8% PIB
+Indexados ao IPCA (RMD set/2026, 23.59% da DPF; ago 23.22%): x_IPCA = 16.5% PIB; prefixados 21.14%; câmbio ≈ 3.7%
+Taxa implícita dos juros nominais sobre a DLSP: 14.83% a.a.
+Termo bola-de-neve (ī - g)/(1+g)·b, base DBGG, ī = custo médio DPF 12.63%: +4.18 p.p. PIB/ano; taxa relativa (ī - g)/(1+g) = 5.05%
+Termo bola-de-neve, base NFSP/DLSP: (i_impl - g)/(1+g)·DLSP_t-1 = (14.83% - 7.22%)/(1+g) x 64.05 = +4.55 p.p. PIB/ano
+Variação observada em 12 meses (ago/25 a ago/26): DBGG +5.56 p.p.; DLSP +5.22 p.p.
+
+Corte proposto: de 13.94% para 7.5% => Δi = -6.44 p.p.; corte gradual em 12 meses => Δī_1 = -3.22 p.p.
+
+=== PRIMEIRO ANO: variação da razão DBGG/PIB (p.p. do PIB; negativo = alívio) ===
+Equação: db = x·Δī_1/(1+g) - b(1+ī)Δg/(1+g)^2 + x_IPCA·Δg/(1+g); Δg = ω·Δī_1. ω<0: o corte eleva a inflação (previsão convencional); custos de desancoragem e de prêmio a termo NÃO são modelados.
+x \ ω                                         | ω=-0.5 | ω=+0.0 | ω=+0.5 | ω=+1.0 | ω* (db=0)
+DPF flutuante (36.1% PIB)        Δī_1=-3.22 (gradual ) | -2.14 | -1.08 | -0.03 | +1.03 | 0.51
+DPF flutuante (36.1% PIB)        Δī_1=-6.44 (imediato) | -4.29 | -2.17 | -0.05 | +2.07 | 0.51
+flutuante x DBGG (42.8% PIB)     Δī_1=-3.22 (gradual ) | -2.34 | -1.28 | -0.22 | +0.83 | 0.61
+flutuante x DBGG (42.8% PIB)     Δī_1=-6.44 (imediato) | -4.69 | -2.57 | -0.45 | +1.67 | 0.61
+
+Sem o termo dos indexados (equação anterior, indexados tratados como prefixados), para comparação:
+DPF flutuante (36.1% PIB)        Δī_1=-3.22 (gradual ) | -2.39 | -1.08 | +0.22 | +1.53 | 0.41
+DPF flutuante (36.1% PIB)        Δī_1=-6.44 (imediato) | -4.78 | -2.17 | +0.44 | +3.06 | 0.41
+flutuante x DBGG (42.8% PIB)     Δī_1=-3.22 (gradual ) | -2.59 | -1.28 | +0.02 | +1.33 | 0.49
+flutuante x DBGG (42.8% PIB)     Δī_1=-6.44 (imediato) | -5.18 | -2.57 | +0.05 | +2.66 | 0.49
+
+Justificativa da linha 'flutuante x DBGG' (51.6% da DBGG = 42.8% PIB): aplica a participação das taxas flutuantes na DPF ao conceito mais amplo de dívida (DBGG), que inclui as operações compromissadas do Banco Central, remuneradas à Selic e fora da DPF. É um limite superior da exposição à Selic: supõe que a DBGG tenha a mesma composição da DPF, o que o dado público não permite verificar sem o estoque de compromissadas (alternativa: DPF flutuante + compromissadas, SGS/BCB; não incorporada aqui).
+
+Grade de sensibilidade x × Δi (ω = 0; corte gradual; db em p.p. do PIB): linhas x (% PIB), colunas Δi total (p.p.)
+x= 30.0 | Δi=-2.0: -0.28 | Δi=-4.0: -0.56 | Δi=-6.4: -0.90
+x= 36.1 | Δi=-2.0: -0.34 | Δi=-4.0: -0.67 | Δi=-6.4: -1.08
+x= 42.8 | Δi=-2.0: -0.40 | Δi=-4.0: -0.80 | Δi=-6.4: -1.29
+x= 50.0 | Δi=-2.0: -0.47 | Δi=-4.0: -0.93 | Δi=-6.4: -1.50
+
+=== REGIME PERMANENTE (não é primeiro ano): toda a dívida refinanciada a 7,5% ===
+Δī = 7,5 - custo médio do estoque (e não o corte da Selic); x = b = DBGG; sem prêmio a termo; curva paralela.
+Termo dos indexados = 0: com todo o estoque repactuado, o custo nominal de todos os títulos já cai com Δī (incluí-lo contaria o efeito duas vezes).
+  custo médio DPF 12.63%: Δī = -5.13 p.p. | ω=-0.5: -6.05 | ω=+0.0: -3.97 | ω=+0.5: -1.88 | ω=+1.0: +0.20 | ω* = 0.95
+  custo médio DPMFi 13.03%: Δī = -5.53 p.p. | ω=-0.5: -6.52 | ω=+0.0: -4.27 | ω=+0.5: -2.03 | ω=+1.0: +0.22 | ω* = 0.95
+  Conferência ω=0, DPF: 82.87 x (-5.13) / (1+g) = -3.97 p.p. PIB (ensaio: cerca de 4% do PIB, p. 11)
+  Ritmo de rolagem: 20.0% da DPF vence em 12 meses; prazo médio 4.1 anos

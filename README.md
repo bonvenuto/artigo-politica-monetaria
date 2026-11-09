@@ -1,54 +1,50 @@
-# Juros, Fragilidade Financeira e o Canal Fiscal-Custos
+# Juros Persistentes, Dominância Financeira da Dívida e Fragilidade das Famílias
 
-**Uma Formalização e Teste Empírico em SVAR e Projeções Locais da Hipótese de André Lara Resende para o Brasil (2005–2026)**
+**Formalização e Evidência Econométrica para a Hipótese de André Lara Resende no Brasil (2005–2026)**
 
 **Autor:** Ângelo Augusto Bonvenuto  
+*Pesquisador em Macroeconomia Aplicada e Econometria de Séries Temporais*
 
 ---
 
 ## 📌 Visão Geral do Projeto
 
-Este repositório contém o artigo acadêmico completo, a base de dados macroeconômicos do Banco Central do Brasil (BCB/SGS) e o pacote de replicação econométrica que formaliza analiticamente e testa empiricamente as teses heterodoxas contemporâneas — com destaque para as formulações de André Lara Resende (2017, 2020, 2023) — acerca dos limites e potenciais efeitos perversos da política monetária no Brasil.
+Este repositório reúne um artigo acadêmico completo, a base de dados macroeconômicos oficiais do Banco Central do Brasil (BCB/SGS) e o pacote de replicação econométrica em Python voltados a enriquecer o debate contemporâneo sobre a política monetária brasileira. O estudo formaliza matematicamente e submete a testes empíricos as teses desenvolvidas por **André Lara Resende** (1980, 2017, 2020, 2023) e consolidadas em seu ensaio recente ***[Eu Acuso: uma proposta para eliminar os juros absurdos](Um%20C%C3%A9tico%20Esperan%C3%A7oso%20-%20Eu%20Acuso_%20uma%20proposta%20para%20eliminar%20os%20juros%20absurdos.pdf)*** (setembro de 2026).
 
-### 🎯 Questões Centrais Investigadas
-1. **Canal de Custos da Firma:** Sob mercados imperfeitos e alta necessidade de capital de giro (*working capital*), choques de alta da taxa Selic encarecem a estrutura de custos empresariais e são repassados aos preços livres?
-2. **Efeito Riqueza Fiscal e Dívida Flutuante:** Em uma economia cuja dívida pública e operações compromissadas são predominantemente indexadas à taxa flutuante diária (Selic/LFT), a elevação dos juros expande a renda financeira dos rentistas, alimentando pressões fiscais e contrabalançando a contração da demanda agregada?
-3. **Fragilidade Financeira das Famílias (Minskyana):** A elevação da taxa terminal de juros comprime a liquidez e expande de forma imediata o comprometimento da renda das famílias com o serviço da dívida (juros + amortizações), antes que ocorra desalavancagem do estoque nominal?
+### 🎯 Eixos Analíticos Investigados
+
+1. **O Mito do Descontrole Fiscal Primário vs. A Conta de Juros:** Com um déficit primário entre os menores do mundo ($-0{,}4\%$ a $-0{,}7\%$ do PIB segundo o FMI e o BCB), o déficit nominal brasileiro de quase $10\%$ do PIB decorre do serviço da dívida ($10{,}5\%$ do PIB sobre a DBGG de $82{,}5\%$ do PIB, ou R\$ 1,4 trilhão ao ano). Uma Selic fixada acima do dobro do crescimento nominal do PIB faz a relação dívida/PIB crescer $\approx 5{,}7\%$ ao ano exclusivamente por efeito dos juros, corroendo endogenamente a credibilidade fiscal.
+2. **Achatamento da Curva de Phillips e Efeito Neo-Fisheriano:** Sob moeda endógena, reservas remuneradas (operações compromissadas) e uma Curva de Phillips horizontalizada, manter a taxa básica de juros estacionada em patamares absurdamente elevados por longos períodos não ancorou a inflação; ao contrário, pressiona os preços via canal de custos do capital de giro e convergência neo-fisheriana ($\pi = i - r$).
+3. **O Paradoxo da *Duration* Curta (LFTs) e o Efeito Desinflacionário da Redução da Selic:** Apoiando-se na Teoria Fiscal do Nível de Preços (Cochrane, 2023, 2026) e em Resende (2026), demonstra-se que, como mais da metade da dívida pública brasileira é indexada à Selic diária (LFTs, *duration* zero), **reduzir a Selic corta imediatamente o serviço da dívida sem elevar seu valor presente**, evitando o repique inflacionário fiscal de curto prazo (enquanto mais de US\$ 350 bilhões em reservas internacionais blindam o canal cambial de *carry-trade*).
+4. **Fragilidade Financeira Minskyana das Famílias:** A elevação e manutenção da Selic em patamares extremos expandem o comprometimento da renda mensal das famílias com o serviço da dívida bancária antes de desacelerar o estoque de crédito.
 
 ---
 
-## 🔬 Metodologia Econométrica
+## 🔬 Metodologia Econométrica (2005–2026)
 
-Para separar causalidade de endogeneidade da política monetária, foram implementadas duas abordagens complementares cobrindo uma amostra mensal contínua de **258 observações (março/2005 a agosto/2026)** extraídas diretamente da API de Séries Temporais do Banco Central do Brasil (SGS):
+Sobre uma amostra mensal contínua de **258 observações (março/2005 a agosto/2026)** extraídas da API SGS/BCB:
 
-1. **VAR Estrutural (SVAR):**
-   - Identificação recursiva via Decomposição de Cholesky.
-   - Ordenamento causal estrutural:
-     $$\mathbf{Y}_t = \begin{bmatrix} \ln(\text{IC-Br}_t) & \ln(\text{IBC-Br}_t) & \pi^{\text{livres}}_t & i_t & \text{Serviço Dívida}_t \end{bmatrix}'$$
-   - Seleção ótima de defasagens por critérios de informação ($p = 6$ pelo critério AIC).
-   - Cálculo de Funções de Resposta ao Impulso (IRF com IC de 95%) e Decomposição da Variância do Erro de Previsão (FEVD).
-
-2. **Projeções Locais (Jordà, 2005):**
-   - Teste de robustez semi-paramétrico horizonte a horizonte ($h = 0, 1, \dots, 24$).
-   - Estimação com erros-padrão robustos a heterocedasticidade e autocorrelação de Newey-West (HAC) com largura de banda dependente de $h$.
-   - Confirmação da dinâmica temporal e resistência a erros de especificação estrutural.
+1. **VAR Estrutural (SVAR):** Identificação recursiva de Cholesky ($p = 6$ via AIC) sobre $\mathbf{Y}_t = [\ln(\text{IC-Br}_t), \, \ln(\text{IBC-Br}_t), \, \pi^{\text{livres}}_t, \, \text{Selic}_t, \, \text{Serviço Dívida}_t]'$, com estimação de IRFs e Decomposição de Variância (FEVD).
+2. **Projeções Locais Lineares (Jordà, 2005):** Estimação direta horizonte a horizonte ($h = 0, \dots, 24$) com erros-padrão robustos de Newey-West (HAC).
+3. **Projeções Locais Dependentes de Estado (State-Dependent LP):** Separação não-linear entre regimes de **Platô de Juros Persistentemente Altos** (média móvel de 12 meses da Selic $> 11{,}27\%$ a.a.) e **Regime de Juros Moderados** ($\le 11{,}27\%$ a.a.), avaliando o impacto acumulado sobre o nível de preços livres ($\sum_{j=0}^h \pi_{t+j}^{livre}$) e o efeito desinflacionário de cortes na Selic.
 
 ---
 
 ## 📊 Principais Resultados Empíricos
 
-- **Evidência de *Price Puzzle* nos Preços Livres:** A inflação de preços livres reage positivamente ao choque monetário durante os primeiros 6 meses ($+0{,}2109$ p.p.), tornando-se desinflacionária de forma consistente apenas a partir do 12º mês.
-- **Pico de Fragilidade Financeira das Famílias:** O comprometimento de renda das famílias com o serviço da dívida atinge seu pico positivo no 12º mês após o choque ($+0{,}6645$ p.p.), evidenciando que choques restritivos na Selic asfixiam a liquidez e a renda disponível das famílias devedoras muito antes de conter os estoques de crédito.
-- **Convergência Robusta SVAR vs. LP:** A comparação das IRFs do SVAR com as Projeções Locais confirma a mesma trajetória dinâmica sob ambas as técnicas, atestando a robustez dos resultados.
+- **Curva de Phillips Horizontalizada na FEVD:** O nível de atividade ($\ln(\text{IBC-Br})$) explica apenas **$3{,}1\%$ a $7{,}4\%$** da variância da inflação livre em 24 meses, contra mais de $85\%$ explicados pela inércia inflacionária e choques de custos/commodities.
+- ***Price Puzzle* e Asfixia Financeira das Famílias:** Choques de alta na Selic elevam a inflação livre nos primeiros 6 meses ($+0{,}2109$ p.p.) e provocam salto expressivo no comprometimento de renda das famílias com o serviço da dívida ($+0{,}6645$ p.p. no 12º mês).
+- **Evidência Direta para *"Eu Acuso"* (Resende, 2026):** Nas Projeções Locais Dependentes de Estado, quando a economia se encontra em um **Platô de Juros Altos ($> 11{,}27\%$ a.a.)**, choques adicionais de juros **jamais reduzem a inflação acumulada em 24 meses** ($+0{,}3735$ p.p. em 6 meses, $p = 0{,}0007$; $+0{,}3931$ p.p. em 9 meses, $p = 0{,}0109$; $+0{,}2912$ p.p. em 24 meses). Simetricamente, **reduzir a Selic a partir desse platô elevado reduz a inflação acumulada de forma imediata e persistente**.
 
-### Gráficos Principais
+### Síntese Visual dos Resultados
 
 | Figura | Descrição |
 | :--- | :--- |
 | ![Séries Históricas](figuras/figura1_series_historicas.png) | **Figura 1:** Evolução das séries temporais macroeconômicas (2005–2026). |
-| ![IRF SVAR](figuras/figura2_irf_svar.png) | **Figura 2:** Funções de Resposta ao Impulso (IRF) a um choque de 100 bps na Selic. |
+| ![IRF SVAR](figuras/figura2_irf_svar.png) | **Figura 2:** Funções de Resposta ao Impulso (IRF) a um choque positivo na Selic. |
 | ![FEVD SVAR](figuras/figura3_fevd_svar.png) | **Figura 3:** Decomposição da Variância do Erro de Previsão (FEVD). |
-| ![SVAR vs LP](figuras/figura4_lp_vs_svar.png) | **Figura 4:** Comparação de Robustez: SVAR (Cholesky) vs. Projeções Locais (Jordà, 2005). |
+| ![SVAR vs LP](figuras/figura4_lp_vs_svar.png) | **Figura 4:** Robustez Linear: SVAR (Cholesky) vs. Projeções Locais (Jordà, 2005). |
+| ![Regime Juros Altos LP](figuras/figura5_regime_juros_altos_lp.png) | **Figura 5:** Projeções Locais Dependentes de Estado: Platô de Juros Altos e Efeito Desinflacionário da Redução da Selic. |
 
 ---
 
@@ -56,70 +52,41 @@ Para separar causalidade de endogeneidade da política monetária, foram impleme
 
 ```bash
 artigo-politica-monetaria/
-├── README.md                           # Documentação e apresentação do projeto
-├── .gitignore                          # Arquivos e diretórios ignorados pelo Git
-├── artigo_hipotese_lara_resende.md     # Artigo completo formatado em Markdown
-├── artigo_svar_lara_resende.tex        # Manuscrito acadêmico em LaTeX (padrão periódico)
-├── referencias.bib                     # Referências bibliográficas completas em BibTeX
+├── README.md                                  # Documentação e síntese do projeto
+├── artigo_hipotese_lara_resende.md            # Artigo completo em Markdown
+├── artigo_svar_lara_resende.tex               # Manuscrito acadêmico em LaTeX
+├── referencias.bib                            # Bibliografia completa em BibTeX
+├── Um Cético Esperançoso - Eu Acuso_...pdf    # Ensaio de referência de André Lara Resende (set/2026)
 ├── data/
-│   └── base_macro_bcb.csv              # Base de dados histórica mensal BCB/SGS (258 obs)
+│   └── base_macro_bcb.csv                     # Base mensal BCB/SGS (258 observações: 2005-03 a 2026-08)
 ├── scripts/
-│   ├── estimacao_svar_lara_resende.py  # Script de coleta, testes ADF, estimação SVAR e FEVD
-│   ├── estimacao_local_projections.py  # Script de Projeções Locais (Jordà) e comparação
-│   └── test_bcb_api.py                 # Script de teste de conectividade com a API SGS/BCB
+│   ├── estimacao_svar_lara_resende.py         # Coleta BCB, testes ADF, SVAR, IRFs e FEVD
+│   ├── estimacao_local_projections.py         # Projeções Locais lineares (Jordà, 2005)
+│   ├── estimacao_regime_juros_altos.py        # Projeções Locais Dependentes de Estado (Platô de Juros)
+│   └── test_bcb_api.py                        # Teste de conectividade com a API SGS/BCB
 ├── resultados/
-│   ├── resultados_svar_summary.txt     # Resumo estatístico do SVAR e valores numéricos das IRFs
-│   └── comparacao_svar_vs_lp.txt       # Tabela de comparação ponto a ponto entre SVAR e LP
+│   ├── resultados_svar_summary.txt            # Resumo estatístico do SVAR
+│   ├── comparacao_svar_vs_lp.txt              # Tabela comparativa SVAR vs. LP Linear
+│   └── regime_juros_altos_lp.txt              # Tabela das Projeções Locais Dependentes de Estado
 └── figuras/
-    ├── figura1_series_historicas.png   # Gráficos das séries temporais
-    ├── figura2_irf_svar.png            # Funções de Resposta ao Impulso do SVAR
-    ├── figura3_fevd_svar.png           # Decomposição de Variância (FEVD)
-    └── figura4_lp_vs_svar.png          # Comparativo de robustez SVAR vs Projeções Locais
+    ├── figura1_series_historicas.png          # Evolução histórica das séries (2005–2026)
+    ├── figura2_irf_svar.png                   # IRFs do modelo SVAR
+    ├── figura3_fevd_svar.png                  # Decomposição de Variância (FEVD)
+    ├── figura4_lp_vs_svar.png                 # Comparativo SVAR vs. Projeções Locais
+    └── figura5_regime_juros_altos_lp.png      # Efeito do Platô de Juros Altos e Corte Desinflacionário
 ```
 
 ---
 
 ## 🚀 Como Replicar a Estimação
 
-### Pré-requisitos
-- Python 3.10+
-- Bibliotecas: `pandas`, `numpy`, `statsmodels`, `matplotlib`, `requests`
-
-### Execução via `uv` (Recomendado)
-
-Você pode executar diretamente sem necessidade de gerenciar ambientes virtuais manualmente utilizando o [`uv`](https://github.com/astral-sh/uv):
-
 ```bash
-# 1. Estimar o SVAR, gerar gráficos 1, 2 e 3 e resumo estatístico:
+# 1. Estimar o SVAR e gerar as Figuras 1, 2 e 3:
 uv run --with pandas,numpy,statsmodels,matplotlib,requests python3 scripts/estimacao_svar_lara_resende.py
 
-# 2. Executar as Projeções Locais de Jordà (2005) e gerar a Figura 4 comparativa:
+# 2. Estimar as Projeções Locais lineares e gerar a Figura 4:
 uv run --with pandas,numpy,statsmodels,matplotlib python3 scripts/estimacao_local_projections.py
-```
 
-### Execução via `pip` / `venv` tradicional
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install pandas numpy statsmodels matplotlib requests
-
-python scripts/estimacao_svar_lara_resende.py
-python scripts/estimacao_local_projections.py
-```
-
----
-
-## 📚 Citação
-
-Se utilizar os dados, modelos ou código deste trabalho, favor citar:
-
-```bibtex
-@unpublished{bonvenuto2026juros,
-  author    = {Bonvenuto, Angelo Augusto},
-  title     = {Juros, Fragilidade Financeira e o Canal Fiscal-Custos: Uma Formaliza{\c{c}}{\~a}o e Teste Emp{\'\i}rico em SVAR da Hip{\'o}tese de Andr{\'e} Lara Resende para o Brasil (2005--2026)},
-  year      = {2026},
-  note      = {Manuscrito de Pesquisa e Pacote de Replica{\c{c}}{\~a}o Econom{\'e}trica},
-  url       = {https://github.com/bonvenuto/artigo-politica-monetaria}
-}
+# 3. Estimar as Projeções Locais Dependentes de Estado (Resende, 2026) e gerar a Figura 5:
+uv run --with pandas,numpy,statsmodels,matplotlib python3 scripts/estimacao_regime_juros_altos.py
 ```

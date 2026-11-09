@@ -111,9 +111,9 @@ Conforme demonstrado por \citet{cochrane2026reasons} e \citet{resende2026euacuso
 \subsection{Bloco III: Fragilidade Financeira Minskyana das Famílias}
 A taxa de comprometimento de renda das famílias com o serviço da dívida ($S_t$) é definida por:
 \begin{equation}
-S_t = \frac{\bar{i}_t^{crédito} D_{t-1} + \text{Amortização}_t}{Y_t^{fam}}
+S_t = \frac{\bar{i}_t^{\text{crédito}} D_{t-1} + \text{Amortização}_t}{Y_t^{fam}}
 \end{equation}
-Como o estoque de dívida $D_{t-1}$ é rígido no curto prazo e o repasse bancário obedece a $\frac{\partial \bar{i}_t^{crédito}}{\partial i_t} > 1$, o choque de juros eleva imediatamente $S_t$ ($\frac{\partial S_t}{\partial i_t} > 0$), empurrando as famílias para estruturas especulativas e \textit{Ponzi} \citep{minsky1986stabilizing}.
+Como o estoque de dívida $D_{t-1}$ é rígido no curto prazo e o repasse bancário obedece a $\frac{\partial \bar{i}_t^{\text{crédito}}}{\partial i_t} > 1$, o choque de juros eleva imediatamente $S_t$ ($\frac{\partial S_t}{\partial i_t} > 0$), empurrando as famílias para estruturas especulativas e \textit{Ponzi} \citep{minsky1986stabilizing}.
 
 \section{Estratégia Empírica e Base de Dados (2005--2026)}
 
@@ -121,9 +121,9 @@ Empregamos séries mensais extraídas do Sistema Gerenciador de Séries Temporai
 
 \begin{table}[htbp]
 \centering
-\small
 \caption{Descrição das Séries Temporais Utilizadas (2005--2026)}
 \label{tab:series}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lllc}
 \toprule
 \textbf{Variável} & \textbf{Descrição} & \textbf{Fonte / Código SGS} & \textbf{Transformação} \\
@@ -134,7 +134,8 @@ $\pi_t^{livre}$ & IPCA Preços Livres (\% a.m.) & BCB / SGS 4447 & Nível (\%) \
 $\text{Selic}_t$ & Taxa Selic efetiva mensal anualizada (\% a.a.) & BCB / SGS 4189 & Nível (\%) \\
 $S_t$ & Comprometimento de Renda c/ Serviço da Dívida & BCB / SGS 29034 & Nível (\%) \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{figure}[htbp]
@@ -163,9 +164,9 @@ A Figura \ref{fig:irf} e a Tabela \ref{tab:irf_summary} apresentam as respostas 
 
 \begin{table}[htbp]
 \centering
-\small
 \caption{Resumo das Respostas aos Impulsos ao Choque Positivo de Selic}
 \label{tab:irf_summary}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
 \textbf{Variável Resposta} & \textbf{$h = 0$ (Impacto)} & \textbf{$h = 6$ meses} & \textbf{$h = 12$ meses} & \textbf{$h = 24$ meses} \\
@@ -175,7 +176,8 @@ Serviço da Dívida Familiar (\% renda) & $0{,}0000$ & $+0{,}4590$ & $+0{,}6645$
 IBC-Br (Nível de Atividade em log) & $0{,}0000$ & $+0{,}0017$ & $-0{,}0072$ & $-0{,}0046$ \\
 Taxa Selic (\% a.a.) & $+1{,}0000$ & $+3{,}4957$ & $+3{,}7403$ & $+1{,}5028$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 Na Decomposição da Variância (Figura \ref{fig:fevd}), o nível de atividade ($\ln(\text{IBC-Br})$) explica apenas $3{,}1\%$ a $7{,}4\%$ da variância do IPCA de preços livres ao longo de 24 meses, enquanto a inércia inflacionária ($66{,}8\%$ a $90{,}0\%$) e os choques externos de commodities ($13{,}9\%$ a $14{,}7\%$) dominam a dinâmica inflacionária, corroborando empiricamente o achatamento da Curva de Phillips apontado por \citet{resende2026euacuso}.
@@ -199,13 +201,13 @@ A Figura \ref{fig:lp_vs_svar} e a Tabela \ref{tab:lp_svar_comp} confrontam o SVA
 
 \begin{table}[htbp]
 \centering
-\small
 \caption{Comparação Numérica: SVAR vs. Projeções Locais Lineares (Jordà, 2005)}
 \label{tab:lp_svar_comp}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccccc}
 \toprule
- & \multicolumn{2}{c}{\textbf{IPCA Livres (\% a.m.)}} & \multicolumn{3}{c}{\textbf{Comprometimento de Renda (\% renda)}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-6}
+ & \multicolumn{2}{c}{\textbf{IPCA Livres (\% a.m.)}} & \multicolumn{4}{c}{\textbf{Comprometimento de Renda (\% renda)}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-7}
 \textbf{Horizonte ($h$)} & \textbf{SVAR} & \textbf{LP} & \textbf{SVAR} & \textbf{LP} & \textbf{Erro-Padrão HAC} & \textbf{IC 95\% LP} \\
 \midrule
 $h = 0$ (Impacto) & $0{,}0000$ & $0{,}0000$ & $0{,}0000$ & $-0{,}0152$ & $0{,}0128$ & $[-0{,}0403; +0{,}0099]$ \\
@@ -216,15 +218,17 @@ $h = 12$ meses & $-0{,}1048$ & $-0{,}0270$ & $+0{,}6645$ & $+0{,}0637$ & $0{,}07
 $h = 18$ meses & $-0{,}1939$ & $-0{,}0002$ & $+0{,}4124$ & $\mathbf{+0{,}1122}$ & $0{,}0568$ & $[+0{,}0008; +0{,}2236]$ \\
 $h = 24$ meses & $-0{,}1828$ & $\mathbf{-0{,}0583}$ & $+0{,}0606$ & $-0{,}0264$ & $0{,}0653$ & $[-0{,}1544; +0{,}1015]$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \subsection{Avaliação Empírica de \textit{``Eu Acuso''} (Resende, 2026): Platô de Juros Altos e o Efeito Desinflacionário da Redução da Selic}
 
 Para testar diretamente a proposição de \citet{resende2026euacuso} de que uma taxa Selic mantida absurdamente alta e constante por longo período pressiona a inflação e que sua redução contribui para o controle inflacionário, estimamos Projeções Locais Dependentes de Estado sobre a inflação acumulada de preços livres ($\Pi_{t, t+h}^{livre} = \sum_{j=0}^h \pi_{t+j}^{livre}$). Definimos a variável de estado $I_t = 1$ quando a média móvel de 12 meses da Selic encontra-se em \textbf{Platô de Juros Altos} (acima da mediana amostral de $11{,}27\%$ a.a.) e $I_t = 0$ no \textbf{Regime de Juros Moderados}:
-\begin{equation}
-\Pi_{t, t+h}^{livre} = \alpha^h + \gamma^h I_{t-1} + \beta_{alto}^h \left( \text{Shock}_t^{Selic} \times I_{t-1} \right) + \beta_{mod}^h \left( \text{Shock}_t^{Selic} \times (1 - I_{t-1}) \right) + \sum_{k=1}^6 \mathbf{\Gamma}_k^h Y_{t-k} + \nu_{t+h}^h
-\end{equation}
+\begin{multline}
+\Pi_{t, t+h}^{livre} = \alpha^h + \gamma^h I_{t-1} + \beta_{alto}^h \left( \text{Shock}_t^{Selic} \times I_{t-1} \right) \\
++ \beta_{mod}^h \left( \text{Shock}_t^{Selic} \times (1 - I_{t-1}) \right) + \sum_{k=1}^6 \mathbf{\Gamma}_k^h Y_{t-k} + \nu_{t+h}^h
+\end{multline}
 
 \begin{figure}[htbp]
 \centering
@@ -235,9 +239,9 @@ Para testar diretamente a proposição de \citet{resende2026euacuso} de que uma 
 
 \begin{table}[htbp]
 \centering
-\small
 \caption{Projeções Locais Dependentes de Estado: Platô de Juros Altos ($> 11{,}27\%$ a.a.) vs. Regime Moderado}
 \label{tab:regime_lp}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
 \textbf{Horizonte ($h$)} & \textbf{Platô Alto ($\beta_{alto}^h$)} & \textbf{$p$-valor (HAC)} & \textbf{Regime Moderado ($\beta_{mod}^h$)} & \textbf{$p$-valor (HAC)} & \textbf{Corte no Platô Alto ($-\beta_{alto}^h$)} \\
@@ -250,7 +254,8 @@ $h = 12$ meses & $\mathbf{+0{,}3159}$ p.p. & $\mathbf{0{,}0925}$ & $+0{,}0750$ p
 $h = 18$ meses & $+0{,}3198$ p.p. & $0{,}1654$ & $-0{,}2053$ p.p. & $0{,}2303$ & $-0{,}3198$ p.p. \\
 $h = 24$ meses & $+0{,}2912$ p.p. & $0{,}2907$ & $\mathbf{-0{,}4852}$ p.p. & $\mathbf{0{,}0064}$ & $-0{,}2912$ p.p. \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 Conforme demonstrado na Figura \ref{fig:regime_juros_altos} e na Tabela \ref{tab:regime_lp}, enquanto no regime de juros moderados o aperto monetário reduz a inflação acumulada em $-0{,}4852$ p.p. em 24 meses ($p = 0{,}0064$), no \textbf{Platô de Juros Altos} a elevação ou manutenção da Selic jamais produz desinflação ao longo de dois anos, elevando a inflação acumulada em $+0{,}3735$ p.p. em 6 meses ($p = 0{,}0007$) e $+0{,}3931$ p.p. em 9 meses ($p = 0{,}0109$). Simetricamente (Painel b), reduzir a Selic a partir desse platô elevado produz desinflação imediata e persistente.

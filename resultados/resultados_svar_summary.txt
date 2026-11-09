@@ -1,0 +1,9 @@
+=== RESULTADOS DA ESTIMAÇÃO DO SVAR (LARA RESENDE) ===
+Amostra: 2005-03 a 2026-08 (N = 258)
+Defasagens selecionadas (AIC): 6
+
+RESPOSTA AO CHOQUE DE SELIC:
+- ipca_livres: h=0: 0.0000 | h=6: 0.2109 | h=12: -0.1048 | h=24: -0.1828
+- servico_divida: h=0: 0.0000 | h=6: 0.4590 | h=12: 0.6645 | h=24: 0.0606
+- l_ibc: h=0: 0.0000 | h=6: 0.0017 | h=12: -0.0072 | h=24: -0.0046
+- selic: h=0: 1.0000 | h=6: 3.4957 | h=12: 3.7403 | h=24: 1.5028

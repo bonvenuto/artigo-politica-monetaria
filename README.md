@@ -11,7 +11,7 @@
 
 Este repositório reúne o artigo (LaTeX, PDF compilado e espelho em Markdown), as séries do Banco Central do Brasil (SGS e Olinda/Focus) e o código de replicação em Python.
 
-O artigo pergunta se a resposta da inflação a surpresas da Selic muda quando os juros estão em um platô persistentemente alto. A hipótese é inspirada nas teses de André Lara Resende, em particular no ensaio ***[Eu Acuso: uma proposta para eliminar os juros absurdos](Um%20C%C3%A9tico%20Esperan%C3%A7oso%20-%20Eu%20Acuso_%20uma%20proposta%20para%20eliminar%20os%20juros%20absurdos.pdf)*** (setembro de 2026). O artigo separa os componentes da tese que testa dos que não testa (Tabela 1 do artigo):
+O artigo pergunta se a resposta da inflação a surpresas da Selic muda quando os juros estão em um platô persistentemente alto. A hipótese é inspirada nas teses de André Lara Resende, em particular no ensaio ***[Eu Acuso: uma proposta para eliminar os juros absurdos](https://andrelararesende.substack.com/p/eu-acuso-uma-proposta-para-eliminar)*** (setembro de 2026). O artigo separa os componentes da tese que testa dos que não testa (Tabela 1 do artigo):
 
 - **Testados:** a dependência de estado ($H_1$), o nível associado ao platô ($H_1'$) e o comprometimento de renda das famílias com juros ($H_2$).
 - **Não testados:** o componente neo-fisheriano (mudanças permanentes do patamar de juros), o canal da dívida pública pós-fixada e a proposta de redução coordenada da Selic.
@@ -64,7 +64,7 @@ artigo-politica-monetaria/
 ├── artigo_anonimo.tex / .pdf             # Versão anônima para submissão (sem autor, URL e apêndice de versões)
 ├── artigo_hipotese_lara_resende.md       # Espelho em Markdown, gerado a partir do .tex
 ├── referencias.bib
-├── Um Cético Esperançoso - Eu Acuso_...pdf
+├── (ensaio Eu Acuso: não versionado; ver link no topo)
 ├── data/
 │   ├── base_macro_bcb.csv                # Base principal (258 obs.)
 │   ├── base_complementar_bcb.csv         # Séries complementares (IC-Br US$, meta Selic, 2903x, fiscais)

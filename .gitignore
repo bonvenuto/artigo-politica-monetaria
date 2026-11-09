@@ -31,3 +31,6 @@ venv/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Texto de terceiro (direitos autorais): não versionar
+Um Cético Esperançoso - Eu Acuso_*.pdf
